@@ -48,10 +48,10 @@ const Header = ({
 
       // Clear other stored user data
       localStorage.removeItem("userType");
+      localStorage.removeItem("uid");
 
-      // Redirect to home page
-      router.refresh();
-      router.push("/");
+      // Use window.location for a complete page reload to ensure all state is cleared
+      window.location.href = "/";
     } catch (error) {
       console.error("Error signing out:", error);
     }

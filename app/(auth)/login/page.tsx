@@ -65,6 +65,20 @@ export default function LoginPage() {
     },
   });
 
+  // Function to fill test credentials for citizen
+  const fillTestCredentials = () => {
+    citizenForm.setValue("email", "testingnew@gmail.com");
+    citizenForm.setValue("password", "Test@1234");
+  };
+
+  // Function to fill test credentials for authority
+  const fillAuthorityTestCredentials = () => {
+    // Extract staff ID from email (remove @gmail.com part)
+    const staffId = "authtestingnew@gmail.com";
+    authorityForm.setValue("staffId", staffId);
+    authorityForm.setValue("password", "Test@1234");
+  };
+
   // Citizen login submission
   function onCitizenSubmit(values: z.infer<typeof citizenFormSchema>) {
     console.log(values);
@@ -97,6 +111,7 @@ export default function LoginPage() {
             });
 
             console.log("User logged in successfully");
+            router.refresh();
             router.push("/citizen/dashboard");
           });
       })
@@ -171,8 +186,8 @@ export default function LoginPage() {
           .then((status) => {
             if (status === "approved") {
               console.log("Authority user logged in");
-              router.refresh();
-              router.push("/authority/dashboard");
+              // Use window.location for a complete page reload to ensure context is fresh
+              window.location.href = "/authority/dashboard";
             } else {
               // For pending accounts, redirect to a waiting page
               router.push("/");
@@ -198,21 +213,68 @@ export default function LoginPage() {
           localStorage.setItem("userType", "authority");
           localStorage.setItem("uid", mockUid);
 
-          // Set simulated user in context
-          setUser({
-            uid: mockUid,
-            email: `${values.staffId}@authority.gov`,
-            username: values.staffId,
-            userType: "authority",
-            state: "Demo State",
-            city: "Demo City",
-            status: "approved",
-            emailVerified: true,
-          } as any);
+          // Wait for context to be updated properly before redirecting
+          const checkUserContext = () => {
+            // Try to fetch user data to simulate the context update
+            fetch(`/api/auth/user?uid=${mockUid}&userType=authority`)
+              .then((res) => res.json())
+              .then((userData) => {
+                if (userData && !userData.error) {
+                  // Set user in context with proper data
+                  setUser({
+                    uid: mockUid,
+                    email: `${values.staffId}@authority.gov`,
+                    username: userData.username || values.staffId,
+                    userType: "authority",
+                    state: userData.state || "Demo State",
+                    city: userData.city || "Demo City",
+                    status: "approved",
+                    emailVerified: true,
+                  } as any);
 
-          setTimeout(() => {
-            router.push("/authority/dashboard");
-          }, 1500);
+                  // Small delay to ensure context update, then redirect
+                  setTimeout(() => {
+                    window.location.href = "/authority/dashboard";
+                  }, 500);
+                } else {
+                  // Fallback if no user data found
+                  setUser({
+                    uid: mockUid,
+                    email: `${values.staffId}@authority.gov`,
+                    username: values.staffId,
+                    userType: "authority",
+                    state: "Demo State",
+                    city: "Demo City",
+                    status: "approved",
+                    emailVerified: true,
+                  } as any);
+
+                  setTimeout(() => {
+                    window.location.href = "/authority/dashboard";
+                  }, 500);
+                }
+              })
+              .catch(() => {
+                // Fallback on error
+                setUser({
+                  uid: mockUid,
+                  email: `${values.staffId}@authority.gov`,
+                  username: values.staffId,
+                  userType: "authority",
+                  state: "Demo State",
+                  city: "Demo City",
+                  status: "approved",
+                  emailVerified: true,
+                } as any);
+
+                setTimeout(() => {
+                  window.location.href = "/authority/dashboard";
+                }, 500);
+              });
+          };
+
+          // Start the context update process
+          checkUserContext();
         } else {
           // Show error to user
           alert(`Login failed: ${errorMessage}`);
@@ -297,13 +359,22 @@ export default function LoginPage() {
                         </FormItem>
                       )}
                     />
-                    <div className="pt-2">
+                    <div className="pt-2 space-y-2">
                       <Button
                         type="submit"
                         className="w-full bg-[#003A70] hover:bg-[#004d94]"
                         disabled={isLoading}
                       >
                         {isLoading ? "Logging in..." : "Login"}
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="w-full border-[#003A70] text-[#003A70] hover:bg-[#003A70] hover:text-white"
+                        onClick={fillTestCredentials}
+                        disabled={isLoading}
+                      >
+                        Fill Test Credentials
                       </Button>
                     </div>
 
@@ -361,13 +432,22 @@ export default function LoginPage() {
                       )}
                     />
 
-                    <div className="pt-2">
+                    <div className="pt-2 space-y-2">
                       <Button
                         type="submit"
                         className="w-full bg-[#003A70] hover:bg-[#004d94]"
                         disabled={isLoading}
                       >
                         {isLoading ? "Logging in..." : "Login"}
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="w-full border-[#003A70] text-[#003A70] hover:bg-[#003A70] hover:text-white"
+                        onClick={fillAuthorityTestCredentials}
+                        disabled={isLoading}
+                      >
+                        Fill Test Credentials
                       </Button>
                     </div>
 

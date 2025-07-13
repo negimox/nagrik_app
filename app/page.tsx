@@ -14,29 +14,8 @@ export default function Home() {
       <div className="bg-[#F0F0F0] border-b">
         <div className="container mx-auto px-4 py-2">
           <div className="flex text-xs gap-4">
-            <Link
-              href="/"
-              className="text-[#003A70] font-bold"
-            >
+            <Link href="/" className="text-[#003A70] font-bold">
               Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-gray-600 hover:underline"
-            >
-              About
-            </Link>
-            <Link
-              href="/faq"
-              className="text-gray-600 hover:underline"
-            >
-              FAQ
-            </Link>
-            <Link
-              href="/contact"
-              className="text-gray-600 hover:underline"
-            >
-              Contact
             </Link>
           </div>
         </div>
@@ -64,24 +43,16 @@ export default function Home() {
                 community.
               </p>
               <div className="pt-2 flex flex-wrap gap-3">
-                <Link href="/register">
+                <Link href="/login">
                   <Button className="bg-[#003A70] hover:bg-[#004d94]">
-                    Register
-                  </Button>
-                </Link>
-                <Link href="/about">
-                  <Button
-                    variant="outline"
-                    className="border-[#003A70] text-[#003A70]"
-                  >
-                    Learn More
+                    Get Started
                   </Button>
                 </Link>
               </div>
             </div>
             <div className="bg-white p-4 border rounded-md">
               <Image
-                src="/placeholder.svg?height=300&width=500"
+                src="/test.jpg?height=300&width=500"
                 alt="Infrastructure monitoring system diagram"
                 width={500}
                 height={300}
@@ -135,105 +106,6 @@ export default function Home() {
         </section>
 
         {/* News and updates */}
-        <section className="py-8 bg-[#F0F0F0]">
-          <div className="container mx-auto px-4">
-            <h2 className="text-xl font-bold text-[#003A70] mb-6 pb-2 border-b-2 border-[#003A70]">
-              Announcements
-            </h2>
-            <div className="bg-white border rounded-md">
-              <table className="w-full text-sm">
-                <tbody>
-                  <tr className="border-b">
-                    <td className="py-3 px-4 border-r w-32">May 1, 2023</td>
-                    <td className="py-3 px-4">
-                      <span className="inline-block bg-[#003A70] text-white px-2 py-0.5 text-xs mr-2">
-                        NEW
-                      </span>
-                      <Link href="#" className="text-[#003A70] hover:underline">
-                        System upgrade has been implemented
-                      </Link>
-                    </td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="py-3 px-4 border-r w-32">April 15, 2023</td>
-                    <td className="py-3 px-4">
-                      <Link href="#" className="text-[#003A70] hover:underline">
-                        Seeking citizen feedback on road repair efficiency
-                        improvements
-                      </Link>
-                    </td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="py-3 px-4 border-r w-32">April 1, 2023</td>
-                    <td className="py-3 px-4">
-                      <Link href="#" className="text-[#003A70] hover:underline">
-                        Information session on using the Infrastructure
-                        Monitoring System
-                      </Link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 border-r w-32">March 20, 2023</td>
-                    <td className="py-3 px-4">
-                      <Link href="#" className="text-[#003A70] hover:underline">
-                        System operation has begun
-                      </Link>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div className="p-3 text-right">
-                <Link
-                  href="/news"
-                  className="text-[#003A70] text-sm hover:underline flex items-center justify-end"
-                >
-                  View all announcements
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="ml-1"
-                  >
-                    <path d="m9 18 6-6-6-6" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Statistics */}
-        <section className="py-8">
-          <div className="container mx-auto px-4">
-            <h2 className="text-xl font-bold text-[#003A70] mb-6 pb-2 border-b-2 border-[#003A70]">
-              System Statistics
-            </h2>
-            <div className="grid md:grid-cols-4 gap-4">
-              <div className="border rounded-md bg-white p-4 text-center">
-                <div className="text-3xl font-bold text-[#003A70]">1,248</div>
-                <div className="text-sm text-gray-600">Total Reports</div>
-              </div>
-              <div className="border rounded-md bg-white p-4 text-center">
-                <div className="text-3xl font-bold text-[#003A70]">982</div>
-                <div className="text-sm text-gray-600">Resolved</div>
-              </div>
-              <div className="border rounded-md bg-white p-4 text-center">
-                <div className="text-3xl font-bold text-[#003A70]">156</div>
-                <div className="text-sm text-gray-600">In Progress</div>
-              </div>
-              <div className="border rounded-md bg-white p-4 text-center">
-                <div className="text-3xl font-bold text-[#003A70]">3,542</div>
-                <div className="text-sm text-gray-600">Registered Users</div>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* Footer */}
@@ -250,9 +122,9 @@ export default function Home() {
                 <div className="text-sm font-bold">City Government</div>
               </div>
               <p className="text-xs">
-                123 Main Street
+                Dehradun
                 <br />
-                Cityville, State 12345
+                Uttarakhand, India
                 <br />
                 TEL: 123-456-7890
               </p>
