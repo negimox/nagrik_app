@@ -1,29 +1,29 @@
-'use client';
+"use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { 
-  MessageCircle, 
-  X, 
-  Send, 
-  Minimize2, 
-  Maximize2, 
+import React, { useState, useRef, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  MessageCircle,
+  X,
+  Send,
+  Minimize2,
+  Maximize2,
   Database,
   Bot,
   User,
   Loader2,
-  TrendingUp
-} from 'lucide-react';
-import { useMongoRAG } from '@/hooks/use-rag';
-import { cn } from '@/lib/utils';
+  TrendingUp,
+} from "lucide-react";
+import { useMongoRAG } from "@/hooks/use-rag";
+import { cn } from "@/lib/utils";
 
 interface ChatMessage {
   id: string;
-  type: 'user' | 'bot' | 'system';
+  type: "user" | "bot" | "system";
   content: string;
   timestamp: Date;
   sources?: any[];
@@ -37,10 +37,11 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [inputMessage, setInputMessage] = useState('');
+  const [inputMessage, setInputMessage] = useState("");
   const [analytics, setAnalytics] = useState<any>(null);
-  
-  const { queryWithReportsContext, fetchAnalytics, isLoading, error } = useMongoRAG();
+
+  const { queryWithReportsContext, fetchAnalytics, isLoading, error } =
+    useMongoRAG();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -60,9 +61,10 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
         // Add welcome message
         const welcomeMessage: ChatMessage = {
           id: `system-${Date.now()}`,
-          type: 'system',
-          content: "Welcome to the Authority RAG Assistant! I can help you analyze infrastructure reports, identify patterns, and provide insights based on historical data. Try asking questions like:\n\n• What are the most common issues in downtown?\n• Show me resolution patterns for electrical problems\n• Which areas need the most attention?",
-          timestamp: new Date()
+          type: "system",
+          content:
+            "Welcome to the Authority RAG Assistant! I can help you analyze infrastructure reports, identify patterns, and provide insights based on historical data. Try asking questions like:\n\n• What are the most common issues in downtown?\n• Show me resolution patterns for electrical problems\n• Which areas need the most attention?",
+          timestamp: new Date(),
         };
         setMessages([welcomeMessage]);
       });
@@ -74,41 +76,42 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
 
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
-      type: 'user',
+      type: "user",
       content: inputMessage,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
-    setInputMessage('');
+    setMessages((prev) => [...prev, userMessage]);
+    setInputMessage("");
 
     // Get AI response
     try {
       const result = await queryWithReportsContext(inputMessage);
-      
+
       if (result) {
         const botMessage: ChatMessage = {
           id: `bot-${Date.now()}`,
-          type: 'bot',
+          type: "bot",
           content: result.answer,
           timestamp: new Date(),
-          sources: result.sources
+          sources: result.sources,
         };
-        setMessages(prev => [...prev, botMessage]);
+        setMessages((prev) => [...prev, botMessage]);
       }
     } catch (err) {
       const errorMessage: ChatMessage = {
         id: `error-${Date.now()}`,
-        type: 'system',
-        content: "Sorry, I encountered an error processing your request. Please try again.",
-        timestamp: new Date()
+        type: "system",
+        content:
+          "Sorry, I encountered an error processing your request. Please try again.",
+        timestamp: new Date(),
       };
-      setMessages(prev => [...prev, errorMessage]);
+      setMessages((prev) => [...prev, errorMessage]);
     }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
     }
@@ -122,7 +125,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
     "What are the most common infrastructure issues?",
     "Show me recent resolution trends",
     "Which areas have the highest priority issues?",
-    "Compare issue patterns by category"
+    "Compare issue patterns by category",
   ];
 
   if (!isOpen) {
@@ -141,10 +144,12 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
 
   return (
     <div className={cn("fixed bottom-6 right-6 z-50", className)}>
-      <Card className={cn(
-        "w-96 shadow-2xl transition-all duration-300",
-        isMinimized ? "h-16" : "h-[600px]"
-      )}>
+      <Card
+        className={cn(
+          "w-96 shadow-2xl transition-all duration-300",
+          isMinimized ? "h-16" : "h-[600px]"
+        )}
+      >
         {/* Header */}
         <CardHeader className="pb-3 bg-[#003A70] text-white rounded-t-lg">
           <div className="flex items-center justify-between">
@@ -159,7 +164,11 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                 onClick={() => setIsMinimized(!isMinimized)}
                 className="text-white hover:bg-white/20 h-8 w-8 p-0"
               >
-                {isMinimized ? <Maximize2 className="h-4 w-4" /> : <Minimize2 className="h-4 w-4" />}
+                {isMinimized ? (
+                  <Maximize2 className="h-4 w-4" />
+                ) : (
+                  <Minimize2 className="h-4 w-4" />
+                )}
               </Button>
               <Button
                 variant="ghost"
@@ -171,20 +180,26 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
               </Button>
             </div>
           </div>
-          
+
           {/* Analytics Summary */}
           {analytics && !isMinimized && (
             <div className="grid grid-cols-3 gap-2 mt-2 text-xs">
               <div className="text-center">
-                <div className="font-semibold">{analytics.totalReports || 0}</div>
+                <div className="font-semibold">
+                  {analytics.totalReports || 0}
+                </div>
                 <div className="opacity-80">Reports</div>
               </div>
               <div className="text-center">
-                <div className="font-semibold">{analytics.resolvedReports || 0}</div>
+                <div className="font-semibold">
+                  {analytics.resolvedReports || 0}
+                </div>
                 <div className="opacity-80">Resolved</div>
               </div>
               <div className="text-center">
-                <div className="font-semibold">{analytics.pendingReports || 0}</div>
+                <div className="font-semibold">
+                  {analytics.pendingReports || 0}
+                </div>
                 <div className="opacity-80">Pending</div>
               </div>
             </div>
@@ -201,55 +216,73 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                     key={message.id}
                     className={cn(
                       "flex gap-3",
-                      message.type === 'user' ? "justify-end" : "justify-start"
+                      message.type === "user" ? "justify-end" : "justify-start"
                     )}
                   >
-                    {message.type !== 'user' && (
-                      <div className={cn(
-                        "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
-                        message.type === 'bot' ? "bg-[#003A70] text-white" : "bg-gray-100"
-                      )}>
-                        {message.type === 'bot' ? <Bot className="h-4 w-4" /> : <TrendingUp className="h-4 w-4" />}
+                    {message.type !== "user" && (
+                      <div
+                        className={cn(
+                          "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
+                          message.type === "bot"
+                            ? "bg-[#003A70] text-white"
+                            : "bg-gray-100"
+                        )}
+                      >
+                        {message.type === "bot" ? (
+                          <Bot className="h-4 w-4" />
+                        ) : (
+                          <TrendingUp className="h-4 w-4" />
+                        )}
                       </div>
                     )}
-                    
-                    <div className={cn(
-                      "max-w-[80%] rounded-lg p-3 text-sm",
-                      message.type === 'user' 
-                        ? "bg-[#003A70] text-white ml-auto" 
-                        : message.type === 'bot'
-                        ? "bg-gray-100 text-gray-900"
-                        : "bg-blue-50 text-blue-900 border border-blue-200"
-                    )}>
-                      <div className="whitespace-pre-wrap">{message.content}</div>
-                      
+
+                    <div
+                      className={cn(
+                        "max-w-[80%] rounded-lg p-3 text-sm",
+                        message.type === "user"
+                          ? "bg-[#003A70] text-white ml-auto"
+                          : message.type === "bot"
+                          ? "bg-gray-100 text-gray-900"
+                          : "bg-blue-50 text-blue-900 border border-blue-200"
+                      )}
+                    >
+                      <div className="whitespace-pre-wrap">
+                        {message.content}
+                      </div>
+
                       {/* Sources */}
                       {message.sources && message.sources.length > 0 && (
                         <div className="mt-2 pt-2 border-t border-gray-200">
-                          <div className="text-xs text-gray-600 mb-1">Sources:</div>
+                          <div className="text-xs text-gray-600 mb-1">
+                            Sources:
+                          </div>
                           <div className="flex flex-wrap gap-1">
                             {message.sources.slice(0, 3).map((source, idx) => (
-                              <Badge key={idx} variant="outline" className="text-xs">
-                                {source.category || 'Report'}
+                              <Badge
+                                key={idx}
+                                variant="outline"
+                                className="text-xs"
+                              >
+                                {source.category || "Report"}
                               </Badge>
                             ))}
                           </div>
                         </div>
                       )}
-                      
+
                       <div className="text-xs opacity-60 mt-1">
                         {message.timestamp.toLocaleTimeString()}
                       </div>
                     </div>
 
-                    {message.type === 'user' && (
+                    {message.type === "user" && (
                       <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center shrink-0">
                         <User className="h-4 w-4" />
                       </div>
                     )}
                   </div>
                 ))}
-                
+
                 {isLoading && (
                   <div className="flex gap-3 justify-start">
                     <div className="w-8 h-8 rounded-full bg-[#003A70] text-white flex items-center justify-center">
@@ -263,7 +296,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                     </div>
                   </div>
                 )}
-                
+
                 <div ref={messagesEndRef} />
               </div>
             </ScrollArea>
@@ -271,7 +304,9 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
             {/* Quick Questions */}
             {messages.length <= 1 && (
               <div className="p-4 border-t bg-gray-50">
-                <div className="text-xs font-medium text-gray-600 mb-2">Quick Questions:</div>
+                <div className="text-xs font-medium text-gray-600 mb-2">
+                  Quick Questions:
+                </div>
                 <div className="grid grid-cols-1 gap-1">
                   {quickQuestions.map((question, index) => (
                     <Button
@@ -309,7 +344,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                   <Send className="h-4 w-4" />
                 </Button>
               </div>
-              
+
               {messages.length > 1 && (
                 <Button
                   variant="ghost"

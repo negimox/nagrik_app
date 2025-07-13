@@ -750,7 +750,7 @@ export default function AuthorityDashboard() {
               className="border-[#003A70] text-[#003A70]"
               asChild
             >
-              <Link href="/authority/activity">View All Activities</Link>
+              <Link href="/authority/analytics">View All Activities</Link>
             </Button>
           </div>
         </div>

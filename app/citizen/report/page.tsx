@@ -37,6 +37,26 @@ import { useUser } from "@/contexts/UserContext";
 type DetectedObject = {
   name: string;
   confidence: number;
+  condition?: string;
+  description?: string;
+  severity?: string;
+};
+
+type LocationCoords = {
+  latitude: number;
+  longitude: number;
+};
+
+type ReverseGeocodeResponse = {
+  latitude: number;
+  longitude: number;
+  locality?: string;
+  city?: string;
+  principalSubdivision?: string;
+  countryName?: string;
+  postcode?: string;
+  localityLanguageRequested?: string;
+  // Add other fields as needed
 };
 
 const formSchema = z.object({
@@ -55,11 +75,11 @@ export default function ReportIssuePage() {
   const [reportId, setReportId] = useState<string>("");
   const [isGettingLocation, setIsGettingLocation] = useState(false);
   const [mensen, setMensen] = useState([]);
-  const [location, setLocation] = useState();
+  const [location, setLocation] = useState<LocationCoords | null>(null);
   const { user } = useUser();
 
   // Location Fetch
-  const fetchApiData = async ({ latitude, longitude }) => {
+  const fetchApiData = async ({ latitude, longitude }: LocationCoords) => {
     const res = await fetch(
       `https://openmensa.org/api/v2/canteens?near[lat]=${latitude}&near[lng]=${longitude}&near[dist]=50000`
     );
@@ -101,19 +121,60 @@ export default function ReportIssuePage() {
     },
   });
 
-  const handleGetLocation = () => {
+  const handleGetLocation = async () => {
     setIsGettingLocation(true);
 
     if (location && location.latitude && location.longitude) {
-      // Use the actual coordinates from the location state
-      const address = "Chakrata Rd, Chandanwadi, Sudhowala, Uttarakhand";
+      try {
+        // Get API key from environment variables
+        const apiKey = process.env.NEXT_PUBLIC_GEOLOCATION_API_KEY;
 
-      // Set the address in the form
-      form.setValue("location", address);
+        // Use reverse geocoding to get actual address from coordinates
+        const response = await fetch(
+          `https://api-bdc.net/data/reverse-geocode?latitude=${location.latitude}&longitude=${location.longitude}&localityLanguage=en&key=${apiKey}`
+        );
 
-      console.log(
-        `Location set with coordinates: ${location.latitude}, ${location.longitude}`
-      );
+        if (response.ok) {
+          const data: ReverseGeocodeResponse = await response.json();
+
+          // Construct a readable address from the response
+          const addressParts = [];
+
+          if (data.locality) addressParts.push(data.locality);
+          if (data.city && data.city !== data.locality)
+            addressParts.push(data.city);
+          if (data.principalSubdivision)
+            addressParts.push(data.principalSubdivision);
+          if (data.countryName) addressParts.push(data.countryName);
+          if (data.postcode) addressParts.push(data.postcode);
+
+          const address =
+            addressParts.length > 0
+              ? addressParts.join(", ")
+              : `${location.latitude}, ${location.longitude}`;
+
+          // Set the address in the form
+          form.setValue("location", address);
+
+          console.log(
+            `Location set with coordinates: ${location.latitude}, ${location.longitude}`,
+            `Address: ${address}`,
+            `Full API response:`,
+            data
+          );
+        } else {
+          throw new Error(
+            `Reverse geocoding failed with status: ${response.status}`
+          );
+        }
+      } catch (error) {
+        console.error("Error getting address from coordinates:", error);
+
+        // Fallback to coordinates if reverse geocoding fails
+        const fallbackAddress = `Lat: ${location.latitude}, Lng: ${location.longitude}`;
+        form.setValue("location", fallbackAddress);
+      }
+
       setIsGettingLocation(false);
     } else {
       // Fallback if location is not available

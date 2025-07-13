@@ -332,9 +332,11 @@ Visit `/citizen/mongo-rag-demo` to see the MongoDB RAG integration in action.
 ## Authority Chat Bot Integration
 
 ### Overview
+
 The MongoDB RAG system is now integrated into a floating chat bot interface specifically designed for authority users. This provides seamless access to AI-powered infrastructure analysis from any authority dashboard page.
 
 ### Features
+
 - **Floating Interface**: Always accessible from bottom-right corner
 - **Real-Time Analytics**: Live overview of report statistics in chat header
 - **Interactive Conversations**: Natural language queries with AI responses
@@ -343,17 +345,20 @@ The MongoDB RAG system is now integrated into a floating chat bot interface spec
 - **Minimizable Design**: Reduces to header-only view when not actively used
 
 ### Access
+
 - Available exclusively on authority dashboard pages (`/authority/*`)
 - Automatically loads with the authority layout
 - No additional configuration required
 
 ### Usage
+
 1. Navigate to any authority page
 2. Click the blue chat icon in bottom-right corner
 3. Type questions about infrastructure reports
 4. Get AI-powered insights based on historical data
 
 ### Sample Queries
+
 - "What are the most common infrastructure issues?"
 - "Show me resolution patterns for electrical problems"
 - "Which areas have the highest priority issues?"

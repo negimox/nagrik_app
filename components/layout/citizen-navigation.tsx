@@ -10,9 +10,6 @@ const navigation = [
   { name: "Report Issue", href: "/citizen/report" },
   { name: "My Reports", href: "/citizen/reports" },
   //   { name: "Maintenance", href: "/citizen/maintenance" },
-  { name: "AI Demos", href: "/citizen/image-detection-demo" },
-  { name: "Notifications", href: "/citizen/notifications" },
-  { name: "Help", href: "/citizen/help" },
 ];
 
 export default function CitizenNavigation() {

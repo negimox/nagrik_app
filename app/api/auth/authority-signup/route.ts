@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 //@ts-ignore
 import clientPromise from "@/lib/mongodb";
 
+// Add dynamic route configuration
+export const dynamic = "force-dynamic";
+
 // Define a type for the structured authority user object
 interface AuthorityUserObject {
   uid: string;

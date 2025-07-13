@@ -64,16 +64,6 @@ export default function Navigation() {
           >
             Teams
           </Link>
-          <Link
-            href="/authority/settings"
-            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-[#003A70] hover:border-[#003A70] transition-colors ${
-              isActive("/authority/settings")
-                ? "border-[#003A70] text-[#003A70]"
-                : "border-transparent"
-            }`}
-          >
-            Settings
-          </Link>
         </div>
       </div>
     </div>

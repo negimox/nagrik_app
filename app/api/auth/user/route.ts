@@ -2,10 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 //@ts-ignore
 import clientPromise from "@/lib/mongodb";
 
+// Add dynamic route configuration
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest) {
   try {
     // Get uid from query string
-    const { searchParams } = new URL(request.url);
+    const { searchParams } = request.nextUrl;
     const uid = searchParams.get("uid");
     const userType = searchParams.get("userType") || "citizen";
 

@@ -22,7 +22,6 @@ const citizenPaths = ["/citizen"];
 const authorityPaths = ["/authority"];
 
 export function middleware(request: NextRequest) {
-  return NextResponse.next();
   const path = request.nextUrl.pathname;
 
   // Check for authentication token in cookies
