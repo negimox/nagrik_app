@@ -1,5 +1,9 @@
 import dynamic from "next/dynamic";
 
+// Export chatbot components
+export { AuthorityRAGChatBot } from "./authority-rag-chatbot";
+export { CitizenRAGChatBot } from "./citizen-rag-chatbot";
+
 // Define TypeScript interface for map props
 interface MapProps {
   markers?: Array<{

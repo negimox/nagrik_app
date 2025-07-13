@@ -5,6 +5,7 @@ import { GeistSans } from "geist/font";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { UserProvider } from "@/contexts/UserContext";
+import { LoadingProvider } from "@/contexts/LoadingContext";
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 
@@ -27,7 +28,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <UserProvider>{children}</UserProvider>
+          <LoadingProvider>
+            <UserProvider>{children}</UserProvider>
+          </LoadingProvider>
         </ThemeProvider>
       </body>
     </html>

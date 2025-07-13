@@ -1,5 +1,6 @@
 "use client";
 
+import { SparklesIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -63,6 +64,17 @@ export default function Navigation() {
             }`}
           >
             Teams
+          </Link>
+          <Link
+            href="/authority/nagrik-ai"
+            className={`flex flex-row py-3 px-4 text-sm font-bold border-b-2 whitespace-nowrap hover:text-[#003A70] hover:border-[#003A70] transition-colors bg-gradient-to-r from-primary to-blue-800 bg-clip-text text-transparent ${
+              isActive("/authority/uttarakhand-rag-test")
+                ? "border-[#003A70] text-[#003A70]"
+                : "border-transparent"
+            }`}
+          >
+            <SparklesIcon className="h-4 w-4 mr-2 flex-shrink-0 text-blue-600" />
+            Nagrik AI
           </Link>
         </div>
       </div>

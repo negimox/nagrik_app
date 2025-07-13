@@ -7,17 +7,17 @@ import { MongoClient, Db, Collection } from "mongodb";
 
 export interface ReportDocument {
   _id?: any;
-  id: string;
   title: string;
   category: string;
-  status: string;
-  priority: string;
-  date: string;
-  time: string;
+  status?: string;
+  priority?: string;
+  date?: string;
+  time?: string;
   location: string;
   coordinates?: string;
   description: string;
-  submittedBy: string;
+  submittedBy?: string;
+  userId?: string; // User ID for filtering user-specific reports
   assignedTo?: string;
   estimatedCompletion?: string;
   images?: string[];
@@ -28,9 +28,11 @@ export interface ReportDocument {
     comment: string;
     by: string;
   }>;
-  createdAt: string;
-  updatedAt: string;
-  createdBy: string;
+  createdAt: string | Date;
+  updatedAt?: string;
+  createdBy?: string;
+  user?: any; // Flexible user object field
+  [key: string]: any; // Allow additional fields for flexible schema
 }
 
 export interface ProcessedReportKnowledge {
@@ -62,7 +64,7 @@ class MongoDBReportsKnowledgeProvider {
 
   constructor(
     private connectionString: string,
-    private dbName: string = "infrastructure_reports"
+    private dbName: string = "nagrik"
   ) {}
 
   async connect(): Promise<void> {
@@ -107,21 +109,27 @@ class MongoDBReportsKnowledgeProvider {
       );
     }
 
+    const reportId = report._id?.toString() || `report-${Date.now()}`;
+    const createdAtString =
+      report.createdAt instanceof Date
+        ? report.createdAt.toISOString()
+        : report.createdAt.toString();
+
     return {
-      id: `report-${report.id}`,
+      id: `report-${reportId}`,
       title: `${report.category}: ${report.title} (${report.location})`,
       content,
       category: "historical-reports",
       metadata: {
-        reportId: report.id,
+        reportId: reportId,
         originalCategory: report.category,
-        status: report.status,
-        priority: report.priority,
+        status: report.status || "Unknown",
+        priority: report.priority || "Medium",
         location: report.location,
         coordinates: report.coordinates,
-        submittedBy: report.submittedBy,
+        submittedBy: report.submittedBy || "Unknown",
         assignedTo: report.assignedTo,
-        createdAt: report.createdAt,
+        createdAt: createdAtString,
         resolutionTime,
         updateCount: report.updates?.length || 0,
         hasImages: (report.images?.length || 0) > 0,
@@ -134,16 +142,19 @@ class MongoDBReportsKnowledgeProvider {
    * Generate comprehensive content text from report data
    */
   private generateReportContent(report: ReportDocument): string {
+    const reportId = report._id?.toString() || "N/A";
     const sections = [
-      `Report ID: ${report.id}`,
+      `Report ID: ${reportId}`,
       `Title: ${report.title}`,
       `Category: ${report.category}`,
-      `Status: ${report.status}`,
-      `Priority: ${report.priority}`,
+      `Status: ${report.status || "Unknown"}`,
+      `Priority: ${report.priority || "Medium"}`,
       `Location: ${report.location}`,
       report.coordinates ? `Coordinates: ${report.coordinates}` : "",
-      `Date Submitted: ${report.date} at ${report.time}`,
-      `Submitted By: ${report.submittedBy}`,
+      report.date && report.time
+        ? `Date Submitted: ${report.date} at ${report.time}`
+        : "",
+      `Submitted By: ${report.submittedBy || "Unknown"}`,
       report.assignedTo ? `Assigned To: ${report.assignedTo}` : "",
       report.estimatedCompletion
         ? `Estimated Completion: ${report.estimatedCompletion}`
@@ -336,7 +347,7 @@ class MongoDBReportsKnowledgeProvider {
   }
 
   /**
-   * Search reports by text content
+   * Search reports by text content with intelligent keyword extraction
    */
   async searchReports(query: string): Promise<ProcessedReportKnowledge[]> {
     if (!this.reportsCollection) {
@@ -344,22 +355,322 @@ class MongoDBReportsKnowledgeProvider {
     }
 
     try {
-      // Search in title, description, and location
-      const searchRegex = { $regex: query, $options: "i" };
-      const reports = await this.reportsCollection
-        .find({
+      console.log(`Searching MongoDB reports for: "${query}"`);
+
+      // Extract keywords from the query
+      const keywords = this.extractSearchKeywords(query);
+      console.log("Extracted keywords:", keywords);
+
+      // Build search conditions
+      const searchConditions = [];
+
+      // Search for each keyword
+      for (const keyword of keywords) {
+        const keywordRegex = { $regex: keyword, $options: "i" };
+        searchConditions.push({
           $or: [
-            { title: searchRegex },
-            { description: searchRegex },
-            { location: searchRegex },
-            { category: searchRegex },
+            { title: keywordRegex },
+            { description: keywordRegex },
+            { location: keywordRegex },
+            { category: keywordRegex },
           ],
-        })
-        .toArray();
+        });
+      }
+
+      // Also search for the full query (in case it's a specific term)
+      const fullQueryRegex = { $regex: query, $options: "i" };
+      searchConditions.push({
+        $or: [
+          { title: fullQueryRegex },
+          { description: fullQueryRegex },
+          { location: fullQueryRegex },
+          { category: fullQueryRegex },
+        ],
+      });
+
+      // Execute search with OR conditions
+      const searchQuery =
+        searchConditions.length > 0 ? { $or: searchConditions } : {};
+      console.log(
+        "MongoDB search query:",
+        JSON.stringify(searchQuery, null, 2)
+      );
+
+      const reports = await this.reportsCollection.find(searchQuery).toArray();
+      console.log(`Found ${reports.length} raw reports in MongoDB`);
+
+      if (reports.length > 0) {
+        console.log(
+          "Sample report titles:",
+          reports.slice(0, 3).map((r) => r.title)
+        );
+      }
 
       return reports.map((report) => this.processReportAsKnowledge(report));
     } catch (error) {
       console.error(`Error searching reports for "${query}":`, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Search reports by text content with user filtering
+   */
+  async searchUserReports(
+    query: string,
+    userId: string
+  ): Promise<ProcessedReportKnowledge[]> {
+    if (!this.reportsCollection) {
+      throw new Error("MongoDB connection not established");
+    }
+
+    try {
+      console.log(
+        `Searching MongoDB reports for user ${userId} with query: "${query}"`
+      );
+
+      // Extract keywords from the query
+      const keywords = this.extractSearchKeywords(query);
+      console.log("Extracted keywords:", keywords);
+
+      // Build search conditions
+      const searchConditions = [];
+
+      // Search for each keyword
+      for (const keyword of keywords) {
+        const keywordRegex = { $regex: keyword, $options: "i" };
+        searchConditions.push({
+          $or: [
+            { title: keywordRegex },
+            { description: keywordRegex },
+            { location: keywordRegex },
+            { category: keywordRegex },
+          ],
+        });
+      }
+
+      // Also search for the full query (in case it's a specific term)
+      const fullQueryRegex = { $regex: query, $options: "i" };
+      searchConditions.push({
+        $or: [
+          { title: fullQueryRegex },
+          { description: fullQueryRegex },
+          { location: fullQueryRegex },
+          { category: fullQueryRegex },
+        ],
+      });
+
+      // Build final query with improved user filter
+      const userFilters = [
+        { createdBy: userId }, // Primary: Firebase UID
+        { userId: userId }, // Secondary: Direct userId field
+        { submittedBy: userId }, // Tertiary: submittedBy field
+        { "user.uid": userId }, // Quaternary: Nested user object
+        { "user.id": userId }, // Quinary: Alternative nested structure
+      ];
+
+      const searchQuery = {
+        $and: [
+          { $or: userFilters }, // User filter with multiple strategies
+          searchConditions.length > 0 ? { $or: searchConditions } : {},
+        ],
+      };
+
+      console.log(
+        "MongoDB user-specific search query:",
+        JSON.stringify(searchQuery, null, 2)
+      );
+
+      const reports = await this.reportsCollection.find(searchQuery).toArray();
+      console.log(`Found ${reports.length} user reports in MongoDB`);
+
+      if (reports.length > 0) {
+        console.log(
+          "Sample user report titles:",
+          reports.slice(0, 3).map((r) => r.title)
+        );
+      }
+
+      return reports.map((report) => this.processReportAsKnowledge(report));
+    } catch (error) {
+      console.error(`Error searching user reports for "${query}":`, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Extract meaningful search keywords from a natural language query
+   */
+  private extractSearchKeywords(query: string): string[] {
+    // Common infrastructure-related terms to look for
+    const infrastructureTerms = [
+      "streetlight",
+      "street light",
+      "lighting",
+      "lamp",
+      "pole",
+      "road",
+      "pothole",
+      "pavement",
+      "traffic",
+      "water",
+      "pipe",
+      "supply",
+      "leak",
+      "drainage",
+      "electricity",
+      "power",
+      "electrical",
+      "transformer",
+      "waste",
+      "garbage",
+      "trash",
+      "cleaning",
+      "dustbin",
+      "damaged",
+      "broken",
+      "repair",
+      "maintenance",
+      "issue",
+      "problem",
+    ];
+
+    const queryLower = query.toLowerCase();
+    const foundTerms = infrastructureTerms.filter((term) =>
+      queryLower.includes(term)
+    );
+
+    // Also add individual meaningful words (3+ characters, not common words)
+    const commonWords = new Set([
+      "the",
+      "and",
+      "or",
+      "but",
+      "are",
+      "was",
+      "were",
+      "been",
+      "have",
+      "has",
+      "had",
+      "what",
+      "where",
+      "when",
+      "why",
+      "how",
+      "some",
+      "any",
+      "all",
+      "many",
+      "most",
+      "recent",
+      "latest",
+      "new",
+      "old",
+      "about",
+      "tell",
+      "show",
+      "give",
+      "get",
+    ]);
+
+    const words = queryLower
+      .replace(/[^\w\s]/g, " ")
+      .split(/\s+/)
+      .filter((word) => word.length >= 3 && !commonWords.has(word));
+
+    // Combine infrastructure terms and meaningful words
+    const allKeywords = [...foundTerms, ...words];
+
+    // Remove duplicates and return
+    return [...new Set(allKeywords)];
+  }
+
+  /**
+   * Get all reports for a specific user
+   */
+  async getUserReports(userId: string): Promise<ProcessedReportKnowledge[]> {
+    if (!this.reportsCollection) {
+      throw new Error("MongoDB connection not established");
+    }
+
+    try {
+      console.log(`Fetching all reports for user: ${userId}`);
+
+      // Try multiple user identification strategies
+      const userQueries = [
+        { createdBy: userId }, // Primary: Firebase UID
+        { userId: userId }, // Secondary: Direct userId field
+        { submittedBy: userId }, // Tertiary: submittedBy field
+        { "user.uid": userId }, // Quaternary: Nested user object
+        { "user.id": userId }, // Quinary: Alternative nested structure
+      ];
+
+      let reports: any[] = [];
+      let matchedField = "";
+
+      // Try each query strategy until we find reports
+      for (let i = 0; i < userQueries.length; i++) {
+        const query = userQueries[i];
+        console.log(
+          `Trying user query ${i + 1}:`,
+          JSON.stringify(query, null, 2)
+        );
+
+        const foundReports = await this.reportsCollection
+          .find(query)
+          .sort({ createdAt: -1 }) // Latest first
+          .toArray();
+
+        if (foundReports.length > 0) {
+          reports = foundReports;
+          matchedField = Object.keys(query)[0];
+          console.log(
+            `✅ Found ${reports.length} reports using field: ${matchedField}`
+          );
+          break;
+        } else {
+          console.log(`❌ No reports found with query ${i + 1}`);
+        }
+      }
+
+      if (reports.length === 0) {
+        console.log(
+          "🔍 No reports found with any user identification strategy"
+        );
+        console.log("📋 Checking sample documents in collection...");
+
+        // Get a few sample documents to understand the schema
+        const sampleDocs = await this.reportsCollection
+          .find({})
+          .limit(3)
+          .toArray();
+        sampleDocs.forEach((doc, idx) => {
+          console.log(`Sample doc ${idx + 1}:`, {
+            _id: doc._id,
+            submittedBy: doc.submittedBy,
+            userId: doc.userId,
+            createdBy: doc.createdBy,
+            user: doc.user || "N/A",
+          });
+        });
+      } else {
+        console.log(
+          `✅ Successfully found ${reports.length} reports for user ${userId} using field: ${matchedField}`
+        );
+        console.log("📊 User reports summary:");
+        reports.forEach((report, idx) => {
+          console.log(
+            `${idx + 1}. ${report.title} - Status: ${
+              report.status || "Unknown"
+            } - Created: ${report.createdAt}`
+          );
+        });
+      }
+
+      return reports.map((report) => this.processReportAsKnowledge(report));
+    } catch (error) {
+      console.error(`Error fetching reports for user ${userId}:`, error);
       throw error;
     }
   }

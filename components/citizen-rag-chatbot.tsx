@@ -12,14 +12,13 @@ import {
   Send,
   Minimize2,
   Maximize2,
-  Database,
   Bot,
   User,
   Loader2,
   TrendingUp,
-  ExternalLink,
   Expand,
   SparklesIcon,
+  FileText,
 } from "lucide-react";
 import { useEnhancedMongoRAG } from "@/hooks/use-enhanced-rag";
 import { cn } from "@/lib/utils";
@@ -27,6 +26,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { usePathname } from "next/navigation";
+import { useUser } from "@/contexts/UserContext";
 
 interface ChatMessage {
   id: string;
@@ -36,20 +36,20 @@ interface ChatMessage {
   sources?: any[];
 }
 
-interface AuthorityRAGChatBotProps {
+interface CitizenRAGChatBotProps {
   className?: string;
 }
 
-export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
+export function CitizenRAGChatBot({ className }: CitizenRAGChatBotProps) {
   const pathname = usePathname();
+  const { user } = useUser();
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputMessage, setInputMessage] = useState("");
-  const [analytics, setAnalytics] = useState<any>(null);
+  const [userReports, setUserReports] = useState<any>(null);
 
-  const { queryWithReportsContext, fetchAnalytics, isLoading, error } =
-    useEnhancedMongoRAG();
+  const { queryWithReportsContext, isLoading, error } = useEnhancedMongoRAG();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -62,30 +62,54 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
     scrollToBottom();
   }, [messages]);
 
-  // Load analytics on first open
+  // Load user's reports on first open
   useEffect(() => {
-    if (isOpen && !analytics) {
-      fetchAnalytics().then(() => {
+    if (isOpen && !userReports && user) {
+      fetchUserReports().then(() => {
         // Add welcome message
         const welcomeMessage: ChatMessage = {
           id: `system-${Date.now()}`,
           type: "system",
           content:
-            "Welcome to the Authority RAG Assistant! I can help you analyze infrastructure reports, identify patterns, and provide insights based on historical data. Try asking questions like:\n\n• What are the most common issues in downtown?\n• Show me resolution patterns for electrical problems\n• Which areas need the most attention?",
+            "Welcome to your Personal Report Assistant! I can help you track your submitted reports and provide updates. Try asking questions like:\n\n• What is the status of my latest report?\n• How many reports have I submitted?\n• Show me my pending reports\n• When was my last report resolved?",
           timestamp: new Date(),
         };
         setMessages([welcomeMessage]);
       });
     }
-  }, [isOpen, analytics, fetchAnalytics]);
+  }, [isOpen, userReports, user]);
 
-  // Hide chatbot if on nagrik-ai route - AFTER all hooks
-  if (pathname === "/authority/nagrik-ai") {
+  // Hide chatbot if on certain routes or user not logged in
+  if (
+    !user ||
+    pathname === "/citizen/my-reports" ||
+    pathname === "/citizen/report-chat"
+  ) {
     return null;
   }
 
+  const fetchUserReports = async () => {
+    try {
+      const response = await fetch(`/api/report?userId=${user.uid}`);
+      if (response.ok) {
+        const data = await response.json();
+        setUserReports(data);
+      }
+    } catch (err) {
+      console.error("Failed to fetch user reports:", err);
+    }
+  };
+
   const handleSendMessage = async () => {
-    if (!inputMessage.trim() || isLoading) return;
+    if (!inputMessage.trim() || isLoading || !user) return;
+
+    // Debug logging for user information
+    console.log("🎯 Citizen RAG Chatbot - User Info:", {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      query: inputMessage,
+    });
 
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
@@ -97,22 +121,26 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
     setMessages((prev) => [...prev, userMessage]);
     setInputMessage("");
 
-    // Get AI response using enhanced RAG
+    // Get AI response using enhanced RAG with user-specific context
     try {
+      console.log("🔍 Sending query with userId:", user.uid);
+
       const result = await queryWithReportsContext(
         inputMessage,
         undefined, // location - will be auto-detected from context
         undefined, // category - will be auto-detected from context
         {
           includeIndianContext: true,
-          regionalContext: "north", // Can be made dynamic
+          regionalContext: "north",
           governanceContext: {
             state: "Uttarakhand",
             district: "Dehradun",
             governanceLevel: "municipal",
           },
-          temperature: 0.4,
-          maxDocuments: 8,
+          temperature: 0.3, // Lower temperature for more factual responses
+          maxDocuments: 5,
+          userSpecific: true, // Flag for user-specific queries
+          userId: user.uid, // Pass user ID to filter reports
         }
       );
 
@@ -150,10 +178,10 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
   };
 
   const quickQuestions = [
-    "What are the most common infrastructure issues?",
-    "Show me recent resolution trends",
-    "Which areas have the highest priority issues?",
-    "Compare issue patterns by category",
+    "What is the status of my latest report?",
+    "How many reports have I submitted?",
+    "Show me my pending reports",
+    "When was my last report resolved?",
   ];
 
   if (!isOpen) {
@@ -162,7 +190,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
         <Button
           onClick={() => setIsOpen(true)}
           size="lg"
-          className="rounded-full h-14 w-14 shadow-lg hover:shadow-xl transition-all duration-200 bg-gradient-to-r from-primary to-red-700 text-white opacity-80 hover:opacity-100"
+          className="rounded-full h-14 w-14 shadow-lg hover:shadow-xl transition-all duration-200 bg-gradient-to-r from-green-600 to-blue-600 text-white opacity-80 hover:opacity-100"
         >
           <MessageCircle className="h-6 w-6" />
         </Button>
@@ -179,14 +207,14 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
         )}
       >
         {/* Header */}
-        <CardHeader className="pb-3 bg-gradient-to-r from-primary to-red-700 text-white rounded-t-lg">
+        <CardHeader className="pb-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-t-lg">
           <div className="flex items-center justify-between">
-            <CardTitle className="flex items-center gap-2 text-lg ">
-              <SparklesIcon className="h-4 w-4 mr-2 flex-shrink-0" />
-              Nagrik AI
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <FileText className="h-4 w-4 mr-2 flex-shrink-0" />
+              My Reports Assistant
             </CardTitle>
             <div className="flex items-center gap-1">
-              <Link href="/authority/nagrik-ai">
+              <Link href="/citizen/report-chat">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -218,30 +246,6 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
               </Button>
             </div>
           </div>
-
-          {/* Analytics Summary */}
-          {analytics && !isMinimized && (
-            <div className="grid grid-cols-3 gap-2 mt-2 text-xs">
-              <div className="text-center">
-                <div className="font-semibold">
-                  {analytics.totalReports || 0}
-                </div>
-                <div className="opacity-80">Reports</div>
-              </div>
-              <div className="text-center">
-                <div className="font-semibold">
-                  {analytics.resolvedReports || 0}
-                </div>
-                <div className="opacity-80">Resolved</div>
-              </div>
-              <div className="text-center">
-                <div className="font-semibold">
-                  {analytics.pendingReports || 0}
-                </div>
-                <div className="opacity-80">Pending</div>
-              </div>
-            </div>
-          )}
         </CardHeader>
 
         {!isMinimized && (
@@ -262,7 +266,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                         className={cn(
                           "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
                           message.type === "bot"
-                            ? "bg-[#003A70] text-white"
+                            ? "bg-green-600 text-white"
                             : "bg-gray-100"
                         )}
                       >
@@ -278,10 +282,10 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                       className={cn(
                         "max-w-[80%] rounded-lg p-3 text-sm",
                         message.type === "user"
-                          ? "bg-[#003A70] text-white ml-auto"
+                          ? "bg-green-600 text-white ml-auto"
                           : message.type === "bot"
                           ? "bg-gray-100 text-gray-900"
-                          : "bg-blue-50 text-blue-900 border border-blue-200"
+                          : "bg-green-50 text-green-900 border border-green-200"
                       )}
                     >
                       <div className="whitespace-pre-wrap">
@@ -318,7 +322,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                       {message.sources && message.sources.length > 0 && (
                         <div className="mt-2 pt-2 border-t border-gray-200">
                           <div className="text-xs text-gray-600 mb-1">
-                            Sources:
+                            Your Reports:
                           </div>
                           <div className="flex flex-wrap gap-1">
                             {message.sources.slice(0, 3).map((source, idx) => (
@@ -327,7 +331,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                                 variant="outline"
                                 className="text-xs"
                               >
-                                {source.category || "Report"}
+                                {source.category || "Report"} - {source.status}
                               </Badge>
                             ))}
                           </div>
@@ -349,13 +353,13 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
 
                 {isLoading && (
                   <div className="flex gap-3 justify-start">
-                    <div className="w-8 h-8 rounded-full bg-[#003A70] text-white flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center">
                       <Bot className="h-4 w-4" />
                     </div>
                     <div className="bg-gray-100 rounded-lg p-3 text-sm">
                       <div className="flex items-center gap-2">
                         <Loader2 className="h-4 w-4 animate-spin" />
-                        Analyzing reports...
+                        Checking your reports...
                       </div>
                     </div>
                   </div>
@@ -367,8 +371,8 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
 
             {/* Quick Questions */}
             {messages.length <= 1 && (
-              <div className="p-4 border-t bg-gray-50 flex-shrink-0">
-                <div className="text-xs font-medium text-gray-600 mb-2">
+              <div className="p-4 border-t bg-green-50 flex-shrink-0">
+                <div className="text-xs font-medium text-green-700 mb-2">
                   Quick Questions:
                 </div>
                 <div className="grid grid-cols-1 gap-1">
@@ -378,7 +382,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                       variant="ghost"
                       size="sm"
                       onClick={() => setInputMessage(question)}
-                      className="justify-start text-left h-auto p-2 text-xs"
+                      className="justify-start text-left h-auto p-2 text-xs hover:bg-green-100"
                     >
                       {question}
                     </Button>
@@ -395,7 +399,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask about infrastructure reports..."
+                  placeholder="Ask about your reports..."
                   disabled={isLoading}
                   className="flex-1"
                 />
@@ -403,7 +407,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                   onClick={handleSendMessage}
                   disabled={!inputMessage.trim() || isLoading}
                   size="sm"
-                  className="px-3"
+                  className="px-3 bg-green-600 hover:bg-green-700"
                 >
                   <Send className="h-4 w-4" />
                 </Button>
@@ -414,7 +418,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                   variant="ghost"
                   size="sm"
                   onClick={clearChat}
-                  className="mt-2 text-xs w-full"
+                  className="mt-2 text-xs w-full hover:bg-green-100"
                 >
                   Clear Chat
                 </Button>

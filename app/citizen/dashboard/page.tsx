@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useUser } from "@/contexts/UserContext";
+import { TableSkeleton, CardSkeleton } from "@/components/ui/loading";
 
 interface Report {
   id: string;
@@ -128,48 +129,64 @@ export default function CitizenDashboard() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-4">
-        <Card className="border shadow-sm">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-bold">Total Reports</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{recentReports.length}</div>
-            <p className="text-xs text-gray-500">Your reported issues</p>
-          </CardContent>
-        </Card>
-        <Card className="border shadow-sm">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-bold">Resolved</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {recentReports.filter((r) => r.status === "Resolved").length}
-            </div>
-            <p className="text-xs text-gray-500">Completed reports</p>
-          </CardContent>
-        </Card>
-        <Card className="border shadow-sm">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-bold">In Progress</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {recentReports.filter((r) => r.status === "In Progress").length}
-            </div>
-            <p className="text-xs text-gray-500">Being addressed</p>
-          </CardContent>
-        </Card>
-        <Card className="border shadow-sm">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-bold">Pending</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {recentReports.filter((r) => r.status === "Pending").length}
-            </div>
-            <p className="text-xs text-gray-500">Awaiting review</p>
-          </CardContent>
-        </Card>
+        {isLoading ? (
+          <>
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+          </>
+        ) : (
+          <>
+            <Card className="border shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-bold">
+                  Total Reports
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{recentReports.length}</div>
+                <p className="text-xs text-gray-500">Your reported issues</p>
+              </CardContent>
+            </Card>
+            <Card className="border shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-bold">Resolved</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">
+                  {recentReports.filter((r) => r.status === "Resolved").length}
+                </div>
+                <p className="text-xs text-gray-500">Completed reports</p>
+              </CardContent>
+            </Card>
+            <Card className="border shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-bold">In Progress</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">
+                  {
+                    recentReports.filter((r) => r.status === "In Progress")
+                      .length
+                  }
+                </div>
+                <p className="text-xs text-gray-500">Being addressed</p>
+              </CardContent>
+            </Card>
+            <Card className="border shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-bold">Pending</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">
+                  {recentReports.filter((r) => r.status === "Pending").length}
+                </div>
+                <p className="text-xs text-gray-500">Awaiting review</p>
+              </CardContent>
+            </Card>
+          </>
+        )}
       </div>
 
       <div className="bg-white border rounded-md">
@@ -177,8 +194,8 @@ export default function CitizenDashboard() {
           <h2 className="font-bold text-[#003A70]">Recent Reports</h2>
         </div>
         {isLoading ? (
-          <div className="p-8 text-center text-gray-500">
-            Loading reports...
+          <div className="p-4 space-y-4">
+            <TableSkeleton rows={3} />
           </div>
         ) : recentReports.length === 0 ? (
           <div className="p-8 text-center text-gray-500">

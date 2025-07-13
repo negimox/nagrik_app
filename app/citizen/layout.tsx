@@ -5,6 +5,7 @@ import Header from "@/components/layout/header";
 import { ReportProvider } from "@/contexts/ReportContext";
 import CitizenNavigation from "@/components/layout/citizen-navigation";
 import CitizenBreadcrumb from "@/components/layout/citizen-breadcrumb";
+import { CitizenRAGChatBot } from "@/components/citizen-rag-chatbot";
 
 export default function CitizenLayout({ children }: { children: ReactNode }) {
   return (
@@ -47,6 +48,9 @@ export default function CitizenLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
         </footer>
+
+        {/* Citizen RAG Chatbot */}
+        <CitizenRAGChatBot />
       </div>
     </ReportProvider>
   );
