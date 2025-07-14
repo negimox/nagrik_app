@@ -74,7 +74,7 @@ export default function LoginPage() {
   // Function to fill test credentials for authority
   const fillAuthorityTestCredentials = () => {
     // Extract staff ID from email (remove @gmail.com part)
-    const staffId = "authtestingnew@gmail.com";
+    const staffId = "authtestingnew";
     authorityForm.setValue("staffId", staffId);
     authorityForm.setValue("password", "Test@1234");
   };
@@ -133,7 +133,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     // Format email based on staffId for authority users
-    const email = `${values.staffId}@authority.gov`;
+    const email = `${values.staffId}@gmail.com`;
 
     signInWithEmailAndPassword(auth, email, values.password)
       .then((userCredential) => {
@@ -223,7 +223,7 @@ export default function LoginPage() {
                   // Set user in context with proper data
                   setUser({
                     uid: mockUid,
-                    email: `${values.staffId}@authority.gov`,
+                    email: `${values.staffId}@gmail.com`,
                     username: userData.username || values.staffId,
                     userType: "authority",
                     state: userData.state || "Demo State",
@@ -258,7 +258,7 @@ export default function LoginPage() {
                 // Fallback on error
                 setUser({
                   uid: mockUid,
-                  email: `${values.staffId}@authority.gov`,
+                  email: `${values.staffId}@gmail.com`,
                   username: values.staffId,
                   userType: "authority",
                   state: "Demo State",
