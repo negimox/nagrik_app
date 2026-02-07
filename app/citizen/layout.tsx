@@ -6,6 +6,7 @@ import { ReportProvider } from "@/contexts/ReportContext";
 import CitizenNavigation from "@/components/layout/citizen-navigation";
 import CitizenBreadcrumb from "@/components/layout/citizen-breadcrumb";
 import { CitizenRAGChatBot } from "@/components/citizen-rag-chatbot";
+import { CitizenVoiceAssistant } from "@/components/citizen-voice-assistant";
 
 export default function CitizenLayout({ children }: { children: ReactNode }) {
   return (
@@ -48,6 +49,9 @@ export default function CitizenLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
         </footer>
+
+        {/* Voice Assistant - positioned to the left of chatbot */}
+        <CitizenVoiceAssistant />
 
         {/* Citizen RAG Chatbot */}
         <CitizenRAGChatBot />

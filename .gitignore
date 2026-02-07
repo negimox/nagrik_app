@@ -30,3 +30,7 @@ next-env.d.ts
 firebase.json
 .firebaserc
 firebase-debug.log
+
+# Extra Files
+Project Demo/
+*.zip

@@ -242,7 +242,7 @@ Please provide a detailed answer based on the context above. If the context does
 
     // 4. Generate response using Gemini
     const result = await genAI.models.generateContent({
-      model: "models/gemini-2.0-flash",
+      model: "models/gemini-2.5-flash",
       contents: [{ role: "user", parts: [{ text: enhancedPrompt }] }],
       config: {
         temperature,

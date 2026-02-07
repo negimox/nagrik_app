@@ -880,7 +880,7 @@ Keep your response concise and directly answer what was asked. If no relevant da
 
     // 5. Generate response using Gemini
     const result = await genAI.models.generateContent({
-      model: "models/gemini-2.0-flash",
+      model: "models/gemini-2.5-flash",
       contents: [{ role: "user", parts: [{ text: enhancedPrompt }] }],
       config: {
         temperature: fullConfig.temperature,

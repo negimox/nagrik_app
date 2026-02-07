@@ -233,7 +233,7 @@ export async function generateReportInsights(
     try {
       // Call the Gemini API with the constructed prompt
       const result = await genAI.models.generateContent({
-        model: "models/gemini-2.0-flash",
+        model: "models/gemini-2.5-flash",
         contents: [{ role: "user", parts: [{ text: prompt }] }],
         config: { temperature },
       });
@@ -326,7 +326,7 @@ export async function generateStructuredInsights(
     try {
       // Call the Gemini API with proper model structure
       const result = await genAI.models.generateContent({
-        model: "models/gemini-2.0-flash",
+        model: "models/gemini-2.5-flash",
         contents: [{ role: "user", parts: [{ text: prompt }] }],
         config: { temperature },
       });
@@ -416,7 +416,7 @@ export async function generateGeospatialInsights(
     try {
       // Call the Gemini API with proper model structure
       const result = await genAI.models.generateContent({
-        model: "models/gemini-2.0-flash",
+        model: "models/gemini-2.5-flash",
         contents: [{ role: "user", parts: [{ text: prompt }] }],
         config: { temperature },
       });
@@ -483,9 +483,9 @@ export async function generateResourceAllocationInsights(
 
     try {
       // Call the Gemini API with proper model structure
-      //   const model = genAI.models.get("models/gemini-2.0-flash");
+      //   const model = genAI.models.get("models/gemini-2.5-flash");
       const result = await genAI.models.generateContent({
-        model: "models/gemini-2.0-flash",
+        model: "models/gemini-2.5-flash",
         contents: [{ role: "user", parts: [{ text: prompt }] }],
         config: { temperature },
       });

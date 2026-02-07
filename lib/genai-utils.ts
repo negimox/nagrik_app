@@ -70,7 +70,7 @@ export async function detectObjectsInImage(
 
     // This matches how Prompt.tsx calls the API
     const response = await genAI.models.generateContent({
-      model: "models/gemini-2.0-flash",
+      model: "models/gemini-2.5-flash",
       contents: [
         {
           role: "user",
