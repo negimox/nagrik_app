@@ -1,4 +1,4 @@
-# Infrastructure Report Dashboard with AI Integration
+# Nagrik: Infrastructure Report Dashboard with AI Integration
 
 This application provides a comprehensive platform for citizens and authorities to report, manage, and analyze infrastructure issues such as potholes, broken streetlights, and other civic problems. It integrates advanced AI capabilities to enhance issue detection and management.
 
