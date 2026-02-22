@@ -2,6 +2,9 @@
 
 This application provides a comprehensive platform for citizens and authorities to report, manage, and analyze infrastructure issues such as potholes, broken streetlights, and other civic problems. It integrates advanced AI capabilities to enhance issue detection and management.
 
+## Demo Video
+https://youtu.be/GZJiBHnRDjs
+
 ## Core Features
 
 ### 1. AI-powered Issue Detection
