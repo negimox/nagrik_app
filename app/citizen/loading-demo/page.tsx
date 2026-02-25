@@ -13,10 +13,11 @@ import {
   LoadingSpinner,
   LoadingDots,
   InlineLoading,
-  Skeleton,
   CardSkeleton,
   TableSkeleton,
 } from "@/components/ui/loading";
+import { Skeleton } from "@/components/ui/skeleton";
+
 import {
   useGlobalLoading,
   useAsyncLoading,

@@ -44,6 +44,8 @@ import {
 import { useUser } from "@/contexts/UserContext";
 import { UpdateReportModal } from "@/components/modals/UpdateReportModal";
 import { useToast } from "@/hooks/use-toast";
+import { TableSkeleton } from "@/components/ui/loading";
+
 
 export default function ReportsPage() {
   const [selectedReports, setSelectedReports] = useState<string[]>([]);
@@ -466,9 +468,8 @@ export default function ReportsPage() {
         </div>
 
         {isLoading ? (
-          <div className="flex items-center justify-center p-8">
-            <Loader2 className="h-8 w-8 animate-spin text-[#003A70]" />
-            <span className="ml-2">Loading reports...</span>
+          <div className="p-4">
+            <TableSkeleton rows={8} />
           </div>
         ) : error ? (
           <div className="bg-red-50 border border-red-200 rounded-md p-4 text-red-800">

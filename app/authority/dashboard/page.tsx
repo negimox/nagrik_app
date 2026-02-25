@@ -23,6 +23,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useUser } from "@/contexts/UserContext";
+import { CardSkeleton, TableSkeleton } from "@/components/ui/loading";
 
 export default function AuthorityDashboard() {
   const { user } = useUser();
@@ -238,50 +239,61 @@ export default function AuthorityDashboard() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-4">
-        <Card className="border shadow-sm">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-bold">Total Reports</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{reportStats.total}</div>
-            <p className="text-xs text-gray-500">
-              Current total reports in system
-            </p>
-          </CardContent>
-        </Card>
-        <Card className="border shadow-sm">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-bold">Resolved</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{reportStats.resolved}</div>
-            <p className="text-xs text-gray-500">
-              {reportStats.total > 0
-                ? `${Math.round(
-                    (reportStats.resolved / reportStats.total) * 100
-                  )}% completion rate`
-                : "No reports available"}
-            </p>
-          </CardContent>
-        </Card>
-        <Card className="border shadow-sm">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-bold">Pending</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{reportStats.pending}</div>
-            <p className="text-xs text-gray-500">Awaiting resolution</p>
-          </CardContent>
-        </Card>
-        <Card className="border shadow-sm">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-bold">Active Users</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">4</div>
-            <p className="text-xs text-gray-500">+18% from last month</p>
-          </CardContent>
-        </Card>
+        {isLoading ? (
+          <>
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+          </>
+        ) : (
+          <>
+            <Card className="border shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-bold">Total Reports</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{reportStats.total}</div>
+                <p className="text-xs text-gray-500">
+                  Current total reports in system
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="border shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-bold">Resolved</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{reportStats.resolved}</div>
+                <p className="text-xs text-gray-500">
+                  {reportStats.total > 0
+                    ? `${Math.round(
+                        (reportStats.resolved / reportStats.total) * 100
+                      )}% completion rate`
+                    : "No reports available"}
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="border shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-bold">Pending</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{reportStats.pending}</div>
+                <p className="text-xs text-gray-500">Awaiting resolution</p>
+              </CardContent>
+            </Card>
+            <Card className="border shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-bold">Active Users</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">4</div>
+                <p className="text-xs text-gray-500">+18% from last month</p>
+              </CardContent>
+            </Card>
+          </>
+        )}
       </div>
 
       <div className="bg-white border rounded-md">
@@ -307,9 +319,8 @@ export default function AuthorityDashboard() {
           </div>
         </div>
         {isLoading ? (
-          <div className="flex items-center justify-center p-8">
-            <Loader2 className="h-8 w-8 animate-spin text-[#003A70]" />
-            <span className="ml-2">Loading reports...</span>
+          <div className="p-4">
+            <TableSkeleton rows={4} />
           </div>
         ) : error ? (
           <div className="p-4 bg-red-50 text-red-800">{error}</div>
@@ -373,7 +384,7 @@ export default function AuthorityDashboard() {
                     ) : (
                       <div className="flex items-center gap-2">
                         <Avatar className="h-6 w-6">
-                          <AvatarFallback className="text-xs bg-[#003A70] text-white">
+                          <AvatarFallback className="bg-[#003A70] text-white">
                             {report.assignedTo
                               .split(" ")
                               .map((word: string) => word[0])
@@ -456,8 +467,7 @@ export default function AuthorityDashboard() {
               </div>
               <Progress
                 value={getCategoryPercentage("streetlight")}
-                className="h-2 bg-blue-100"
-                indicatorClassName="bg-blue-500"
+                className="h-2 bg-blue-100 [&>div]:bg-blue-500"
               />
             </div>
             <div className="space-y-2">
@@ -472,8 +482,7 @@ export default function AuthorityDashboard() {
               </div>
               <Progress
                 value={getCategoryPercentage("sanitation")}
-                className="h-2 bg-green-100"
-                indicatorClassName="bg-green-500"
+                className="h-2 bg-green-100 [&>div]:bg-green-500"
               />
             </div>
             <div className="space-y-2">
@@ -488,8 +497,7 @@ export default function AuthorityDashboard() {
               </div>
               <Progress
                 value={getCategoryPercentage("water")}
-                className="h-2 bg-yellow-100"
-                indicatorClassName="bg-yellow-500"
+                className="h-2 bg-yellow-100 [&>div]:bg-yellow-500"
               />
             </div>
             <div className="space-y-2">
@@ -504,8 +512,7 @@ export default function AuthorityDashboard() {
               </div>
               <Progress
                 value={getCategoryPercentage("property")}
-                className="h-2 bg-red-100"
-                indicatorClassName="bg-red-500"
+                className="h-2 bg-red-100 [&>div]:bg-red-500"
               />
             </div>
           </div>

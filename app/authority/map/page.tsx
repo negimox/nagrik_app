@@ -32,6 +32,8 @@ import {
 import MyMap from "@/components/map";
 import Map from "@/components/index";
 import { useToast } from "@/hooks/use-toast";
+import { MapSkeleton } from "@/components/ui/loading";
+
 export default function MapPage() {
   const [selectedIssue, setSelectedIssue] = useState<string | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
@@ -431,13 +433,8 @@ export default function MapPage() {
           {" "}
           {/* Loading state */}
           {isLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-80 z-10">
-              <div className="flex flex-col items-center">
-                <Loader2 className="h-8 w-8 animate-spin text-[#003A70]" />
-                <p className="mt-2 text-sm text-[#003A70]">
-                  Loading map data...
-                </p>
-              </div>
+            <div className="absolute inset-0 z-10 bg-gray-100">
+              <MapSkeleton />
             </div>
           )}
           {/* Error state */}
@@ -609,7 +606,7 @@ export default function MapPage() {
                           ?.length > 0 ? (
                           mapMarkers
                             .find((m) => m.id === selectedIssue)
-                            ?.updates?.map((update, idx) => (
+                            ?.updates?.map((update: any, idx: number) => (
                               <div
                                 key={idx}
                                 className="border-l-2 border-gray-200 pl-2"

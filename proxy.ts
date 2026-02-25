@@ -21,7 +21,7 @@ const authPages = ["/login", "/register"];
 const citizenPaths = ["/citizen"];
 const authorityPaths = ["/authority"];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
   // Check for authentication token in cookies

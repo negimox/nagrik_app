@@ -15,6 +15,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { useUser } from "@/contexts/UserContext";
+import { DetailSkeleton } from "@/components/ui/loading";
 
 interface Report {
   _id?: string;
@@ -172,11 +173,8 @@ export default function ReportDetailsPage() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="text-center">
-          <div className="w-8 h-8 border-4 border-t-[#003A70] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="mt-4 text-gray-500">Loading report details...</p>
-        </div>
+      <div className="bg-white border rounded-md p-6">
+        <DetailSkeleton />
       </div>
     );
   }

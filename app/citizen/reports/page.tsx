@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useUser } from "@/contexts/UserContext";
+import { TableSkeleton } from "@/components/ui/loading";
 
 interface Report {
   _id?: string;
@@ -260,11 +261,8 @@ export default function ReportsPage() {
         </div>
 
         {isLoading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="text-center">
-              <div className="w-8 h-8 border-4 border-t-[#003A70] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin mx-auto"></div>
-              <p className="mt-4 text-gray-500">Loading reports...</p>
-            </div>
+          <div className="p-4">
+            <TableSkeleton rows={8} />
           </div>
         ) : error ? (
           <div className="text-center py-8">

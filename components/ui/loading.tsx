@@ -107,15 +107,8 @@ export function InlineLoading({
   );
 }
 
-interface SkeletonProps {
-  className?: string;
-}
+import { Skeleton } from "@/components/ui/skeleton";
 
-export function Skeleton({ className }: SkeletonProps) {
-  return <div className={cn("animate-pulse rounded-md bg-muted", className)} />;
-}
-
-// Card skeleton for list items
 export function CardSkeleton() {
   return (
     <div className="rounded-lg border bg-card p-6 space-y-3">
@@ -126,19 +119,108 @@ export function CardSkeleton() {
   );
 }
 
-// Table skeleton
 export function TableSkeleton({ rows = 5 }: { rows?: number }) {
   return (
-    <div className="space-y-3">
-      <Skeleton className="h-8 w-full" />
+    <div className="space-y-4">
+      <Skeleton className="h-10 w-full" />
       {Array.from({ length: rows }).map((_, i) => (
-        <div key={i} className="flex space-x-4">
+        <div key={i} className="flex space-x-4 items-center">
           <Skeleton className="h-6 flex-1" />
           <Skeleton className="h-6 flex-1" />
           <Skeleton className="h-6 flex-1" />
-          <Skeleton className="h-6 w-20" />
+          <Skeleton className="h-8 w-24 rounded-md" />
         </div>
       ))}
     </div>
   );
 }
+
+export function FormSkeleton() {
+  return (
+    <div className="space-y-6">
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-24" />
+        <Skeleton className="h-10 w-full rounded-md" />
+      </div>
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-32" />
+        <Skeleton className="h-[120px] w-full rounded-md" />
+      </div>
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-20" />
+        <Skeleton className="h-10 w-full rounded-md" />
+      </div>
+      <Skeleton className="h-10 w-32 rounded-md" />
+    </div>
+  );
+}
+
+export function MapSkeleton() {
+  return (
+    <div className="relative w-full h-[500px] rounded-lg overflow-hidden border">
+      <Skeleton className="absolute inset-0 h-full w-full" />
+    </div>
+  );
+}
+
+export function DetailSkeleton() {
+  return (
+    <div className="space-y-6">
+      <div className="space-y-2">
+        <Skeleton className="h-8 w-1/2" />
+        <Skeleton className="h-4 w-1/4" />
+      </div>
+      <Skeleton className="h-[200px] w-full rounded-lg" />
+      <div className="space-y-4">
+        <Skeleton className="h-6 w-1/3" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-3/4" />
+      </div>
+    </div>
+  );
+}
+
+export function DashboardSkeleton({ cards = 4 }: { cards?: number }) {
+  return (
+    <div className="space-y-6">
+      <div className="bg-white border rounded-md p-6 space-y-2">
+        <Skeleton className="h-6 w-1/3" />
+        <Skeleton className="h-4 w-2/3" />
+      </div>
+      
+      <div className="grid gap-6 md:grid-cols-4">
+        {Array.from({ length: cards }).map((_, i) => (
+          <CardSkeleton key={i} />
+        ))}
+      </div>
+      
+      <div className="bg-white border rounded-md p-4">
+        <div className="mb-4">
+          <Skeleton className="h-6 w-32" />
+        </div>
+        <TableSkeleton rows={4} />
+      </div>
+    </div>
+  );
+}
+
+export function ChatSkeleton() {
+  return (
+    <div className="flex flex-col space-y-4">
+      <div className="w-1/2 max-w-[80%] rounded-lg bg-muted p-4 self-start">
+        <Skeleton className="h-4 w-3/4 bg-primary/20 mb-2" />
+        <Skeleton className="h-4 w-1/2 bg-primary/20" />
+      </div>
+      <div className="w-[60%] max-w-[80%] rounded-lg bg-muted p-4 self-end">
+        <Skeleton className="h-4 w-full bg-primary/20 mb-2" />
+        <Skeleton className="h-4 w-full bg-primary/20 mb-2" />
+        <Skeleton className="h-4 w-5/6 bg-primary/20" />
+      </div>
+      <div className="w-1/2 max-w-[80%] rounded-lg bg-muted p-4 self-start">
+        <Skeleton className="h-4 w-2/3 bg-primary/20" />
+      </div>
+    </div>
+  )
+}
+
