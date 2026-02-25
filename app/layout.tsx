@@ -1,14 +1,12 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
-import { GeistSans } from "geist/font";
+import {  Public_Sans  } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { UserProvider } from "@/contexts/UserContext";
 import { LoadingProvider } from "@/contexts/LoadingContext";
 
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-
+const outfit = Public_Sans({ subsets: ["latin"], display: 'swap', });
 export const metadata: Metadata = {
   title: "Nagrik",
   description: "Report and track infrastructure issues in your city",
@@ -21,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={GeistSans.className}>
+      <body className={outfit.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

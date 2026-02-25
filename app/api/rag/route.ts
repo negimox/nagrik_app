@@ -26,7 +26,7 @@ interface RAGResponse {
 
 // Initialize Gemini AI
 const genAI = new GoogleGenAI({
-  apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY || "",
+  apiKey: process.env.GEMINI_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY || "",
 });
 
 // In-memory knowledge base for demo (in production, use a vector database)

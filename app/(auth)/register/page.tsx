@@ -513,10 +513,10 @@ export default function RegisterPage() {
             Monitoring System. All Rights Reserved.
           </p>
           <div className="mt-2 flex justify-center gap-4">
-            <Link href="/terms" className="hover:underline">
+            <Link href="/terms-of-use" className="hover:underline">
               Terms of Use
             </Link>
-            <Link href="/privacy" className="hover:underline">
+            <Link href="/privacy-policy" className="hover:underline">
               Privacy Policy
             </Link>
             <Link href="/contact" className="hover:underline">

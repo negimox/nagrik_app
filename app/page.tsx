@@ -126,69 +126,20 @@ export default function Home() {
                 <br />
                 Uttarakhand, India
                 <br />
-                TEL: 123-456-7890
+                CM Helpline: 1905
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-bold mb-3">Related Links</h3>
-              <ul className="text-xs space-y-2">
-                <li>
-                  <Link href="#" className="hover:underline">
-                    City Website
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Emergency Information
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Waste Collection Calendar
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Public Facility Reservations
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-bold mb-3">User Guide</h3>
-              <ul className="text-xs space-y-2">
-                <li>
-                  <Link href="#" className="hover:underline">
-                    How to Use
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Frequently Asked Questions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Accessibility
-                  </Link>
-                </li>
-              </ul>
-            </div>
+           
             <div>
               <h3 className="text-sm font-bold mb-3">Legal Information</h3>
               <ul className="text-xs space-y-2">
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link href="/terms-of-use" className="hover:underline">
                     Terms of Use
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link href="/privacy-policy" className="hover:underline">
                     Privacy Policy
                   </Link>
                 </li>

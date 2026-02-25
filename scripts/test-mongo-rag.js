@@ -186,7 +186,7 @@ async function testAPIEndpoints() {
 function checkEnvironmentVariables() {
   console.log("🔍 Checking Environment Variables...");
 
-  const requiredVars = ["MONGODB_URI", "GOOGLE_AI_API_KEY"];
+  const requiredVars = ["MONGODB_URI", "GEMINI_API_KEY"];
 
   const optionalVars = ["MONGODB_DB_NAME", "SUPABASE_URL", "SUPABASE_ANON_KEY"];
 

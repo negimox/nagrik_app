@@ -28,7 +28,7 @@ const REQUIRED_FILES = [
 ];
 
 // Required environment variables
-const REQUIRED_ENV_VARS = ["MONGODB_URI", "GOOGLE_AI_API_KEY"];
+const REQUIRED_ENV_VARS = ["MONGODB_URI", "GEMINI_API_KEY"];
 
 const OPTIONAL_ENV_VARS = [
   "MONGODB_DB_NAME",
@@ -100,7 +100,7 @@ function checkEnvironmentVariables() {
     console.log("\n❌ Missing required environment variables!");
     console.log("💡 Create a .env.local file with:");
     console.log("MONGODB_URI=mongodb://localhost:27017/report_dashboard");
-    console.log("GOOGLE_AI_API_KEY=your_gemini_api_key");
+    console.log("GEMINI_API_KEY=your_gemini_api_key");
     return false;
   }
 

@@ -50,10 +50,10 @@ export default function AuthorityLayout({ children }: { children: ReactNode }) {
               Monitoring System. All Rights Reserved.
             </div>
             <div className="flex gap-4 text-xs">
-              <Link href="/terms" className="hover:underline">
+              <Link href="/terms-of-use" className="hover:underline">
                 Terms of Use
               </Link>
-              <Link href="/privacy" className="hover:underline">
+              <Link href="/privacy-policy" className="hover:underline">
                 Privacy Policy
               </Link>
               <Link href="/contact" className="hover:underline">
