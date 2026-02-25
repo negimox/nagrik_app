@@ -155,7 +155,7 @@ export default function MapPage() {
   return (
     <div className="space-y-6">
       <div className="bg-white border rounded-md p-6">
-        <h1 className="text-xl font-bold text-[#003A70] mb-4">Issue Map</h1>
+        <h1 className="text-xl font-bold text-primary mb-4">Issue Map</h1>
         <p className="text-sm text-gray-600">
           View and manage infrastructure issues geographically. Filter by
           category, status, or priority.
@@ -164,7 +164,7 @@ export default function MapPage() {
 
       <div className="bg-white border rounded-md">
         <div className="p-4 border-b flex items-center justify-between">
-          <h2 className="font-bold text-[#003A70]">Map View</h2>
+          <h2 className="font-bold text-primary">Map View</h2>
           <div className="flex items-center gap-2">
             <div className="relative">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
@@ -179,7 +179,7 @@ export default function MapPage() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="h-9 gap-1 border-[#003A70] text-[#003A70]"
+                  className="h-9 gap-1 border-primary text-primary"
                 >
                   <Filter className="h-4 w-4" />
                   <span>Filter</span>
@@ -286,7 +286,7 @@ export default function MapPage() {
                       Cancel
                     </Button>
                     <Button
-                      className="bg-[#003A70] hover:bg-[#004d94]"
+                      className="bg-primary hover:bg-primary/90"
                       onClick={() => setFilterOpen(false)}
                     >
                       Apply Filters
@@ -298,7 +298,7 @@ export default function MapPage() {
             <Button
               variant="outline"
               size="icon"
-              className="h-9 w-9 border-[#003A70] text-[#003A70]"
+              className="h-9 w-9 border-primary text-primary"
             >
               <Layers className="h-4 w-4" />
             </Button>
@@ -439,14 +439,14 @@ export default function MapPage() {
                     <TabsContent value="actions" className="mt-2 space-y-2">
                       <Button
                         size="sm"
-                        className="w-full bg-[#003A70] hover:bg-[#004d94]"
+                        className="w-full bg-primary hover:bg-primary/90"
                       >
                         Assign Issue
                       </Button>
                       <Button
                         size="sm"
                         variant="outline"
-                        className="w-full border-[#003A70] text-[#003A70]"
+                        className="w-full border-primary text-primary"
                       >
                         Update Status
                       </Button>
@@ -462,8 +462,8 @@ export default function MapPage() {
         </div>
       </div>
 
-      <div className="bg-[#E6EEF4] border rounded-md p-4">
-        <h2 className="font-bold text-[#003A70] mb-2">Map Usage Notes</h2>
+      <div className="bg-muted border rounded-md p-4">
+        <h2 className="font-bold text-primary mb-2">Map Usage Notes</h2>
         <ul className="text-xs space-y-1 text-gray-700">
           <li>• Click on map markers to view issue details.</li>
           <li>

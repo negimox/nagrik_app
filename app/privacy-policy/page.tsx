@@ -9,16 +9,16 @@ export default function PrivacyPolicyPage() {
       <main className="flex-1 bg-[#F5F7FA] py-12">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold text-[#003A70] mb-4">Privacy Policy</h1>
+            <h1 className="text-3xl font-bold text-primary mb-4">Privacy Policy</h1>
             <p className="text-gray-600">
               Information on how we handle and protect your data
             </p>
           </div>
 
-          <Card className="border-t-4 border-t-[#003A70]">
+          <Card className="border-t-4 border-t-primary">
             <CardContent className="p-8 prose prose-blue max-w-none text-gray-700 text-sm leading-relaxed space-y-6">
               <div>
-                <h2 className="text-xl font-bold text-[#003A70] mb-3">1. Information We Collect</h2>
+                <h2 className="text-xl font-bold text-primary mb-3">1. Information We Collect</h2>
                 <p>
                   As an infrastructure reporting platform, Nagrik collects information necessary to process your reports and communicate with you effectively.
                 </p>
@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-[#003A70] mb-3">2. How We Use Your Information</h2>
+                <h2 className="text-xl font-bold text-primary mb-3">2. How We Use Your Information</h2>
                 <p>
                   Your information is utilized solely to facilitate the resolution of civic issues and to improve the portal:
                 </p>
@@ -42,7 +42,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-[#003A70] mb-3">3. Disclosure of Data</h2>
+                <h2 className="text-xl font-bold text-primary mb-3">3. Disclosure of Data</h2>
                 <p>
                   Nagrik may disclose your Personal Data in the good faith belief that such action is necessary to:
                 </p>
@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-[#003A70] mb-3">4. Security of Data</h2>
+                <h2 className="text-xl font-bold text-primary mb-3">4. Security of Data</h2>
                 <p>
                   The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, including encryption at rest and in transit, we cannot guarantee its absolute security.
                 </p>

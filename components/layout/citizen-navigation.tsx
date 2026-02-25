@@ -31,7 +31,7 @@ export default function CitizenNavigation() {
         <div className="md:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="w-full py-3 flex items-center justify-between font-medium text-sm text-[#003A70]"
+            className="w-full py-3 flex items-center justify-between font-medium text-sm text-primary"
           >
             <span>{activeItem}</span>
             {isMobileMenuOpen ? (
@@ -51,8 +51,8 @@ export default function CitizenNavigation() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block py-2 px-1 text-sm font-medium border-l-4 ${
                     isActive(item.href)
-                      ? "border-[#003A70] text-[#003A70] bg-blue-50"
-                      : "border-transparent hover:text-[#003A70] hover:bg-blue-50/50"
+                      ? "border-primary text-primary bg-blue-50"
+                      : "border-transparent hover:text-primary hover:bg-blue-50/50"
                   }`}
                 >
                   {item.name}
@@ -68,9 +68,9 @@ export default function CitizenNavigation() {
             <Link
               key={item.name}
               href={item.href}
-              className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-[#003A70] hover:border-[#003A70] transition-colors ${
+              className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-primary hover:border-primary transition-colors ${
                 isActive(item.href)
-                  ? "border-[#003A70] text-[#003A70]"
+                  ? "border-primary text-primary"
                   : "border-transparent"
               }`}
             >

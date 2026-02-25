@@ -9,30 +9,30 @@ export default function TermsOfUsePage() {
       <main className="flex-1 bg-[#F5F7FA] py-12">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold text-[#003A70] mb-4">Terms of Use</h1>
+            <h1 className="text-3xl font-bold text-primary mb-4">Terms of Use</h1>
             <p className="text-gray-600">
               Welcome to the Nagrik Infrastructure Monitoring System
             </p>
           </div>
 
-          <Card className="border-t-4 border-t-[#003A70]">
+          <Card className="border-t-4 border-t-primary">
             <CardContent className="p-8 prose prose-blue max-w-none text-gray-700 text-sm leading-relaxed space-y-6">
               <div>
-                <h2 className="text-xl font-bold text-[#003A70] mb-3">1. Acceptance of Terms</h2>
+                <h2 className="text-xl font-bold text-primary mb-3">1. Acceptance of Terms</h2>
                 <p>
                   By accessing and using this portal ("Nagrik"), operated in association with the Government of Uttarakhand, you accept and agree to be bound by the terms and provision of this agreement. In addition, when using this portal's particular services, you shall be subject to any posted guidelines or rules applicable to such services.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-[#003A70] mb-3">2. Description of Service</h2>
+                <h2 className="text-xl font-bold text-primary mb-3">2. Description of Service</h2>
                 <p>
                   Nagrik provides users with access to a rich collection of resources focused on civic engagement, infrastructure monitoring, and reporting to municipal authorities. You understand and agree that the service may include certain communications from the authorities such as service announcements and administrative messages.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-[#003A70] mb-3">3. User Conduct</h2>
+                <h2 className="text-xl font-bold text-primary mb-3">3. User Conduct</h2>
                 <p>
                   You agree to use the portal only for lawful purposes. You are strictly prohibited from:
                 </p>
@@ -45,7 +45,7 @@ export default function TermsOfUsePage() {
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-[#003A70] mb-3">4. Disclaimer of Warranties</h2>
+                <h2 className="text-xl font-bold text-primary mb-3">4. Disclaimer of Warranties</h2>
                 <p>
                   Your use of the service is at your sole risk. The service is provided on an "as is" and "as available" basis. The operators expressly disclaim all warranties of any kind, whether express or implied. No advice or information, whether oral or written, obtained by you from Nagrik shall create any warranty not expressly stated in the terms.
                 </p>

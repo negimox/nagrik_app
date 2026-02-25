@@ -179,7 +179,7 @@ export function ImageDetector({ onDetectionComplete }: ImageDetectorProps) {
           type="button"
           onClick={triggerFileDialog}
           variant="outline"
-          className="border-[#003A70] text-[#003A70]"
+          className="border-primary text-primary"
           disabled={isProcessing}
         >
           {isProcessing ? (
@@ -197,7 +197,7 @@ export function ImageDetector({ onDetectionComplete }: ImageDetectorProps) {
         <Button
           type="button"
           variant="outline"
-          className="border-[#003A70] text-[#003A70]"
+          className="border-primary text-primary"
           disabled={isProcessing}
           onClick={() => {
             // Check if device has camera support

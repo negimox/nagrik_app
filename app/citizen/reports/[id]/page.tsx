@@ -187,7 +187,7 @@ export default function ReportDetailsPage() {
         </h2>
         <p className="text-gray-600 mb-4">{error || "Report not found"}</p>
         <Link href="/citizen/reports">
-          <Button className="bg-[#003A70] hover:bg-[#004d94]">
+          <Button className="bg-primary hover:bg-primary/90">
             Return to Reports
           </Button>
         </Link>
@@ -203,7 +203,7 @@ export default function ReportDetailsPage() {
             <Button
               variant="outline"
               size="sm"
-              className="gap-1 border-[#003A70] text-[#003A70]"
+              className="gap-1 border-primary text-primary"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Back to Reports</span>
@@ -212,7 +212,7 @@ export default function ReportDetailsPage() {
         </div>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-xl font-bold text-[#003A70]">{report.title}</h1>
+            <h1 className="text-xl font-bold text-primary">{report.title}</h1>
             <div className="flex items-center gap-2 mt-1 text-sm text-gray-600">
               <span>Report #{report.id}</span>
               <span>•</span>
@@ -391,8 +391,8 @@ export default function ReportDetailsPage() {
         </Tabs>
       </div>
 
-      <div className="bg-[#E6EEF4] border rounded-md p-4">
-        <h2 className="font-bold text-[#003A70] mb-2">Need Help?</h2>
+      {/* <div className="bg-muted border rounded-md p-4">
+        <h2 className="font-bold text-primary mb-2">Need Help?</h2>
         <p className="text-xs text-gray-700 mb-2">
           If you have questions about this report or need to provide additional
           information, please contact us.
@@ -401,7 +401,7 @@ export default function ReportDetailsPage() {
           <Button
             variant="outline"
             size="sm"
-            className="text-[#003A70] border-[#003A70]"
+            className="text-primary border-primary"
           >
             <MessageSquare className="h-4 w-4 mr-1" />
             <span>Contact Support</span>
@@ -409,13 +409,13 @@ export default function ReportDetailsPage() {
           <Button
             variant="outline"
             size="sm"
-            className="text-[#003A70] border-[#003A70]"
+            className="text-primary border-primary"
           >
             <FileText className="h-4 w-4 mr-1" />
             <span>Submit Additional Information</span>
           </Button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

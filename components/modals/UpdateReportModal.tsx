@@ -202,7 +202,7 @@ export function UpdateReportModal({
           </Button>
           <Button
             onClick={handleSubmit}
-            className="bg-[#003A70] hover:bg-[#004d94]"
+            className="bg-primary hover:bg-[#004d94]"
             disabled={isSubmitting}
           >
             {isSubmitting ? (

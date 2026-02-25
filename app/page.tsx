@@ -14,7 +14,7 @@ export default function Home() {
       <div className="bg-[#F0F0F0] border-b">
         <div className="container mx-auto px-4 py-2">
           <div className="flex text-xs gap-4">
-            <Link href="/" className="text-[#003A70] font-bold">
+            <Link href="/" className="text-primary font-bold">
               Home
             </Link>
           </div>
@@ -24,13 +24,13 @@ export default function Home() {
       {/* Main content */}
       <main className="flex-1">
         {/* Hero section */}
-        <section className="bg-[#E6EEF4] py-8 border-b">
+        <section className="bg-muted py-8 border-b">
           <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
-              <div className="inline-block bg-[#003A70] text-white px-3 py-1 text-sm font-bold">
+              <div className="inline-block bg-primary text-white px-3 py-1 text-sm font-bold">
                 Citizen Participation
               </div>
-              <h1 className="text-2xl md:text-3xl font-bold text-[#003A70]">
+              <h1 className="text-2xl md:text-3xl font-bold text-primary">
                 Legislative & Policy Insight Platform
                 <span className="block text-lg font-normal mt-2">
                   Gain valuable insights of infrastructural issues
@@ -44,7 +44,7 @@ export default function Home() {
               </p>
               <div className="pt-2 flex flex-wrap gap-3">
                 <Link href="/login">
-                  <Button className="bg-[#003A70] hover:bg-[#004d94]">
+                  <Button className="bg-primary hover:bg-primary/90">
                     Get Started
                   </Button>
                 </Link>
@@ -65,12 +65,12 @@ export default function Home() {
         {/* Information blocks */}
         <section className="py-8">
           <div className="container mx-auto px-4">
-            <h2 className="text-xl font-bold text-[#003A70] mb-6 pb-2 border-b-2 border-[#003A70]">
+            <h2 className="text-xl font-bold text-primary mb-6 pb-2 border-b-2 border-primary">
               How the System Works
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="border rounded-md bg-white p-4">
-                <div className="bg-[#003A70] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-3">
+                <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-3">
                   1
                 </div>
                 <h3 className="font-bold mb-2">Report Issues</h3>
@@ -81,7 +81,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="border rounded-md bg-white p-4">
-                <div className="bg-[#003A70] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-3">
+                <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-3">
                   2
                 </div>
                 <h3 className="font-bold mb-2">Track Progress</h3>
@@ -91,7 +91,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="border rounded-md bg-white p-4">
-                <div className="bg-[#003A70] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-3">
+                <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-3">
                   3
                 </div>
                 <h3 className="font-bold mb-2">See Results</h3>
@@ -109,13 +109,13 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#003A70] text-white py-6">
+      <footer className="bg-primary text-white py-6">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="h-8 w-8 bg-white rounded-full flex items-center justify-center">
-                  <div className="h-6 w-6 bg-[#003A70] rounded-full flex items-center justify-center text-white font-bold text-[10px]">
+                  <div className="h-6 w-6 bg-primary rounded-full flex items-center justify-center text-white font-bold text-[10px]">
                     NAGRIK
                   </div>
                 </div>

@@ -114,7 +114,7 @@ export default function CitizenDashboard() {
   return (
     <div className="space-y-6">
       <div className="bg-white border rounded-md p-6">
-        <h1 className="text-xl font-bold text-[#003A70] mb-4">
+        <h1 className="text-xl font-bold text-primary mb-4">
           {user?.providerData?.[0]?.displayName || "Citizen"}'s Dashboard
         </h1>
         <p className="text-sm text-gray-600 mb-6">
@@ -122,7 +122,7 @@ export default function CitizenDashboard() {
           new issue, please use the "Report Issue" button.
         </p>
         <Link href="/citizen/report">
-          <Button className="bg-[#003A70] hover:bg-[#004d94]">
+          <Button className="bg-primary hover:bg-primary/90">
             Report Issue
           </Button>
         </Link>
@@ -191,7 +191,7 @@ export default function CitizenDashboard() {
 
       <div className="bg-white border rounded-md">
         <div className="p-4 border-b">
-          <h2 className="font-bold text-[#003A70]">Recent Reports</h2>
+          <h2 className="font-bold text-primary">Recent Reports</h2>
         </div>
         {isLoading ? (
           <div className="p-4 space-y-4">
@@ -203,7 +203,7 @@ export default function CitizenDashboard() {
             report.
           </div>
         ) : (
-          <table className="w-full text-sm hidden md:block">
+          <table className="w-full text-sm hidden md:table">
             <thead className="bg-gray-50">
               <tr className="border-b">
                 <th className="py-3 px-4 text-left font-medium text-gray-500">
@@ -248,7 +248,7 @@ export default function CitizenDashboard() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="text-[#003A70] border-[#003A70]"
+                        className="text-primary border-primary"
                       >
                         Details
                       </Button>
@@ -262,15 +262,15 @@ export default function CitizenDashboard() {
         <div className="p-4 text-center border-t">
           <Link
             href="/citizen/reports"
-            className="text-[#003A70] text-sm hover:underline"
+            className="text-primary text-sm hover:underline"
           >
             View All Reports
           </Link>
         </div>
       </div>
 
-      <div className="bg-[#E6EEF4] border rounded-md p-4">
-        <h2 className="font-bold text-[#003A70] mb-2">Important Notes</h2>
+      <div className="bg-muted border rounded-md p-4">
+        <h2 className="font-bold text-primary mb-2">Important Notes</h2>
         <ul className="text-xs space-y-1 text-gray-700">
           <li>• Please do not include personal information in your reports.</li>
           <li>

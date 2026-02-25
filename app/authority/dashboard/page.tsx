@@ -229,7 +229,7 @@ export default function AuthorityDashboard() {
   return (
     <div className="space-y-6">
       <div className="bg-white border rounded-md p-6">
-        <h1 className="text-xl font-bold text-[#003A70] mb-4">
+        <h1 className="text-xl font-bold text-primary mb-4">
           Authority Dashboard
         </h1>
         <p className="text-sm text-gray-600">
@@ -298,7 +298,7 @@ export default function AuthorityDashboard() {
 
       <div className="bg-white border rounded-md">
         <div className="p-4 border-b flex items-center justify-between">
-          <h2 className="font-bold text-[#003A70]">Recent Reports</h2>
+          <h2 className="font-bold text-primary">Recent Reports</h2>
           <div className="flex items-center gap-2">
             <div className="relative">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
@@ -311,7 +311,7 @@ export default function AuthorityDashboard() {
             <Button
               variant="outline"
               size="sm"
-              className="h-9 gap-1 border-[#003A70] text-[#003A70]"
+              className="h-9 gap-1 border-primary text-primary"
             >
               <Filter className="h-4 w-4" />
               <span>Filter</span>
@@ -384,7 +384,7 @@ export default function AuthorityDashboard() {
                     ) : (
                       <div className="flex items-center gap-2">
                         <Avatar className="h-6 w-6">
-                          <AvatarFallback className="bg-[#003A70] text-white">
+                          <AvatarFallback className="bg-primary text-white">
                             {report.assignedTo
                               .split(" ")
                               .map((word: string) => word[0])
@@ -429,7 +429,7 @@ export default function AuthorityDashboard() {
           <Button
             variant="outline"
             size="sm"
-            className="border-[#003A70] text-[#003A70]"
+            className="border-primary text-primary"
             asChild
           >
             <Link href="/authority/reports">View All Reports</Link>
@@ -440,13 +440,13 @@ export default function AuthorityDashboard() {
       <div className="grid gap-6 md:grid-cols-2">
         <div className="bg-white border rounded-md">
           <div className="p-4 border-b">
-            <h2 className="font-bold text-[#003A70]">Issue Categories</h2>
+            <h2 className="font-bold text-primary">Issue Categories</h2>
           </div>
           <div className="p-4 space-y-4">
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded-full bg-[#003A70]"></div>
+                  <div className="h-3 w-3 rounded-full bg-primary"></div>
                   <span className="text-sm">Road Damage</span>
                 </div>
                 <span className="text-sm font-medium">
@@ -520,7 +520,7 @@ export default function AuthorityDashboard() {
             <Button
               variant="outline"
               size="sm"
-              className="border-[#003A70] text-[#003A70]"
+              className="border-primary text-primary"
               asChild
             >
               <Link href="/authority/analytics">View Detailed Analytics</Link>
@@ -530,12 +530,12 @@ export default function AuthorityDashboard() {
 
         <div className="bg-white border rounded-md">
           <div className="p-4 border-b">
-            <h2 className="font-bold text-[#003A70]">Team Performance</h2>
+            <h2 className="font-bold text-primary">Team Performance</h2>
           </div>
           <div className="p-4 space-y-4">
             <div className="flex items-center gap-4">
               <Avatar className="h-10 w-10">
-                <AvatarFallback className="bg-[#003A70] text-white">
+                <AvatarFallback className="bg-primary text-white">
                   RT
                 </AvatarFallback>
               </Avatar>
@@ -551,7 +551,7 @@ export default function AuthorityDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <Avatar className="h-10 w-10">
-                <AvatarFallback className="bg-[#003A70] text-white">
+                <AvatarFallback className="bg-primary text-white">
                   ET
                 </AvatarFallback>
               </Avatar>
@@ -565,7 +565,7 @@ export default function AuthorityDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <Avatar className="h-10 w-10">
-                <AvatarFallback className="bg-[#003A70] text-white">
+                <AvatarFallback className="bg-primary text-white">
                   ST
                 </AvatarFallback>
               </Avatar>
@@ -579,7 +579,7 @@ export default function AuthorityDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <Avatar className="h-10 w-10">
-                <AvatarFallback className="bg-[#003A70] text-white">
+                <AvatarFallback className="bg-primary text-white">
                   WT
                 </AvatarFallback>
               </Avatar>
@@ -596,7 +596,7 @@ export default function AuthorityDashboard() {
             <Button
               variant="outline"
               size="sm"
-              className="border-[#003A70] text-[#003A70]"
+              className="border-primary text-primary"
               asChild
             >
               <Link href="/authority/teams">View Team Details</Link>
@@ -608,7 +608,7 @@ export default function AuthorityDashboard() {
       <div className="grid gap-6 md:grid-cols-2">
         <div className="bg-white border rounded-md">
           <div className="p-4 border-b">
-            <h2 className="font-bold text-[#003A70]">Resolution Performance</h2>
+            <h2 className="font-bold text-primary">Resolution Performance</h2>
           </div>
           <div className="p-4">
             <table className="w-full text-sm">
@@ -668,7 +668,7 @@ export default function AuthorityDashboard() {
             <Button
               variant="outline"
               size="sm"
-              className="border-[#003A70] text-[#003A70]"
+              className="border-primary text-primary"
               asChild
             >
               <Link href="/authority/analytics">View Detailed Analytics</Link>
@@ -678,14 +678,14 @@ export default function AuthorityDashboard() {
 
         <div className="bg-white border rounded-md">
           <div className="p-4 border-b">
-            <h2 className="font-bold text-[#003A70]">Recent Activities</h2>
+            <h2 className="font-bold text-primary">Recent Activities</h2>
           </div>
           <div className="p-4">
             <div className="space-y-4">
               <div className="flex gap-3">
                 <div className="flex-shrink-0">
                   <Avatar className="h-8 w-8">
-                    <AvatarFallback className="bg-[#003A70] text-white text-xs">
+                    <AvatarFallback className="bg-primary text-white text-xs">
                       JD
                     </AvatarFallback>
                   </Avatar>
@@ -693,7 +693,7 @@ export default function AuthorityDashboard() {
                 <div>
                   <p className="text-sm">
                     <span className="font-medium">John Doe</span> assigned{" "}
-                    <span className="text-[#003A70]">REP-1234</span> to Road
+                    <span className="text-primary">REP-1234</span> to Road
                     Maintenance Team
                   </p>
                   <p className="text-xs text-gray-500">Today, 10:30 AM</p>
@@ -702,7 +702,7 @@ export default function AuthorityDashboard() {
               <div className="flex gap-3">
                 <div className="flex-shrink-0">
                   <Avatar className="h-8 w-8">
-                    <AvatarFallback className="bg-[#003A70] text-white text-xs">
+                    <AvatarFallback className="bg-primary text-white text-xs">
                       JS
                     </AvatarFallback>
                   </Avatar>
@@ -710,7 +710,7 @@ export default function AuthorityDashboard() {
                 <div>
                   <p className="text-sm">
                     <span className="font-medium">Jane Smith</span> updated
-                    status of <span className="text-[#003A70]">REP-1230</span>{" "}
+                    status of <span className="text-primary">REP-1230</span>{" "}
                     to Resolved
                   </p>
                   <p className="text-xs text-gray-500">Today, 9:15 AM</p>
@@ -719,7 +719,7 @@ export default function AuthorityDashboard() {
               <div className="flex gap-3">
                 <div className="flex-shrink-0">
                   <Avatar className="h-8 w-8">
-                    <AvatarFallback className="bg-[#003A70] text-white text-xs">
+                    <AvatarFallback className="bg-primary text-white text-xs">
                       RJ
                     </AvatarFallback>
                   </Avatar>
@@ -727,7 +727,7 @@ export default function AuthorityDashboard() {
                 <div>
                   <p className="text-sm">
                     <span className="font-medium">Robert Johnson</span> added a
-                    note to <span className="text-[#003A70]">REP-1228</span>
+                    note to <span className="text-primary">REP-1228</span>
                   </p>
                   <p className="text-xs text-gray-500">Yesterday, 4:45 PM</p>
                 </div>
@@ -735,7 +735,7 @@ export default function AuthorityDashboard() {
               <div className="flex gap-3">
                 <div className="flex-shrink-0">
                   <Avatar className="h-8 w-8">
-                    <AvatarFallback className="bg-[#003A70] text-white text-xs">
+                    <AvatarFallback className="bg-primary text-white text-xs">
                       ML
                     </AvatarFallback>
                   </Avatar>
@@ -743,7 +743,7 @@ export default function AuthorityDashboard() {
                 <div>
                   <p className="text-sm">
                     <span className="font-medium">Mary Lee</span> created a new
-                    report <span className="text-[#003A70]">REP-1237</span>
+                    report <span className="text-primary">REP-1237</span>
                   </p>
                   <p className="text-xs text-gray-500">Yesterday, 2:30 PM</p>
                 </div>
@@ -754,7 +754,7 @@ export default function AuthorityDashboard() {
             <Button
               variant="outline"
               size="sm"
-              className="border-[#003A70] text-[#003A70]"
+              className="border-primary text-primary"
               asChild
             >
               <Link href="/authority/analytics">View All Activities</Link>
@@ -763,8 +763,8 @@ export default function AuthorityDashboard() {
         </div>
       </div>
 
-      <div className="bg-[#E6EEF4] border rounded-md p-4">
-        <h2 className="font-bold text-[#003A70] mb-2">System Notes</h2>
+      <div className="bg-muted border rounded-md p-4">
+        <h2 className="font-bold text-primary mb-2">System Notes</h2>
         <ul className="text-xs space-y-1 text-gray-700">
           <li>
             • Reports are automatically prioritized based on severity and

@@ -25,7 +25,7 @@ export default function CitizenLayout({ children }: { children: ReactNode }) {
         <main className="flex-1 container mx-auto px-4 py-6">{children}</main>
 
         {/* Footer */}
-        <footer className="bg-[#003A70] text-white py-4 mt-8">
+        <footer className="bg-primary text-white py-4 mt-8">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="text-xs">

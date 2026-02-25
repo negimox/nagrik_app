@@ -175,7 +175,7 @@ export default function ReportsPage() {
   return (
     <div className="space-y-6">
       <div className="bg-white border rounded-md p-6">
-        <h1 className="text-xl font-bold text-[#003A70] mb-4">My Reports</h1>
+        <h1 className="text-xl font-bold text-primary mb-4">My Reports</h1>
         <p className="text-sm text-gray-600">
           View and track all your submitted infrastructure reports. Monitor
           their progress and add additional information if needed.
@@ -195,7 +195,7 @@ export default function ReportsPage() {
             </div>
             <Button
               variant="outline"
-              className="gap-2 border-[#003A70] text-[#003A70]"
+              className="gap-2 border-primary text-primary"
             >
               <Filter className="h-4 w-4" />
               <span>Filter</span>
@@ -204,13 +204,13 @@ export default function ReportsPage() {
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
-              className="gap-2 border-[#003A70] text-[#003A70]"
+              className="gap-2 border-primary text-primary"
             >
               <Download className="h-4 w-4" />
               <span>Export</span>
             </Button>
             <Link href="/citizen/report">
-              <Button className="gap-2 bg-[#003A70] hover:bg-[#004d94]">
+              <Button className="gap-2 bg-primary hover:bg-primary/90">
                 <span>New Report</span>
               </Button>
             </Link>
@@ -269,7 +269,7 @@ export default function ReportsPage() {
             <p className="text-red-500 mb-2">{error}</p>
             <Button
               onClick={() => window.location.reload()}
-              className="bg-[#003A70] hover:bg-[#004d94]"
+              className="bg-primary hover:bg-primary/90"
             >
               Try Again
             </Button>
@@ -278,7 +278,7 @@ export default function ReportsPage() {
           <div className="text-center py-8">
             <p className="text-gray-500 mb-4">No reports found.</p>
             <Link href="/citizen/report">
-              <Button className="bg-[#003A70] hover:bg-[#004d94]">
+              <Button className="bg-primary hover:bg-primary/90">
                 Create Your First Report
               </Button>
             </Link>
@@ -336,7 +336,7 @@ export default function ReportsPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="text-[#003A70] border-[#003A70]"
+                          className="text-primary border-primary"
                         >
                           Details
                         </Button>
@@ -359,7 +359,7 @@ export default function ReportsPage() {
               variant="outline"
               size="icon"
               disabled
-              className="border-[#003A70] text-[#003A70]"
+              className="border-primary text-primary"
             >
               <ChevronLeft className="h-4 w-4" />
               <span className="sr-only">Previous page</span>
@@ -367,14 +367,14 @@ export default function ReportsPage() {
             <Button
               variant="outline"
               size="sm"
-              className="h-8 w-8 bg-[#003A70] text-white border-[#003A70]"
+              className="h-8 w-8 bg-primary text-white border-primary"
             >
               1
             </Button>
             <Button
               variant="outline"
               size="icon"
-              className="border-[#003A70] text-[#003A70]"
+              className="border-primary text-primary"
             >
               <ChevronRight className="h-4 w-4" />
               <span className="sr-only">Next page</span>
@@ -383,8 +383,8 @@ export default function ReportsPage() {
         </div>
       </div>
 
-      <div className="bg-[#E6EEF4] border rounded-md p-4">
-        <h2 className="font-bold text-[#003A70] mb-2">
+      <div className="bg-muted border rounded-md p-4">
+        <h2 className="font-bold text-primary mb-2">
           Report Management Notes
         </h2>
         <ul className="text-xs space-y-1 text-gray-700">

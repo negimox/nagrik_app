@@ -176,7 +176,7 @@ export default function TeamsPage() {
   return (
     <div className="space-y-6">
       <div className="bg-white border rounded-md p-6">
-        <h1 className="text-xl font-bold text-[#003A70] mb-4">
+        <h1 className="text-xl font-bold text-primary mb-4">
           Teams Management
         </h1>
         <p className="text-sm text-gray-600">
@@ -201,14 +201,14 @@ export default function TeamsPage() {
             <Button
               variant="outline"
               size="icon"
-              className="border-[#003A70] text-[#003A70]"
+              className="border-primary text-primary"
             >
               <Filter className="h-4 w-4" />
               <span className="sr-only">Filter</span>
             </Button>
           </div>
           <div>
-            <Button className="gap-2 bg-[#003A70] hover:bg-[#004d94]">
+            <Button className="gap-2 bg-primary hover:bg-primary/90">
               <Plus className="h-4 w-4" />
               <span>Add Team</span>
             </Button>
@@ -223,31 +223,31 @@ export default function TeamsPage() {
           <TabsList className="w-full justify-start p-0 bg-transparent h-auto border-b mb-4">
             <TabsTrigger
               value="all"
-              className="py-2 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+              className="py-2 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
             >
               All Teams
             </TabsTrigger>
             <TabsTrigger
               value="infrastructure"
-              className="py-2 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+              className="py-2 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
             >
               Infrastructure
             </TabsTrigger>
             <TabsTrigger
               value="utilities"
-              className="py-2 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+              className="py-2 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
             >
               Utilities
             </TabsTrigger>
             <TabsTrigger
               value="sanitation"
-              className="py-2 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+              className="py-2 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
             >
               Sanitation
             </TabsTrigger>
             <TabsTrigger
               value="parks"
-              className="py-2 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+              className="py-2 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
             >
               Parks
             </TabsTrigger>
@@ -293,7 +293,7 @@ export default function TeamsPage() {
                               src={team.lead.avatar || "/placeholder.svg"}
                               alt={team.lead.name}
                             />
-                            <AvatarFallback className="bg-[#003A70] text-white">
+                            <AvatarFallback className="bg-primary text-white">
                               {team.lead.name
                                 .split(" ")
                                 .map((n) => n[0])
@@ -413,7 +413,7 @@ export default function TeamsPage() {
                               src={team.lead.avatar || "/placeholder.svg"}
                               alt={team.lead.name}
                             />
-                            <AvatarFallback className="bg-[#003A70] text-white">
+                            <AvatarFallback className="bg-primary text-white">
                               {team.lead.name
                                 .split(" ")
                                 .map((n) => n[0])
@@ -533,7 +533,7 @@ export default function TeamsPage() {
                               src={team.lead.avatar || "/placeholder.svg"}
                               alt={team.lead.name}
                             />
-                            <AvatarFallback className="bg-[#003A70] text-white">
+                            <AvatarFallback className="bg-primary text-white">
                               {team.lead.name
                                 .split(" ")
                                 .map((n) => n[0])
@@ -652,7 +652,7 @@ export default function TeamsPage() {
                               src={team.lead.avatar || "/placeholder.svg"}
                               alt={team.lead.name}
                             />
-                            <AvatarFallback className="bg-[#003A70] text-white">
+                            <AvatarFallback className="bg-primary text-white">
                               {team.lead.name
                                 .split(" ")
                                 .map((n) => n[0])
@@ -771,7 +771,7 @@ export default function TeamsPage() {
                               src={team.lead.avatar || "/placeholder.svg"}
                               alt={team.lead.name}
                             />
-                            <AvatarFallback className="bg-[#003A70] text-white">
+                            <AvatarFallback className="bg-primary text-white">
                               {team.lead.name
                                 .split(" ")
                                 .map((n) => n[0])
@@ -866,7 +866,7 @@ export default function TeamsPage() {
                 .map((team) => (
                   <div key={team.id} className="flex items-center gap-4">
                     <Avatar className="h-10 w-10">
-                      <AvatarFallback className="bg-[#003A70] text-white">
+                      <AvatarFallback className="bg-primary text-white">
                         {team.name
                           .split(" ")
                           .map((n) => n[0])
@@ -907,7 +907,7 @@ export default function TeamsPage() {
                 .map((team) => (
                   <div key={team.id} className="flex items-center gap-4">
                     <Avatar className="h-10 w-10">
-                      <AvatarFallback className="bg-[#003A70] text-white">
+                      <AvatarFallback className="bg-primary text-white">
                         {team.name
                           .split(" ")
                           .map((n) => n[0])
@@ -933,8 +933,8 @@ export default function TeamsPage() {
         </Card>
       </div>
 
-      <div className="bg-[#E6EEF4] border rounded-md p-4">
-        <h2 className="font-bold text-[#003A70] mb-2">Team Management Notes</h2>
+      <div className="bg-muted border rounded-md p-4">
+        <h2 className="font-bold text-primary mb-2">Team Management Notes</h2>
         <ul className="text-xs space-y-1 text-gray-700">
           <li>
             • Teams are evaluated based on resolution time, quality of work, and

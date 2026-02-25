@@ -262,7 +262,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                         className={cn(
                           "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
                           message.type === "bot"
-                            ? "bg-[#003A70] text-white"
+                            ? "bg-primary text-white"
                             : "bg-gray-100"
                         )}
                       >
@@ -278,7 +278,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                       className={cn(
                         "max-w-[80%] rounded-lg p-3 text-sm",
                         message.type === "user"
-                          ? "bg-[#003A70] text-white ml-auto"
+                          ? "bg-primary text-white ml-auto"
                           : message.type === "bot"
                           ? "bg-gray-100 text-gray-900"
                           : "bg-blue-50 text-blue-900 border border-blue-200"
@@ -349,7 +349,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
 
                 {isLoading && (
                   <div className="flex gap-3 justify-start">
-                    <div className="w-8 h-8 rounded-full bg-[#003A70] text-white flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">
                       <Bot className="h-4 w-4" />
                     </div>
                     <div className="bg-gray-100 rounded-lg p-3 text-sm">

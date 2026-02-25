@@ -280,7 +280,7 @@ export default function AnalyticsPage() {
   return (
     <div className="space-y-6">
       <div className="bg-white border rounded-md p-6">
-        <h1 className="text-xl font-bold text-[#003A70] mb-4">
+        <h1 className="text-xl font-bold text-primary mb-4">
           Analytics Dashboard
         </h1>
         <p className="text-sm text-gray-600">
@@ -307,14 +307,14 @@ export default function AnalyticsPage() {
         <div className="flex items-center gap-2">
           <Button
             variant="outline"
-            className="gap-2 border-[#003A70] text-[#003A70]"
+            className="gap-2 border-primary text-primary"
           >
             <Printer className="h-4 w-4" />
             <span>Print</span>
           </Button>
           <Button
             variant="outline"
-            className="gap-2 border-[#003A70] text-[#003A70]"
+            className="gap-2 border-primary text-primary"
           >
             <Download className="h-4 w-4" />
             <span>Export</span>
@@ -393,43 +393,43 @@ export default function AnalyticsPage() {
             <TabsList className="w-full justify-start p-0 bg-transparent h-auto">
               <TabsTrigger
                 value="overview"
-                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
               >
                 Overview
               </TabsTrigger>
               <TabsTrigger
                 value="categories"
-                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
               >
                 Categories
               </TabsTrigger>
               <TabsTrigger
                 value="districts"
-                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
               >
                 Districts
               </TabsTrigger>
               <TabsTrigger
                 value="performance"
-                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
               >
                 Performance
               </TabsTrigger>
               <TabsTrigger
                 value="trends"
-                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
               >
                 Trends
               </TabsTrigger>
               <TabsTrigger
                 value="ai-insights"
-                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
               >
                 AI Insights
               </TabsTrigger>
               <TabsTrigger
                 value="policy-impact"
-                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-[#003A70] data-[state=active]:text-[#003A70] data-[state=active]:shadow-none rounded-none bg-transparent"
+                className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"
               >
                 Policy Impact
               </TabsTrigger>
@@ -566,7 +566,7 @@ export default function AnalyticsPage() {
             <div className="mt-6">
               <h3 className="text-sm font-bold mb-4">Citizen Satisfaction</h3>
               <div className="flex items-center gap-4">
-                <div className="w-24 h-24 rounded-full border-8 border-[#003A70] flex items-center justify-center">
+                <div className="w-24 h-24 rounded-full border-8 border-primary flex items-center justify-center">
                   <span className="text-2xl font-bold">
                     {overviewStats.citizenSatisfaction}%
                   </span>
@@ -596,7 +596,7 @@ export default function AnalyticsPage() {
                   <div key={category.category} className="space-y-2">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded-full bg-[#003A70]"></div>
+                        <div className="h-3 w-3 rounded-full bg-primary"></div>
                         <span className="text-sm">{category.category}</span>
                       </div>
                       <div className="flex items-center gap-2">
@@ -619,7 +619,7 @@ export default function AnalyticsPage() {
                     <Progress
                       value={category.percentage}
                       className="h-2 bg-gray-100"
-                      indicatorClassName="bg-[#003A70]"
+                      indicatorClassName="bg-primary"
                     />
                   </div>
                 ))}
@@ -685,7 +685,7 @@ export default function AnalyticsPage() {
                   <div key={district.district} className="space-y-2">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded-full bg-[#003A70]"></div>
+                        <div className="h-3 w-3 rounded-full bg-primary"></div>
                         <span className="text-sm">{district.district}</span>
                       </div>
                       <div className="flex items-center gap-2">
@@ -708,7 +708,7 @@ export default function AnalyticsPage() {
                     <Progress
                       value={district.percentage}
                       className="h-2 bg-gray-100"
-                      indicatorClassName="bg-[#003A70]"
+                      indicatorClassName="bg-primary"
                     />
                   </div>
                 ))}
@@ -1061,11 +1061,11 @@ export default function AnalyticsPage() {
                   onClick={generateAiInsights}
                   disabled={isGeneratingInsights}
                   variant="outline"
-                  className="gap-2 border-[#003A70] text-[#003A70]"
+                  className="gap-2 border-primary text-primary"
                 >
                   {isGeneratingInsights ? (
                     <>
-                      <div className="h-4 w-4 border-2 border-b-transparent border-[#003A70] rounded-full animate-spin"></div>
+                      <div className="h-4 w-4 border-2 border-b-transparent border-primary rounded-full animate-spin"></div>
                       <span>Analyzing Data...</span>
                     </>
                   ) : (
@@ -1127,15 +1127,15 @@ export default function AnalyticsPage() {
                           __html: aiGeneratedInsights
                             .replace(
                               /^#\s+(.+)$/gm,
-                              '<h2 class="text-xl font-bold text-[#003A70] mb-3">$1</h2>'
+                              '<h2 class="text-xl font-bold text-primary mb-3">$1</h2>'
                             )
                             .replace(
                               /^##\s+(.+)$/gm,
-                              '<h3 class="text-lg font-bold text-[#003A70] mb-2">$1</h3>'
+                              '<h3 class="text-lg font-bold text-primary mb-2">$1</h3>'
                             )
                             .replace(
                               /^###\s+(.+)$/gm,
-                              '<h4 class="text-base font-bold text-[#003A70] mb-2">$1</h4>'
+                              '<h4 class="text-base font-bold text-primary mb-2">$1</h4>'
                             )
                             .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
                             .replace(
@@ -1167,7 +1167,7 @@ export default function AnalyticsPage() {
                       <Button
                         onClick={generateAiInsights}
                         disabled={isGeneratingInsights}
-                        className="bg-[#003A70]"
+                        className="bg-primary"
                       >
                         {isGeneratingInsights
                           ? "Analyzing Data..."
@@ -1194,7 +1194,7 @@ export default function AnalyticsPage() {
                               key={index}
                               className="flex gap-2 p-2 border rounded-md"
                             >
-                              <span className="text-[#003A70] font-bold">
+                              <span className="text-primary font-bold">
                                 {index + 1}.
                               </span>
                               <p className="text-sm">{recommendation}</p>
@@ -1392,7 +1392,7 @@ export default function AnalyticsPage() {
             {activeInsightTypes.includes(InsightType.RESOURCE_ALLOCATION) &&
               resourceInsights && (
                 <div className="mt-6 border rounded-md p-6 bg-white">
-                  <h3 className="text-lg font-bold text-[#003A70] mb-4 flex items-center">
+                  <h3 className="text-lg font-bold text-primary mb-4 flex items-center">
                     <BarChart3 className="h-5 w-5 mr-2" />
                     Resource Allocation Insights
                   </h3>
@@ -1402,11 +1402,11 @@ export default function AnalyticsPage() {
                         __html: resourceInsights
                           .replace(
                             /^##\s+(.+)$/gm,
-                            '<h3 class="text-lg font-bold text-[#003A70] mb-2">$1</h3>'
+                            '<h3 class="text-lg font-bold text-primary mb-2">$1</h3>'
                           )
                           .replace(
                             /^###\s+(.+)$/gm,
-                            '<h4 class="text-base font-bold text-[#003A70] mb-2">$1</h4>'
+                            '<h4 class="text-base font-bold text-primary mb-2">$1</h4>'
                           )
                           .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
                           .replace(/\n\s*-\s+(.+)/g, '<li class="mb-1">$1</li>')
@@ -1431,7 +1431,7 @@ export default function AnalyticsPage() {
             {/* Geospatial Analysis */}
             {selectedDistrict === "all" && geoInsights && (
               <div className="mt-6 border rounded-md p-6 bg-white">
-                <h3 className="text-lg font-bold text-[#003A70] mb-4 flex items-center">
+                <h3 className="text-lg font-bold text-primary mb-4 flex items-center">
                   <Map className="h-5 w-5 mr-2" />
                   Geospatial Analysis
                 </h3>
@@ -1638,7 +1638,7 @@ export default function AnalyticsPage() {
                 <div className="space-y-6 relative">
                   {policyImpactData.map((policy, index) => (
                     <div key={index} className="flex gap-4">
-                      <div className="w-4 h-4 rounded-full bg-[#003A70] z-10 mt-1"></div>
+                      <div className="w-4 h-4 rounded-full bg-primary z-10 mt-1"></div>
                       <div>
                         <div className="text-sm font-bold">
                           {policy.policyName}
@@ -1664,8 +1664,8 @@ export default function AnalyticsPage() {
         <div className="grid gap-6 md:grid-cols-3">
           <div className="border rounded-md p-4 hover:bg-gray-50 transition-colors">
             <div className="flex items-center gap-2 mb-2">
-              <FileDown className="h-5 w-5 text-[#003A70]" />
-              <h4 className="font-bold text-[#003A70]">Monthly Summary</h4>
+              <FileDown className="h-5 w-5 text-primary" />
+              <h4 className="font-bold text-primary">Monthly Summary</h4>
             </div>
             <p className="text-xs text-gray-600 mb-4">
               Generate a comprehensive monthly report with key metrics and
@@ -1674,15 +1674,15 @@ export default function AnalyticsPage() {
             <Button
               variant="outline"
               size="sm"
-              className="w-full border-[#003A70] text-[#003A70]"
+              className="w-full border-primary text-primary"
             >
               Generate
             </Button>
           </div>
           <div className="border rounded-md p-4 hover:bg-gray-50 transition-colors">
             <div className="flex items-center gap-2 mb-2">
-              <FileDown className="h-5 w-5 text-[#003A70]" />
-              <h4 className="font-bold text-[#003A70]">Category Analysis</h4>
+              <FileDown className="h-5 w-5 text-primary" />
+              <h4 className="font-bold text-primary">Category Analysis</h4>
             </div>
             <p className="text-xs text-gray-600 mb-4">
               Detailed breakdown of reports by category with resolution metrics.
@@ -1690,15 +1690,15 @@ export default function AnalyticsPage() {
             <Button
               variant="outline"
               size="sm"
-              className="w-full border-[#003A70] text-[#003A70]"
+              className="w-full border-primary text-primary"
             >
               Generate
             </Button>
           </div>
           <div className="border rounded-md p-4 hover:bg-gray-50 transition-colors">
             <div className="flex items-center gap-2 mb-2">
-              <FileDown className="h-5 w-5 text-[#003A70]" />
-              <h4 className="font-bold text-[#003A70]">Team Performance</h4>
+              <FileDown className="h-5 w-5 text-primary" />
+              <h4 className="font-bold text-primary">Team Performance</h4>
             </div>
             <p className="text-xs text-gray-600 mb-4">
               Analysis of team performance metrics and workload distribution.
@@ -1706,7 +1706,7 @@ export default function AnalyticsPage() {
             <Button
               variant="outline"
               size="sm"
-              className="w-full border-[#003A70] text-[#003A70]"
+              className="w-full border-primary text-primary"
             >
               Generate
             </Button>
@@ -1714,8 +1714,8 @@ export default function AnalyticsPage() {
         </div>
       </div>
 
-      <div className="bg-[#E6EEF4] border rounded-md p-4">
-        <h2 className="font-bold text-[#003A70] mb-2">Analytics Notes</h2>
+      <div className="bg-muted border rounded-md p-4">
+        <h2 className="font-bold text-primary mb-2">Analytics Notes</h2>
         <ul className="text-xs space-y-1 text-gray-700">
           <li>• Data is updated daily at midnight.</li>
           <li>• Reports can be exported in PDF, CSV, or Excel formats.</li>

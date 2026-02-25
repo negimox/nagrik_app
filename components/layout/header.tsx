@@ -66,14 +66,14 @@ const Header = ({
   };
 
   return (
-    <header className="border-b bg-[#003A70] text-white relative">
+    <header className="border-b bg-primary text-white relative">
       <div className="container mx-auto px-4 py-3">
         {/* Main header row */}
         <div className="flex items-center justify-between">
           {/* Logo and title - stack on very small screens */}
           <div className="flex flex-wrap items-center gap-3">
             <div className="h-12 w-12 md:h-14 md:w-14 bg-white rounded-full flex items-center justify-center shrink-0">
-              <div className="h-10 w-10 md:h-12 md:w-12 bg-[#003A70] rounded-full flex items-center justify-center text-white font-bold text-xs">
+              <div className="h-10 w-10 md:h-12 md:w-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xs">
                 NAGRIK
               </div>
             </div>

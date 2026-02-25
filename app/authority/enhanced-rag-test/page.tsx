@@ -246,7 +246,7 @@ export default function EnhancedRAGTestPage() {
       <div className="space-y-8">
         {/* Header */}
         <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold text-[#003A70]">
+          <h1 className="text-4xl font-bold text-primary">
             Enhanced Authority RAG System 🇮🇳
           </h1>
           <p className="text-xl text-gray-600">

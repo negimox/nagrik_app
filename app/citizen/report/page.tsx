@@ -441,7 +441,7 @@ export default function ReportIssuePage() {
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 mb-4">
             <CheckCircle className="h-6 w-6 text-green-600" />
           </div>
-          <h1 className="text-xl font-bold text-[#003A70]">
+          <h1 className="text-xl font-bold text-primary">
             Report Submitted Successfully
           </h1>
           <p className="text-sm text-gray-600 mt-2">
@@ -474,7 +474,7 @@ export default function ReportIssuePage() {
         <div className="flex flex-col space-y-3">
           <Button
             type="button"
-            className="bg-[#003A70] hover:bg-[#004d94]"
+            className="bg-primary hover:bg-primary/90"
             asChild
           >
             <Link href="/citizen/reports">View My Reports</Link>
@@ -482,7 +482,7 @@ export default function ReportIssuePage() {
           <Button
             variant="outline"
             type="button"
-            className="border-[#003A70] text-[#003A70]"
+            className="border-primary text-primary"
             asChild
           >
             <Link href="/citizen/dashboard">Return to Dashboard</Link>
@@ -495,7 +495,7 @@ export default function ReportIssuePage() {
   return (
     <div className="max-w-2xl mx-auto">
       <div className="bg-white border rounded-md p-6 mb-6">
-        <h1 className="text-xl font-bold text-[#003A70] mb-6 pb-2 border-b-2 border-[#003A70]">
+        <h1 className="text-xl font-bold text-primary mb-6 pb-2 border-b-2 border-primary">
           Report Infrastructure Issue
         </h1>
 
@@ -505,7 +505,7 @@ export default function ReportIssuePage() {
               <div
                 className={`flex h-8 w-8 items-center justify-center rounded-full text-sm ${
                   step >= 1
-                    ? "bg-[#003A70] text-white"
+                    ? "bg-primary text-white"
                     : "border border-gray-300 text-gray-500"
                 }`}
               >
@@ -520,7 +520,7 @@ export default function ReportIssuePage() {
               <div
                 className={`flex h-8 w-8 items-center justify-center rounded-full text-sm ${
                   step >= 2
-                    ? "bg-[#003A70] text-white"
+                    ? "bg-primary text-white"
                     : "border border-gray-300 text-gray-500"
                 }`}
               >
@@ -535,7 +535,7 @@ export default function ReportIssuePage() {
               <div
                 className={`flex h-8 w-8 items-center justify-center rounded-full text-sm ${
                   step >= 3
-                    ? "bg-[#003A70] text-white"
+                    ? "bg-primary text-white"
                     : "border border-gray-300 text-gray-500"
                 }`}
               >
@@ -571,7 +571,7 @@ export default function ReportIssuePage() {
                         <Button
                           type="button"
                           variant="outline"
-                          className="border-[#003A70] text-[#003A70]"
+                          className="border-primary text-primary"
                           onClick={handleGetLocation}
                           disabled={isGettingLocation}
                         >
@@ -601,7 +601,7 @@ export default function ReportIssuePage() {
                   />
 
                   {imageData.detectedObjects.length > 0 && (
-                    <Alert className="mt-4 bg-[#E6EEF4] border-[#003A70] text-[#003A70]">
+                    <Alert className="mt-4 bg-muted border-primary text-primary">
                       <CheckCircle className="h-4 w-4" />
                       <AlertTitle>AI Analysis Complete</AlertTitle>
                       <AlertDescription className="text-xs">
@@ -619,7 +619,7 @@ export default function ReportIssuePage() {
                   <Button
                     variant="outline"
                     type="button"
-                    className="border-[#003A70] text-[#003A70]"
+                    className="border-primary text-primary"
                     asChild
                   >
                     <Link href="/citizen/dashboard">Cancel</Link>
@@ -627,7 +627,7 @@ export default function ReportIssuePage() {
                   <Button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="bg-[#003A70] hover:bg-[#004d94]"
+                    className="bg-primary hover:bg-primary/90"
                   >
                     Next
                   </Button>
@@ -749,7 +749,7 @@ export default function ReportIssuePage() {
                   <Button
                     type="button"
                     variant="outline"
-                    className="border-[#003A70] text-[#003A70]"
+                    className="border-primary text-primary"
                     onClick={() => setStep(1)}
                   >
                     Back
@@ -757,7 +757,7 @@ export default function ReportIssuePage() {
                   <Button
                     type="button"
                     onClick={() => setStep(3)}
-                    className="bg-[#003A70] hover:bg-[#004d94]"
+                    className="bg-primary hover:bg-primary/90"
                   >
                     Next
                   </Button>
@@ -813,7 +813,7 @@ export default function ReportIssuePage() {
                           {imageData.detectedObjects.map((obj, i) => (
                             <span
                               key={i}
-                              className="bg-[#E6EEF4] rounded-full px-2 py-0.5 text-xs"
+                              className="bg-muted rounded-full px-2 py-0.5 text-xs"
                             >
                               {obj.name}
                             </span>
@@ -858,14 +858,14 @@ export default function ReportIssuePage() {
                   <Button
                     type="button"
                     variant="outline"
-                    className="border-[#003A70] text-[#003A70]"
+                    className="border-primary text-primary"
                     onClick={() => setStep(2)}
                   >
                     Back
                   </Button>
                   <Button
                     type="submit"
-                    className="bg-[#003A70] hover:bg-[#004d94]"
+                    className="bg-primary hover:bg-primary/90"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Submitting..." : "Submit Report"}
@@ -877,8 +877,8 @@ export default function ReportIssuePage() {
         </Form>
       </div>
 
-      <div className="bg-[#E6EEF4] border rounded-md p-4">
-        <h2 className="font-bold text-[#003A70] mb-2">Reporting Guidelines</h2>
+      <div className="bg-muted border rounded-md p-4">
+        <h2 className="font-bold text-primary mb-2">Reporting Guidelines</h2>
         <ul className="text-xs space-y-1 text-gray-700">
           <li>• Please do not include personal information in your reports.</li>
           <li>

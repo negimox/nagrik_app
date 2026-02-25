@@ -42,7 +42,7 @@ export default function AuthorityLayout({ children }: { children: ReactNode }) {
       <AuthorityRAGChatBot />
 
       {/* Footer */}
-      <footer className="bg-[#003A70] text-white py-4 mt-8">
+      <footer className="bg-primary text-white py-4 mt-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-xs">

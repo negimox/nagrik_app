@@ -320,7 +320,7 @@ export default function ReportsPage() {
   return (
     <div className="space-y-6">
       <div className="bg-white border rounded-md p-6">
-        <h1 className="text-xl font-bold text-[#003A70] mb-4">
+        <h1 className="text-xl font-bold text-primary mb-4">
           Reports Management
         </h1>
         <p className="text-sm text-gray-600">
@@ -347,7 +347,7 @@ export default function ReportsPage() {
                 <Button
                   variant="outline"
                   size="icon"
-                  className="border-[#003A70] text-[#003A70]"
+                  className="border-primary text-primary"
                 >
                   <SlidersHorizontal className="h-4 w-4" />
                   <span className="sr-only">Filter</span>
@@ -386,7 +386,7 @@ export default function ReportsPage() {
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
-              className="gap-2 border-[#003A70] text-[#003A70]"
+              className="gap-2 border-primary text-primary"
             >
               <Download className="h-4 w-4" />
               <span>Export</span>
@@ -439,7 +439,7 @@ export default function ReportsPage() {
             <Button
               variant="outline"
               size="sm"
-              className="border-[#003A70] text-[#003A70]"
+              className="border-primary text-primary"
               onClick={clearFilters}
             >
               Clear Filters
@@ -461,7 +461,7 @@ export default function ReportsPage() {
           </div>
           <Button
             onClick={handleLocationSearch}
-            className="bg-[#003A70] hover:bg-[#004d94]"
+            className="bg-primary hover:bg-primary/90"
           >
             Search Location
           </Button>
@@ -565,7 +565,7 @@ export default function ReportsPage() {
                       ) : (
                         <div className="flex items-center gap-2">
                           <Avatar className="h-6 w-6">
-                            <AvatarFallback className="text-xs bg-[#003A70] text-white">
+                            <AvatarFallback className="text-xs bg-primary text-white">
                               {report.assignedTo
                                 .split(" ")
                                 .map((word: string) => word[0])
@@ -668,7 +668,7 @@ export default function ReportsPage() {
               variant="outline"
               size="icon"
               disabled
-              className="border-[#003A70] text-[#003A70]"
+              className="border-primary text-primary"
             >
               <ChevronLeft className="h-4 w-4" />
               <span className="sr-only">Previous page</span>
@@ -676,14 +676,14 @@ export default function ReportsPage() {
             <Button
               variant="outline"
               size="sm"
-              className="h-8 w-8 bg-[#003A70] text-white border-[#003A70]"
+              className="h-8 w-8 bg-primary text-white border-primary"
             >
               1
             </Button>
             <Button
               variant="outline"
               size="icon"
-              className="border-[#003A70] text-[#003A70]"
+              className="border-primary text-primary"
             >
               <ChevronRight className="h-4 w-4" />
               <span className="sr-only">Next page</span>
@@ -692,8 +692,8 @@ export default function ReportsPage() {
         </div>
       </div>
 
-      <div className="bg-[#E6EEF4] border rounded-md p-4">
-        <h2 className="font-bold text-[#003A70] mb-2">
+      <div className="bg-muted border rounded-md p-4">
+        <h2 className="font-bold text-primary mb-2">
           Report Management Notes
         </h2>
         <ul className="text-xs space-y-1 text-gray-700">

@@ -66,7 +66,7 @@ export default function AIImageDetectionDemo() {
                         <p className="text-lg font-medium">{obj.name}</p>
                         <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
                           <div
-                            className="bg-[#003A70] h-2.5 rounded-full"
+                            className="bg-primary h-2.5 rounded-full"
                             style={{ width: `${obj.confidence}%` }}
                           ></div>
                         </div>

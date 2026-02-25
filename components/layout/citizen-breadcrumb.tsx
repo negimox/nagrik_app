@@ -9,13 +9,13 @@ export default function CitizenBreadcrumb() {
   return (
     <div className="container mx-auto px-4 py-2">
       <div className="text-xs flex items-center gap-2">
-        <Link href="/" className="text-[#003A70] hover:underline">
+        <Link href="/" className="text-primary hover:underline">
           Home
         </Link>
         <span>{">"}</span>
         <Link
           href="/citizen/dashboard"
-          className="text-[#003A70] hover:underline"
+          className="text-primary hover:underline"
         >
           Citizen Portal
         </Link>

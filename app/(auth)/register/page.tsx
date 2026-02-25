@@ -242,7 +242,7 @@ export default function RegisterPage() {
       {/* Breadcrumb */}
       <div className="container mx-auto px-4 py-2">
         <div className="text-xs flex items-center gap-2">
-          <Link href="/" className="text-[#003A70] hover:underline">
+          <Link href="/" className="text-primary hover:underline">
             Home
           </Link>
           <span>{">"}</span>
@@ -253,7 +253,7 @@ export default function RegisterPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-md mx-auto">
           <div className="bg-white p-6 border rounded-md shadow-sm">
-            <h1 className="text-xl font-bold text-[#003A70] mb-6 pb-2 border-b-2 border-[#003A70]">
+            <h1 className="text-xl font-bold text-primary mb-6 pb-2 border-b-2 border-primary">
               System Register
             </h1>
 
@@ -265,13 +265,13 @@ export default function RegisterPage() {
               <TabsList className="grid w-full grid-cols-2 mb-6">
                 <TabsTrigger
                   value="citizen"
-                  className="data-[state=active]:bg-[#003A70] data-[state=active]:text-white"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-white"
                 >
                   Citizen
                 </TabsTrigger>
                 <TabsTrigger
                   value="authority"
-                  className="data-[state=active]:bg-[#003A70] data-[state=active]:text-white"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-white"
                 >
                   Authority
                 </TabsTrigger>
@@ -328,7 +328,7 @@ export default function RegisterPage() {
                     <div className="pt-2">
                       <Button
                         type="submit"
-                        className="w-full bg-[#003A70] hover:bg-[#004d94]"
+                        className="w-full bg-primary hover:bg-primary/90"
                         disabled={isLoading}
                       >
                         {isLoading ? "Signing up..." : "Sign Up"}
@@ -339,7 +339,7 @@ export default function RegisterPage() {
                       Have an account?{" "}
                       <Link
                         href="/login"
-                        className="text-[#003A70] hover:underline"
+                        className="text-primary hover:underline"
                       >
                         Login
                       </Link>
@@ -468,7 +468,7 @@ export default function RegisterPage() {
                     <div className="pt-2">
                       <Button
                         type="submit"
-                        className="w-full bg-[#003A70] hover:bg-[#004d94]"
+                        className="w-full bg-primary hover:bg-primary/90"
                         disabled={isLoading}
                       >
                         {isLoading ? "Signing up..." : "Sign Up"}
@@ -479,7 +479,7 @@ export default function RegisterPage() {
                       Have an account?{" "}
                       <Link
                         href="/login"
-                        className="text-[#003A70] hover:underline"
+                        className="text-primary hover:underline"
                       >
                         Login
                       </Link>
@@ -506,7 +506,7 @@ export default function RegisterPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-[#003A70] text-white py-4 mt-8">
+      <footer className="bg-primary text-white py-4 mt-8">
         <div className="container mx-auto px-4 text-center text-xs">
           <p>
             © {new Date().getFullYear()} City Government - Infrastructure

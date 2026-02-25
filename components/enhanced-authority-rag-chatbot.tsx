@@ -305,7 +305,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
         <Button
           onClick={() => setIsOpen(true)}
           size="lg"
-          className="rounded-full h-16 w-16 shadow-lg hover:shadow-xl transition-all duration-200 bg-gradient-to-r from-[#003A70] to-[#0056B3] hover:from-[#002654] hover:to-[#003D82]"
+          className="rounded-full h-16 w-16 shadow-lg hover:shadow-xl transition-all duration-200 bg-gradient-to-r from-primary to-[#0056B3] hover:from-[#002654] hover:to-[#003D82]"
         >
           <div className="flex flex-col items-center">
             <MessageCircle className="h-6 w-6" />
@@ -320,12 +320,12 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
     <div className={cn("fixed bottom-6 right-6 z-50", className)}>
       <Card
         className={cn(
-          "w-[420px] shadow-2xl transition-all duration-300 border-2 border-[#003A70]/20",
+          "w-[420px] shadow-2xl transition-all duration-300 border-2 border-primary/20",
           isMinimized ? "h-20" : "h-[700px]"
         )}
       >
         {/* Enhanced Header */}
-        <CardHeader className="pb-3 bg-gradient-to-r from-[#003A70] to-[#0056B3] text-white rounded-t-lg">
+        <CardHeader className="pb-3 bg-gradient-to-r from-primary to-[#0056B3] text-white rounded-t-lg">
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center gap-2 text-lg">
               <Database className="h-5 w-5" />
@@ -447,7 +447,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                         className={cn(
                           "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
                           message.type === "bot"
-                            ? "bg-gradient-to-r from-[#003A70] to-[#0056B3] text-white"
+                            ? "bg-gradient-to-r from-primary to-[#0056B3] text-white"
                             : "bg-gray-100"
                         )}
                       >
@@ -463,7 +463,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                       className={cn(
                         "max-w-[85%] rounded-lg p-3 text-sm",
                         message.type === "user"
-                          ? "bg-gradient-to-r from-[#003A70] to-[#0056B3] text-white ml-auto"
+                          ? "bg-gradient-to-r from-primary to-[#0056B3] text-white ml-auto"
                           : message.type === "bot"
                           ? "bg-gray-50 text-gray-900 border border-gray-200"
                           : "bg-blue-50 text-blue-900 border border-blue-200"
@@ -612,7 +612,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
 
                 {isLoading && (
                   <div className="flex gap-3 justify-start">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#003A70] to-[#0056B3] text-white flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-[#0056B3] text-white flex items-center justify-center">
                       <Bot className="h-4 w-4" />
                     </div>
                     <div className="bg-gray-50 rounded-lg p-3 text-sm border border-gray-200">
@@ -664,13 +664,13 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                       : "Ask about infrastructure issues..."
                   }
                   disabled={isLoading}
-                  className="flex-1 border-gray-300 focus:border-[#003A70]"
+                  className="flex-1 border-gray-300 focus:border-primary"
                 />
                 <Button
                   onClick={handleSendMessage}
                   disabled={!inputMessage.trim() || isLoading}
                   size="sm"
-                  className="px-3 bg-gradient-to-r from-[#003A70] to-[#0056B3] hover:from-[#002654] hover:to-[#003D82]"
+                  className="px-3 bg-gradient-to-r from-primary to-[#0056B3] hover:from-[#002654] hover:to-[#003D82]"
                 >
                   <Send className="h-4 w-4" />
                 </Button>

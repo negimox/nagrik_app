@@ -17,9 +17,9 @@ export default function Navigation() {
         <div className="flex overflow-x-auto">
           <Link
             href="/authority/dashboard"
-            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-[#003A70] hover:border-[#003A70] transition-colors ${
+            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-primary hover:border-primary transition-colors ${
               isActive("/authority/dashboard")
-                ? "border-[#003A70] text-[#003A70]"
+                ? "border-primary text-primary"
                 : "border-transparent"
             }`}
           >
@@ -27,9 +27,9 @@ export default function Navigation() {
           </Link>
           <Link
             href="/authority/reports"
-            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-[#003A70] hover:border-[#003A70] transition-colors ${
+            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-primary hover:border-primary transition-colors ${
               isActive("/authority/reports")
-                ? "border-[#003A70] text-[#003A70]"
+                ? "border-primary text-primary"
                 : "border-transparent"
             }`}
           >
@@ -37,9 +37,9 @@ export default function Navigation() {
           </Link>
           <Link
             href="/authority/map"
-            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-[#003A70] hover:border-[#003A70] transition-colors ${
+            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-primary hover:border-primary transition-colors ${
               isActive("/authority/map")
-                ? "border-[#003A70] text-[#003A70]"
+                ? "border-primary text-primary"
                 : "border-transparent"
             }`}
           >
@@ -47,9 +47,9 @@ export default function Navigation() {
           </Link>
           <Link
             href="/authority/analytics"
-            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-[#003A70] hover:border-[#003A70] transition-colors ${
+            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-primary hover:border-primary transition-colors ${
               isActive("/authority/analytics")
-                ? "border-[#003A70] text-[#003A70]"
+                ? "border-primary text-primary"
                 : "border-transparent"
             }`}
           >
@@ -57,9 +57,9 @@ export default function Navigation() {
           </Link>
           <Link
             href="/authority/teams"
-            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-[#003A70] hover:border-[#003A70] transition-colors ${
+            className={`py-3 px-4 text-sm font-medium border-b-2 whitespace-nowrap hover:text-primary hover:border-primary transition-colors ${
               isActive("/authority/teams")
-                ? "border-[#003A70] text-[#003A70]"
+                ? "border-primary text-primary"
                 : "border-transparent"
             }`}
           >
@@ -67,9 +67,9 @@ export default function Navigation() {
           </Link>
           <Link
             href="/authority/nagrik-ai"
-            className={`flex flex-row py-3 px-4 text-sm font-bold border-b-2 whitespace-nowrap hover:text-[#003A70] hover:border-[#003A70] transition-colors bg-gradient-to-r from-primary to-blue-800 bg-clip-text text-transparent ${
+            className={`flex flex-row py-3 px-4 text-sm font-bold border-b-2 whitespace-nowrap hover:text-primary hover:border-primary transition-colors bg-gradient-to-r from-primary to-blue-800 bg-clip-text text-transparent ${
               isActive("/authority/uttarakhand-rag-test")
-                ? "border-[#003A70] text-[#003A70]"
+                ? "border-primary text-primary"
                 : "border-transparent"
             }`}
           >
