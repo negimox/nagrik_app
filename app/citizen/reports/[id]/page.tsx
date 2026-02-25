@@ -99,7 +99,7 @@ export default function ReportDetailsPage() {
         return (
           <Badge
             variant="outline"
-            className="bg-gray-100 text-gray-800 border-gray-300"
+            className="bg-muted/50 text-foreground border-border"
           >
             Pending
           </Badge>
@@ -173,7 +173,7 @@ export default function ReportDetailsPage() {
 
   if (isLoading) {
     return (
-      <div className="bg-white border rounded-md p-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6">
         <DetailSkeleton />
       </div>
     );
@@ -181,11 +181,11 @@ export default function ReportDetailsPage() {
 
   if (error || !report) {
     return (
-      <div className="bg-white border rounded-md p-6 text-center">
+      <div className="bg-card text-card-foreground border rounded-md p-6 text-center">
         <h2 className="text-xl font-bold text-red-500 mb-2">
           Error Loading Report
         </h2>
-        <p className="text-gray-600 mb-4">{error || "Report not found"}</p>
+        <p className="text-muted-foreground mb-4">{error || "Report not found"}</p>
         <Link href="/citizen/reports">
           <Button className="bg-primary hover:bg-primary/90">
             Return to Reports
@@ -197,7 +197,7 @@ export default function ReportDetailsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border rounded-md p-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6">
         <div className="flex items-center gap-2 mb-4">
           <Link href="/citizen/reports">
             <Button
@@ -213,7 +213,7 @@ export default function ReportDetailsPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h1 className="text-xl font-bold text-primary">{report.title}</h1>
-            <div className="flex items-center gap-2 mt-1 text-sm text-gray-600">
+            <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
               <span>Report #{report.id}</span>
               <span>•</span>
               <span>{report.category}</span>
@@ -226,7 +226,7 @@ export default function ReportDetailsPage() {
         </div>
       </div>
 
-      <div className="bg-white border rounded-md p-4">
+      <div className="bg-card text-card-foreground border rounded-md p-4">
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="grid w-full grid-cols-3 mb-4">
             <TabsTrigger value="details">Details</TabsTrigger>
@@ -238,42 +238,42 @@ export default function ReportDetailsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-500">
+                  <h3 className="text-sm font-semibold text-muted-foreground">
                     Description
                   </h3>
                   <p className="mt-1 text-sm">{report.description}</p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <h3 className="text-xs font-semibold text-gray-500">
+                    <h3 className="text-xs font-semibold text-muted-foreground">
                       Date Reported
                     </h3>
                     <p className="mt-1 flex items-center gap-1 text-sm">
-                      <Calendar className="h-3 w-3 text-gray-400" />
+                      <Calendar className="h-3 w-3 text-muted-foreground" />
                       <span>{report.date}</span>
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-xs font-semibold text-gray-500">
+                    <h3 className="text-xs font-semibold text-muted-foreground">
                       Time
                     </h3>
                     <p className="mt-1 flex items-center gap-1 text-sm">
-                      <Clock className="h-3 w-3 text-gray-400" />
+                      <Clock className="h-3 w-3 text-muted-foreground" />
                       <span>{report.time}</span>
                     </p>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xs font-semibold text-gray-500">
+                  <h3 className="text-xs font-semibold text-muted-foreground">
                     Location
                   </h3>
                   <p className="mt-1 flex items-center gap-1 text-sm">
-                    <MapPin className="h-3 w-3 text-gray-400" />
+                    <MapPin className="h-3 w-3 text-muted-foreground" />
                     <span>{report.location}</span>
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-xs font-semibold text-gray-500">
+                  <h3 className="text-xs font-semibold text-muted-foreground">
                     GPS Coordinates
                   </h3>
                   <p className="mt-1 text-sm">{report.coordinates}</p>
@@ -282,34 +282,34 @@ export default function ReportDetailsPage() {
 
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-500">
+                  <h3 className="text-sm font-semibold text-muted-foreground">
                     Report Status
                   </h3>
                   <div className="mt-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 text-gray-500 font-bold text-sm">
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-muted/50 text-muted-foreground font-bold text-sm">
                         1
                       </div>
                       <div className="flex-1">
                         <div className="h-2 rounded-full bg-green-500"></div>
                       </div>
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 text-gray-500 font-bold text-sm">
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-muted/50 text-muted-foreground font-bold text-sm">
                         2
                       </div>
                       <div className="flex-1">
                         <div className="h-2 rounded-full bg-green-500"></div>
                       </div>
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 text-gray-500 font-bold text-sm">
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-muted/50 text-muted-foreground font-bold text-sm">
                         3
                       </div>
                       <div className="flex-1">
                         <div className="h-2 rounded-full bg-yellow-500"></div>
                       </div>
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white text-gray-300 border border-gray-300 font-bold text-sm">
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-card text-card-foreground text-gray-300 border border-border font-bold text-sm">
                         4
                       </div>
                     </div>
-                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                    <div className="flex justify-between text-xs text-muted-foreground mt-1">
                       <span>Submitted</span>
                       <span>Assigned</span>
                       <span>In Progress</span>
@@ -319,13 +319,13 @@ export default function ReportDetailsPage() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <h3 className="text-xs font-semibold text-gray-500">
+                    <h3 className="text-xs font-semibold text-muted-foreground">
                       Submitted By
                     </h3>
                     <p className="mt-1 text-sm">{report.submittedBy}</p>
                   </div>
                   <div>
-                    <h3 className="text-xs font-semibold text-gray-500">
+                    <h3 className="text-xs font-semibold text-muted-foreground">
                       Assigned To
                     </h3>
                     <p className="mt-1 text-sm">
@@ -334,7 +334,7 @@ export default function ReportDetailsPage() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xs font-semibold text-gray-500">
+                  <h3 className="text-xs font-semibold text-muted-foreground">
                     Estimated Completion
                   </h3>
                   <p className="mt-1 text-sm">
@@ -351,16 +351,16 @@ export default function ReportDetailsPage() {
                 <div key={index} className="border rounded-md p-3 space-y-2">
                   <div className="flex justify-between">
                     <div className="text-sm font-medium">{update.status}</div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-muted-foreground">
                       {update.date} at {update.time}
                     </div>
                   </div>
                   <p className="text-sm">{update.comment}</p>
-                  <p className="text-xs text-gray-500">By: {update.by}</p>
+                  <p className="text-xs text-muted-foreground">By: {update.by}</p>
                 </div>
               ))
             ) : (
-              <div className="text-center py-8 text-gray-500">
+              <div className="text-center py-8 text-muted-foreground">
                 No updates available for this report.
               </div>
             )}
@@ -383,7 +383,7 @@ export default function ReportDetailsPage() {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-8 text-gray-500">
+              <div className="text-center py-8 text-muted-foreground">
                 No images available for this report.
               </div>
             )}
@@ -393,7 +393,7 @@ export default function ReportDetailsPage() {
 
       {/* <div className="bg-muted border rounded-md p-4">
         <h2 className="font-bold text-primary mb-2">Need Help?</h2>
-        <p className="text-xs text-gray-700 mb-2">
+        <p className="text-xs text-foreground mb-2">
           If you have questions about this report or need to provide additional
           information, please contact us.
         </p>

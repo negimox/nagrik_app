@@ -87,7 +87,7 @@ export function NotificationsMenu() {
       case "high_priority_issue":
         return <AlertCircle className="h-4 w-4 text-red-500" />;
       default:
-        return <Bell className="h-4 w-4 text-gray-500" />;
+        return <Bell className="h-4 w-4 text-muted-foreground" />;
     }
   };
 
@@ -137,11 +137,11 @@ export function NotificationsMenu() {
                           {notification.title}
                         </span>
                       </div>
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-muted-foreground">
                         {formatNotificationTime(notification.createdAt)}
                       </span>
                     </div>
-                    <p className="text-xs text-gray-600 mt-1">
+                    <p className="text-xs text-muted-foreground mt-1">
                       {notification.message}
                     </p>
                     <div className="flex justify-end gap-2 w-full mt-2">
@@ -174,8 +174,8 @@ export function NotificationsMenu() {
           </ScrollArea>
         ) : (
           <div className="py-6 text-center">
-            <Bell className="mx-auto h-8 w-8 text-gray-400 mb-2" />
-            <p className="text-sm text-gray-500">No notifications</p>
+            <Bell className="mx-auto h-8 w-8 text-muted-foreground mb-2" />
+            <p className="text-sm text-muted-foreground">No notifications</p>
           </div>
         )}
       </DropdownMenuContent>

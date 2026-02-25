@@ -11,7 +11,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="mb-8 text-center">
             <h1 className="text-3xl font-bold text-primary mb-4">Contact Us</h1>
-            <p className="text-gray-600">
+            <p className="text-muted-foreground">
               Uttarakhand Government Helpline Numbers & Support
             </p>
           </div>
@@ -27,23 +27,23 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-between items-center border-b pb-2">
-                  <span className="font-medium text-gray-700">CM Helpline</span>
+                  <span className="font-medium text-foreground">CM Helpline</span>
                   <span className="font-bold text-primary bg-blue-50 px-3 py-1 rounded">1905</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-2">
-                  <span className="font-medium text-gray-700">Police Assistance</span>
+                  <span className="font-medium text-foreground">Police Assistance</span>
                   <span className="font-bold text-primary bg-blue-50 px-3 py-1 rounded">112 / 100</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-2">
-                  <span className="font-medium text-gray-700">Fire & Ambulance</span>
+                  <span className="font-medium text-foreground">Fire & Ambulance</span>
                   <span className="font-bold text-primary bg-blue-50 px-3 py-1 rounded">108 / 112 / 101</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-2">
-                  <span className="font-medium text-gray-700">Women Helpline</span>
+                  <span className="font-medium text-foreground">Women Helpline</span>
                   <span className="font-bold text-primary bg-blue-50 px-3 py-1 rounded">1090</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-700">Disaster Management</span>
+                  <span className="font-medium text-foreground">Disaster Management</span>
                   <span className="font-bold text-primary bg-blue-50 px-3 py-1 rounded">1070</span>
                 </div>
               </CardContent>
@@ -57,7 +57,7 @@ export default function ContactPage() {
                     Head Office
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="text-gray-600 text-sm leading-relaxed">
+                <CardContent className="text-muted-foreground text-sm leading-relaxed">
                   <strong>Nagar Nigam Dehradun</strong><br />
                   Patel Bhavan, 1, New Road,<br />
                   Near Doon Hospital, Dehradun<br />
@@ -72,7 +72,7 @@ export default function ContactPage() {
                     Email Support
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="text-gray-600 text-sm">
+                <CardContent className="text-muted-foreground text-sm">
                   <p className="mb-2">For portal issues or technical support:</p>
                   <a href="mailto:support@nagrik.uk.gov.in" className="text-blue-600 hover:underline font-medium">
                     e-helpdesk.uk.gov.in

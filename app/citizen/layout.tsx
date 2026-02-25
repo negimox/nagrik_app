@@ -7,11 +7,12 @@ import CitizenNavigation from "@/components/layout/citizen-navigation";
 import CitizenBreadcrumb from "@/components/layout/citizen-breadcrumb";
 import { CitizenRAGChatBot } from "@/components/citizen-rag-chatbot";
 import { CitizenVoiceAssistant } from "@/components/citizen-voice-assistant";
+import Footer from "@/components/layout/footer";
 
 export default function CitizenLayout({ children }: { children: ReactNode }) {
   return (
     <ReportProvider>
-      <div className="flex min-h-screen flex-col bg-[#F0F0F0]">
+      <div className="flex min-h-screen flex-col bg-background">
         {/* Header */}
         <Header showLogout={true} />
 
@@ -25,30 +26,7 @@ export default function CitizenLayout({ children }: { children: ReactNode }) {
         <main className="flex-1 container mx-auto px-4 py-6">{children}</main>
 
         {/* Footer */}
-        <footer className="bg-primary text-white py-4 mt-8">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="text-xs">
-                © {new Date().getFullYear()} City Government - Infrastructure
-                Monitoring System. All Rights Reserved.
-              </div>
-              <div className="flex gap-4 text-xs">
-                <Link href="/terms-of-use" className="hover:underline">
-                  Terms of Use
-                </Link>
-                <Link href="/privacy-policy" className="hover:underline">
-                  Privacy Policy
-                </Link>
-                <Link href="/contact" className="hover:underline">
-                  Contact Us
-                </Link>
-                <Link href="/help" className="hover:underline">
-                  Help
-                </Link>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
 
         {/* Voice Assistant - positioned to the left of chatbot */}
         <CitizenVoiceAssistant />

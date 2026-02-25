@@ -34,3 +34,4 @@ firebase-debug.log
 # Extra Files
 Project Demo/
 *.zip
+.DS_Store

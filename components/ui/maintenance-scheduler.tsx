@@ -129,7 +129,7 @@ export function MaintenanceScheduler({
               id="issue"
               value={detectedIssue ? detectedIssue.name : ""}
               disabled
-              className="bg-gray-50"
+              className="bg-muted/50"
             />
           </div>
 

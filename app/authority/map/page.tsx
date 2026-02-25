@@ -243,20 +243,20 @@ export default function MapPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border rounded-md p-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6">
         <h1 className="text-xl font-bold text-primary mb-4">Issue Map</h1>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-muted-foreground">
           View and manage infrastructure issues geographically. Filter by
           category, status, or priority.
         </p>
       </div>
-      <div className="bg-white border rounded-md">
+      <div className="bg-card text-card-foreground border rounded-md">
         <div className="p-4 border-b flex items-center justify-between">
           <h2 className="font-bold text-primary">Map View</h2>
           <div className="flex items-center gap-2">
             {" "}
             <div className="relative">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -266,7 +266,7 @@ export default function MapPage() {
                 <input
                   type="search"
                   placeholder="Search location..."
-                  className="h-9 w-[200px] rounded-md border border-gray-300 bg-white pl-8 pr-3 text-sm"
+                  className="h-9 w-[200px] rounded-md border border-border bg-card text-card-foreground pl-8 pr-3 text-sm"
                   value={locationFilter}
                   onChange={(e) => setLocationFilter(e.target.value)}
                   onKeyDown={(e) => {
@@ -429,17 +429,17 @@ export default function MapPage() {
             </div>
           </div>
         </div>{" "}
-        <div className="relative bg-gray-100 h-[600px]">
+        <div className="relative bg-muted/50 h-[600px]">
           {" "}
           {/* Loading state */}
           {isLoading && (
-            <div className="absolute inset-0 z-10 bg-gray-100">
+            <div className="absolute inset-0 z-10 bg-muted/50">
               <MapSkeleton />
             </div>
           )}
           {/* Error state */}
           {error && !isLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
               <div className="max-w-md p-4 text-center">
                 <p className="text-red-500 mb-2">{error}</p>
                 <Button
@@ -455,7 +455,7 @@ export default function MapPage() {
           {/* Map component will be inserted at the bottom of the page */}
           {/* Placeholder when no markers are found */}
           {!isLoading && !error && mapMarkers.length === 0 && (
-            <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
+            <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
               <div className="text-center">
                 <MapPin className="w-8 h-8 mx-auto mb-2 opacity-30" />
                 <p>No issues found for the selected filters</p>
@@ -495,7 +495,7 @@ export default function MapPage() {
                       <CardDescription>
                         {mapMarkers.find((m) => m.id === selectedIssue)
                           ?.location || "Unknown Location"}
-                        <span className="text-xs ml-2 text-gray-500">
+                        <span className="text-xs ml-2 text-muted-foreground">
                           ID: {selectedIssue}
                         </span>
                       </CardDescription>
@@ -513,7 +513,7 @@ export default function MapPage() {
                 <CardContent className="pb-2">
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div>
-                      <p className="text-gray-500">Status</p>
+                      <p className="text-muted-foreground">Status</p>
                       <div>
                         {getStatusBadge(
                           mapMarkers.find((m) => m.id === selectedIssue)
@@ -522,7 +522,7 @@ export default function MapPage() {
                       </div>
                     </div>
                     <div>
-                      <p className="text-gray-500">Priority</p>
+                      <p className="text-muted-foreground">Priority</p>
                       <div>
                         {getPriorityBadge(
                           mapMarkers.find((m) => m.id === selectedIssue)
@@ -531,14 +531,14 @@ export default function MapPage() {
                       </div>
                     </div>
                     <div>
-                      <p className="text-gray-500">Category</p>
+                      <p className="text-muted-foreground">Category</p>
                       <p>
                         {mapMarkers.find((m) => m.id === selectedIssue)
                           ?.category || "Other"}
                       </p>
                     </div>
                     <div>
-                      <p className="text-gray-500">Reported</p>
+                      <p className="text-muted-foreground">Reported</p>
                       <p>
                         {mapMarkers.find((m) => m.id === selectedIssue)?.date ||
                           "Unknown"}
@@ -560,7 +560,7 @@ export default function MapPage() {
                           "Additional details about this issue would be displayed here, including description, reporter information, and any attached media."}
                       </p>
                       <div className="mt-2">
-                        <p className="text-gray-500 text-xs">Coordinates</p>
+                        <p className="text-muted-foreground text-xs">Coordinates</p>
                         <p className="text-xs">
                           Lat:{" "}
                           {mapMarkers
@@ -609,7 +609,7 @@ export default function MapPage() {
                             ?.updates?.map((update: any, idx: number) => (
                               <div
                                 key={idx}
-                                className="border-l-2 border-gray-200 pl-2"
+                                className="border-l-2 border-border pl-2"
                               >
                                 <p className="font-medium">
                                   {update.date} {update.time}
@@ -617,11 +617,11 @@ export default function MapPage() {
                                 <p>
                                   {update.status}: {update.comment}
                                 </p>
-                                <p className="text-gray-500">By: {update.by}</p>
+                                <p className="text-muted-foreground">By: {update.by}</p>
                               </div>
                             ))
                         ) : (
-                          <p className="text-gray-500">
+                          <p className="text-muted-foreground">
                             No activity recorded yet
                           </p>
                         )}
@@ -636,7 +636,7 @@ export default function MapPage() {
       </div>{" "}
       <div className="bg-muted border rounded-md p-4">
         <h2 className="font-bold text-primary mb-2">Map Usage Notes</h2>
-        <ul className="text-xs space-y-1 text-gray-700">
+        <ul className="text-xs space-y-1 text-foreground">
           <li>• Click on map markers to view issue details.</li>
           <li>
             • Use the filter button to customize which issues are displayed.

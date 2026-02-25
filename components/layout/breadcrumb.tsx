@@ -20,7 +20,7 @@ export default function Breadcrumb() {
           Authority Portal
         </Link>
         <span>{">"}</span>
-        <span className="text-gray-600">
+        <span className="text-muted-foreground">
           {(() => {
             const segment = pathname.split("/").pop();
             return segment

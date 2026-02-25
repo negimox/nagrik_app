@@ -175,25 +175,25 @@ export default function TeamsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border rounded-md p-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6">
         <h1 className="text-xl font-bold text-primary mb-4">
           Teams Management
         </h1>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-muted-foreground">
           Manage and monitor all teams responsible for infrastructure
           maintenance and issue resolution.
         </p>
       </div>
 
-      <div className="bg-white border rounded-md p-4">
+      <div className="bg-card text-card-foreground border rounded-md p-4">
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between mb-4">
           <div className="flex flex-1 items-center gap-2">
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search teams..."
-                className="pl-8 w-full border-gray-300"
+                className="pl-8 w-full border-border"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -256,34 +256,34 @@ export default function TeamsPage() {
           <TabsContent value="all" className="mt-0">
             <div className="rounded-md border">
               <Table>
-                <TableHeader className="bg-gray-50">
+                <TableHeader className="bg-muted/50">
                   <TableRow>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Team Name
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Department
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Team Lead
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Members
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Active Reports
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Performance
                     </TableHead>
-                    <TableHead className="text-right font-medium text-gray-500">
+                    <TableHead className="text-right font-medium text-muted-foreground">
                       Actions
                     </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredTeams.map((team) => (
-                    <TableRow key={team.id} className="hover:bg-gray-50">
+                    <TableRow key={team.id} className="hover:bg-muted/50">
                       <TableCell className="font-medium">{team.name}</TableCell>
                       <TableCell>{team.department}</TableCell>
                       <TableCell>
@@ -304,7 +304,7 @@ export default function TeamsPage() {
                             <div className="font-medium text-sm">
                               {team.lead.name}
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs text-muted-foreground">
                               {team.lead.position}
                             </div>
                           </div>
@@ -312,7 +312,7 @@ export default function TeamsPage() {
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
-                          <Users className="h-3 w-3 text-gray-400" />
+                          <Users className="h-3 w-3 text-muted-foreground" />
                           <span>{team.members}</span>
                         </div>
                       </TableCell>
@@ -376,34 +376,34 @@ export default function TeamsPage() {
             {/* Same table structure as above, but only showing infrastructure teams */}
             <div className="rounded-md border">
               <Table>
-                <TableHeader className="bg-gray-50">
+                <TableHeader className="bg-muted/50">
                   <TableRow>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Team Name
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Department
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Team Lead
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Members
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Active Reports
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Performance
                     </TableHead>
-                    <TableHead className="text-right font-medium text-gray-500">
+                    <TableHead className="text-right font-medium text-muted-foreground">
                       Actions
                     </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredTeams.map((team) => (
-                    <TableRow key={team.id} className="hover:bg-gray-50">
+                    <TableRow key={team.id} className="hover:bg-muted/50">
                       <TableCell className="font-medium">{team.name}</TableCell>
                       <TableCell>{team.department}</TableCell>
                       <TableCell>
@@ -424,7 +424,7 @@ export default function TeamsPage() {
                             <div className="font-medium text-sm">
                               {team.lead.name}
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs text-muted-foreground">
                               {team.lead.position}
                             </div>
                           </div>
@@ -432,7 +432,7 @@ export default function TeamsPage() {
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
-                          <Users className="h-3 w-3 text-gray-400" />
+                          <Users className="h-3 w-3 text-muted-foreground" />
                           <span>{team.members}</span>
                         </div>
                       </TableCell>
@@ -496,34 +496,34 @@ export default function TeamsPage() {
             {/* Same table structure but filtered for utilities teams */}
             <div className="rounded-md border">
               <Table>
-                <TableHeader className="bg-gray-50">
+                <TableHeader className="bg-muted/50">
                   <TableRow>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Team Name
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Department
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Team Lead
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Members
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Active Reports
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Performance
                     </TableHead>
-                    <TableHead className="text-right font-medium text-gray-500">
+                    <TableHead className="text-right font-medium text-muted-foreground">
                       Actions
                     </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredTeams.map((team) => (
-                    <TableRow key={team.id} className="hover:bg-gray-50">
+                    <TableRow key={team.id} className="hover:bg-muted/50">
                       <TableCell className="font-medium">{team.name}</TableCell>
                       <TableCell>{team.department}</TableCell>
                       <TableCell>
@@ -544,7 +544,7 @@ export default function TeamsPage() {
                             <div className="font-medium text-sm">
                               {team.lead.name}
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs text-muted-foreground">
                               {team.lead.position}
                             </div>
                           </div>
@@ -552,7 +552,7 @@ export default function TeamsPage() {
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
-                          <Users className="h-3 w-3 text-gray-400" />
+                          <Users className="h-3 w-3 text-muted-foreground" />
                           <span>{team.members}</span>
                         </div>
                       </TableCell>
@@ -615,34 +615,34 @@ export default function TeamsPage() {
             {/* Same table structure but filtered for sanitation teams */}
             <div className="rounded-md border">
               <Table>
-                <TableHeader className="bg-gray-50">
+                <TableHeader className="bg-muted/50">
                   <TableRow>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Team Name
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Department
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Team Lead
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Members
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Active Reports
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Performance
                     </TableHead>
-                    <TableHead className="text-right font-medium text-gray-500">
+                    <TableHead className="text-right font-medium text-muted-foreground">
                       Actions
                     </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredTeams.map((team) => (
-                    <TableRow key={team.id} className="hover:bg-gray-50">
+                    <TableRow key={team.id} className="hover:bg-muted/50">
                       <TableCell className="font-medium">{team.name}</TableCell>
                       <TableCell>{team.department}</TableCell>
                       <TableCell>
@@ -663,7 +663,7 @@ export default function TeamsPage() {
                             <div className="font-medium text-sm">
                               {team.lead.name}
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs text-muted-foreground">
                               {team.lead.position}
                             </div>
                           </div>
@@ -671,7 +671,7 @@ export default function TeamsPage() {
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
-                          <Users className="h-3 w-3 text-gray-400" />
+                          <Users className="h-3 w-3 text-muted-foreground" />
                           <span>{team.members}</span>
                         </div>
                       </TableCell>
@@ -734,34 +734,34 @@ export default function TeamsPage() {
             {/* Same table structure but filtered for parks teams */}
             <div className="rounded-md border">
               <Table>
-                <TableHeader className="bg-gray-50">
+                <TableHeader className="bg-muted/50">
                   <TableRow>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Team Name
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Department
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Team Lead
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Members
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Active Reports
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Performance
                     </TableHead>
-                    <TableHead className="text-right font-medium text-gray-500">
+                    <TableHead className="text-right font-medium text-muted-foreground">
                       Actions
                     </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredTeams.map((team) => (
-                    <TableRow key={team.id} className="hover:bg-gray-50">
+                    <TableRow key={team.id} className="hover:bg-muted/50">
                       <TableCell className="font-medium">{team.name}</TableCell>
                       <TableCell>{team.department}</TableCell>
                       <TableCell>
@@ -782,7 +782,7 @@ export default function TeamsPage() {
                             <div className="font-medium text-sm">
                               {team.lead.name}
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs text-muted-foreground">
                               {team.lead.position}
                             </div>
                           </div>
@@ -790,7 +790,7 @@ export default function TeamsPage() {
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
-                          <Users className="h-3 w-3 text-gray-400" />
+                          <Users className="h-3 w-3 text-muted-foreground" />
                           <span>{team.members}</span>
                         </div>
                       </TableCell>
@@ -935,7 +935,7 @@ export default function TeamsPage() {
 
       <div className="bg-muted border rounded-md p-4">
         <h2 className="font-bold text-primary mb-2">Team Management Notes</h2>
-        <ul className="text-xs space-y-1 text-gray-700">
+        <ul className="text-xs space-y-1 text-foreground">
           <li>
             • Teams are evaluated based on resolution time, quality of work, and
             citizen feedback.

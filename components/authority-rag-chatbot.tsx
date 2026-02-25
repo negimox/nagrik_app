@@ -190,7 +190,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-white hover:bg-white/20 h-8 w-8 p-0"
+                  className="text-white hover:bg-card text-card-foreground/20 h-8 w-8 p-0"
                   title="Open Full Screen"
                 >
                   <Expand className="h-4 w-4" />
@@ -200,7 +200,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="text-white hover:bg-white/20 h-8 w-8 p-0"
+                className="text-white hover:bg-card text-card-foreground/20 h-8 w-8 p-0"
               >
                 {isMinimized ? (
                   <Maximize2 className="h-4 w-4" />
@@ -212,7 +212,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-white/20 h-8 w-8 p-0"
+                className="text-white hover:bg-card text-card-foreground/20 h-8 w-8 p-0"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -263,7 +263,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                           "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
                           message.type === "bot"
                             ? "bg-primary text-white"
-                            : "bg-gray-100"
+                            : "bg-muted/50"
                         )}
                       >
                         {message.type === "bot" ? (
@@ -280,7 +280,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                         message.type === "user"
                           ? "bg-primary text-white ml-auto"
                           : message.type === "bot"
-                          ? "bg-gray-100 text-gray-900"
+                          ? "bg-muted/50 text-foreground"
                           : "bg-blue-50 text-blue-900 border border-blue-200"
                       )}
                     >
@@ -316,8 +316,8 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
 
                       {/* Sources */}
                       {message.sources && message.sources.length > 0 && (
-                        <div className="mt-2 pt-2 border-t border-gray-200">
-                          <div className="text-xs text-gray-600 mb-1">
+                        <div className="mt-2 pt-2 border-t border-border">
+                          <div className="text-xs text-muted-foreground mb-1">
                             Sources:
                           </div>
                           <div className="flex flex-wrap gap-1">
@@ -340,7 +340,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                     </div>
 
                     {message.type === "user" && (
-                      <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-muted/50 flex items-center justify-center shrink-0">
                         <User className="h-4 w-4" />
                       </div>
                     )}
@@ -352,7 +352,7 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
                     <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">
                       <Bot className="h-4 w-4" />
                     </div>
-                    <div className="bg-gray-100 rounded-lg p-3 text-sm">
+                    <div className="bg-muted/50 rounded-lg p-3 text-sm">
                       <div className="flex items-center gap-2">
                         <Loader2 className="h-4 w-4 animate-spin" />
                         Analyzing reports...
@@ -367,8 +367,8 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
 
             {/* Quick Questions */}
             {messages.length <= 1 && (
-              <div className="p-4 border-t bg-gray-50 flex-shrink-0">
-                <div className="text-xs font-medium text-gray-600 mb-2">
+              <div className="p-4 border-t bg-muted/50 flex-shrink-0">
+                <div className="text-xs font-medium text-muted-foreground mb-2">
                   Quick Questions:
                 </div>
                 <div className="grid grid-cols-1 gap-1">

@@ -25,6 +25,7 @@ import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 
 import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 import { z } from "zod";
 import { auth } from "@/lib/firebase";
 import { useUser } from "@/contexts/UserContext";
@@ -285,7 +286,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F0F0F0]">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <Header showLogin={false} />
 
@@ -296,13 +297,13 @@ export default function LoginPage() {
             Home
           </Link>
           <span>{">"}</span>
-          <span className="text-gray-600">Login</span>
+          <span className="text-muted-foreground">Login</span>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-md mx-auto">
-          <div className="bg-white p-6 border rounded-md shadow-sm">
+          <div className="bg-card text-card-foreground p-6 border rounded-md shadow-sm">
             <h1 className="text-xl font-bold text-primary mb-6 pb-2 border-b-2 border-primary">
               System Login
             </h1>
@@ -466,9 +467,9 @@ export default function LoginPage() {
             </Tabs>
           </div>
 
-          <div className="mt-8 bg-white border rounded-md p-4">
+          <div className="mt-8 bg-card text-card-foreground border rounded-md p-4">
             <h2 className="text-sm font-bold mb-2">Important Notes</h2>
-            <ul className="text-xs space-y-1 text-gray-700">
+            <ul className="text-xs space-y-1 text-foreground">
               <li>• Please do not use the browser's back button.</li>
               <li>
                 • For security reasons, you will be automatically logged out
@@ -482,25 +483,7 @@ export default function LoginPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-primary text-white py-4 mt-8">
-        <div className="container mx-auto px-4 text-center text-xs">
-          <p>
-            © {new Date().getFullYear()} City Government - Infrastructure
-            Monitoring System. All Rights Reserved.
-          </p>
-          <div className="mt-2 flex justify-center gap-4">
-            <Link href="/terms-of-use" className="hover:underline">
-              Terms of Use
-            </Link>
-            <Link href="/privacy-policy" className="hover:underline">
-              Privacy Policy
-            </Link>
-            <Link href="/contact" className="hover:underline">
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

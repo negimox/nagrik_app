@@ -136,7 +136,7 @@ export default function UttarakhandRAGTestPage() {
 
   return (
     <div
-      className="absolute inset-0 bg-gray-50 flex flex-col"
+      className="absolute inset-0 bg-muted/50 flex flex-col"
       style={{ top: "120px" }}
     >
       {/* Chat Messages Area - Scrollable content */}
@@ -204,7 +204,7 @@ export default function UttarakhandRAGTestPage() {
                     className={`${
                       message.type === "user"
                         ? "max-w-[80%] bg-primary text-primary-foreground rounded-l-lg rounded-tr-lg"
-                        : "flex-1 bg-white border rounded-r-lg rounded-tl-lg"
+                        : "flex-1 bg-card text-card-foreground border rounded-r-lg rounded-tl-lg"
                     } p-4 shadow-sm`}
                   >
                     <div className="prose prose-sm max-w-none">
@@ -264,13 +264,13 @@ export default function UttarakhandRAGTestPage() {
                             ),
                             // Customize code styling
                             code: ({ children }) => (
-                              <code className="bg-gray-100 px-1 py-0.5 rounded text-sm text-foreground">
+                              <code className="bg-muted/50 px-1 py-0.5 rounded text-sm text-foreground">
                                 {children}
                               </code>
                             ),
                             // Customize blockquote styling
                             blockquote: ({ children }) => (
-                              <blockquote className="border-l-4 border-gray-300 pl-4 italic text-foreground">
+                              <blockquote className="border-l-4 border-border pl-4 italic text-foreground">
                                 {children}
                               </blockquote>
                             ),
@@ -317,7 +317,7 @@ export default function UttarakhandRAGTestPage() {
                                   .map((source: any, index: number) => (
                                     <div
                                       key={index}
-                                      className="text-xs bg-gray-50 p-2 rounded border"
+                                      className="text-xs bg-muted/50 p-2 rounded border"
                                     >
                                       <div className="flex justify-between items-start mb-1">
                                         <span className="font-medium">
@@ -413,7 +413,7 @@ export default function UttarakhandRAGTestPage() {
                       <Bot className="h-4 w-4" />
                     </AvatarFallback>
                   </Avatar>
-                  <div className="bg-white border rounded-r-lg rounded-tl-lg p-4 shadow-sm">
+                  <div className="bg-card text-card-foreground border rounded-r-lg rounded-tl-lg p-4 shadow-sm">
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <Loader2 className="h-4 w-4 animate-spin" />
                       <span className="text-sm">Analyzing your query...</span>
@@ -430,7 +430,7 @@ export default function UttarakhandRAGTestPage() {
       </div>
 
       {/* Fixed Input Area at Bottom */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
+      <div className="fixed bottom-0 left-0 right-0 bg-card text-card-foreground border-t border-border z-50">
         <div className="max-w-4xl mx-auto p-4">
           <div className="flex gap-2">
             <Input

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "../ui/button";
 import { useUser } from "@/contexts/UserContext";
 import { signOut } from "firebase/auth";
@@ -10,6 +10,7 @@ import Cookies from "js-cookie";
 import { Badge } from "../ui/badge";
 import { NotificationsMenu } from "../ui/notifications-menu";
 import { Menu, X } from "lucide-react"; // Import icons for mobile menu
+import Image from "next/image";
 
 const Header = ({
   showLogin,
@@ -71,21 +72,12 @@ const Header = ({
         {/* Main header row */}
         <div className="flex items-center justify-between">
           {/* Logo and title - stack on very small screens */}
+          <Link href="/">
           <div className="flex flex-wrap items-center gap-3">
-            <div className="h-12 w-12 md:h-14 md:w-14 bg-white rounded-full flex items-center justify-center shrink-0">
-              <div className="h-10 w-10 md:h-12 md:w-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xs">
-                NAGRIK
-              </div>
-            </div>
-            <div className="max-w-[200px] md:max-w-none">
-              <div className="text-[10px] md:text-xs">
-                Smart Infrastructure Governance
-              </div>
-              <div className="font-bold text-sm md:text-lg">
-                Legislative & Policy Insight Platform
-              </div>
-            </div>
+            <Image src="/logo.png" alt="Logo" width={50} height={50} />
+            <h2 className="text-2xl font-bold font-serif">Nagrik</h2>
           </div>
+          </Link>
 
           {/* Mobile menu button */}
           <div className="md:hidden">

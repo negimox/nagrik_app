@@ -228,11 +228,11 @@ export default function AuthorityDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border rounded-md p-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6">
         <h1 className="text-xl font-bold text-primary mb-4">
           Authority Dashboard
         </h1>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-muted-foreground">
           Monitor and manage infrastructure reports across the city. View
           statistics, assign tasks, and track resolution progress.
         </p>
@@ -254,7 +254,7 @@ export default function AuthorityDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{reportStats.total}</div>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-muted-foreground">
                   Current total reports in system
                 </p>
               </CardContent>
@@ -265,7 +265,7 @@ export default function AuthorityDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{reportStats.resolved}</div>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-muted-foreground">
                   {reportStats.total > 0
                     ? `${Math.round(
                         (reportStats.resolved / reportStats.total) * 100
@@ -280,7 +280,7 @@ export default function AuthorityDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{reportStats.pending}</div>
-                <p className="text-xs text-gray-500">Awaiting resolution</p>
+                <p className="text-xs text-muted-foreground">Awaiting resolution</p>
               </CardContent>
             </Card>
             <Card className="border shadow-sm">
@@ -289,23 +289,23 @@ export default function AuthorityDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">4</div>
-                <p className="text-xs text-gray-500">+18% from last month</p>
+                <p className="text-xs text-muted-foreground">+18% from last month</p>
               </CardContent>
             </Card>
           </>
         )}
       </div>
 
-      <div className="bg-white border rounded-md">
+      <div className="bg-card text-card-foreground border rounded-md">
         <div className="p-4 border-b flex items-center justify-between">
           <h2 className="font-bold text-primary">Recent Reports</h2>
           <div className="flex items-center gap-2">
             <div className="relative">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <input
                 type="search"
                 placeholder="Search reports..."
-                className="h-9 w-[200px] rounded-md border border-gray-300 bg-white pl-8 pr-3 text-sm"
+                className="h-9 w-[200px] rounded-md border border-border bg-card text-card-foreground pl-8 pr-3 text-sm"
               />
             </div>
             <Button
@@ -330,25 +330,25 @@ export default function AuthorityDashboard() {
           </div>
         ) : (
           <Table>
-            <TableHeader className="bg-gray-50">
+            <TableHeader className="bg-muted/50">
               <TableRow>
-                <TableHead className="font-medium text-gray-500">ID</TableHead>
-                <TableHead className="font-medium text-gray-500">
+                <TableHead className="font-medium text-muted-foreground">ID</TableHead>
+                <TableHead className="font-medium text-muted-foreground">
                   Issue
                 </TableHead>
-                <TableHead className="font-medium text-gray-500">
+                <TableHead className="font-medium text-muted-foreground">
                   Status
                 </TableHead>
-                <TableHead className="font-medium text-gray-500">
+                <TableHead className="font-medium text-muted-foreground">
                   Priority
                 </TableHead>
-                <TableHead className="font-medium text-gray-500">
+                <TableHead className="font-medium text-muted-foreground">
                   Location
                 </TableHead>
-                <TableHead className="font-medium text-gray-500">
+                <TableHead className="font-medium text-muted-foreground">
                   Assigned To
                 </TableHead>
-                <TableHead className="text-right font-medium text-gray-500">
+                <TableHead className="text-right font-medium text-muted-foreground">
                   Actions
                 </TableHead>
               </TableRow>
@@ -357,7 +357,7 @@ export default function AuthorityDashboard() {
               {recentReports.map((report) => (
                 <TableRow
                   key={report.id || report._id}
-                  className="hover:bg-gray-50"
+                  className="hover:bg-muted/50"
                 >
                   <TableCell className="font-medium">
                     {report.id || report._id}
@@ -365,7 +365,7 @@ export default function AuthorityDashboard() {
                   <TableCell>
                     <div>
                       <div className="font-medium">{report.title}</div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-xs text-muted-foreground">
                         {report.category}
                       </div>
                     </div>
@@ -374,13 +374,13 @@ export default function AuthorityDashboard() {
                   <TableCell>{getPriorityBadge(report.priority)}</TableCell>
                   <TableCell>
                     <div className="flex items-center gap-1">
-                      <MapPin className="h-3 w-3 text-gray-400" />
+                      <MapPin className="h-3 w-3 text-muted-foreground" />
                       <span className="text-sm">{report.location}</span>
                     </div>
                   </TableCell>
                   <TableCell>
                     {!report.assignedTo ? (
-                      <span className="text-sm text-gray-500">Unassigned</span>
+                      <span className="text-sm text-muted-foreground">Unassigned</span>
                     ) : (
                       <div className="flex items-center gap-2">
                         <Avatar className="h-6 w-6">
@@ -438,7 +438,7 @@ export default function AuthorityDashboard() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <div className="bg-white border rounded-md">
+        <div className="bg-card text-card-foreground border rounded-md">
           <div className="p-4 border-b">
             <h2 className="font-bold text-primary">Issue Categories</h2>
           </div>
@@ -528,7 +528,7 @@ export default function AuthorityDashboard() {
           </div>
         </div>
 
-        <div className="bg-white border rounded-md">
+        <div className="bg-card text-card-foreground border rounded-md">
           <div className="p-4 border-b">
             <h2 className="font-bold text-primary">Team Performance</h2>
           </div>
@@ -606,24 +606,24 @@ export default function AuthorityDashboard() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <div className="bg-white border rounded-md">
+        <div className="bg-card text-card-foreground border rounded-md">
           <div className="p-4 border-b">
             <h2 className="font-bold text-primary">Resolution Performance</h2>
           </div>
           <div className="p-4">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50">
+              <thead className="bg-muted/50">
                 <tr>
-                  <th className="py-2 px-4 text-left font-medium text-gray-500">
+                  <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                     Category
                   </th>
-                  <th className="py-2 px-4 text-left font-medium text-gray-500">
+                  <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                     Avg. Time
                   </th>
-                  <th className="py-2 px-4 text-left font-medium text-gray-500">
+                  <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                     Change
                   </th>
-                  <th className="py-2 px-4 text-left font-medium text-gray-500">
+                  <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                     Efficiency
                   </th>
                 </tr>
@@ -676,7 +676,7 @@ export default function AuthorityDashboard() {
           </div>
         </div>
 
-        <div className="bg-white border rounded-md">
+        <div className="bg-card text-card-foreground border rounded-md">
           <div className="p-4 border-b">
             <h2 className="font-bold text-primary">Recent Activities</h2>
           </div>
@@ -696,7 +696,7 @@ export default function AuthorityDashboard() {
                     <span className="text-primary">REP-1234</span> to Road
                     Maintenance Team
                   </p>
-                  <p className="text-xs text-gray-500">Today, 10:30 AM</p>
+                  <p className="text-xs text-muted-foreground">Today, 10:30 AM</p>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -713,7 +713,7 @@ export default function AuthorityDashboard() {
                     status of <span className="text-primary">REP-1230</span>{" "}
                     to Resolved
                   </p>
-                  <p className="text-xs text-gray-500">Today, 9:15 AM</p>
+                  <p className="text-xs text-muted-foreground">Today, 9:15 AM</p>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -729,7 +729,7 @@ export default function AuthorityDashboard() {
                     <span className="font-medium">Robert Johnson</span> added a
                     note to <span className="text-primary">REP-1228</span>
                   </p>
-                  <p className="text-xs text-gray-500">Yesterday, 4:45 PM</p>
+                  <p className="text-xs text-muted-foreground">Yesterday, 4:45 PM</p>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -745,7 +745,7 @@ export default function AuthorityDashboard() {
                     <span className="font-medium">Mary Lee</span> created a new
                     report <span className="text-primary">REP-1237</span>
                   </p>
-                  <p className="text-xs text-gray-500">Yesterday, 2:30 PM</p>
+                  <p className="text-xs text-muted-foreground">Yesterday, 2:30 PM</p>
                 </div>
               </div>
             </div>
@@ -765,7 +765,7 @@ export default function AuthorityDashboard() {
 
       <div className="bg-muted border rounded-md p-4">
         <h2 className="font-bold text-primary mb-2">System Notes</h2>
-        <ul className="text-xs space-y-1 text-gray-700">
+        <ul className="text-xs space-y-1 text-foreground">
           <li>
             • Reports are automatically prioritized based on severity and
             location.

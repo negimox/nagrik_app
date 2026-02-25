@@ -182,7 +182,7 @@ export default function CitizenReportChatPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex flex-col">
       {/* Header */}
-      <div className="bg-white border-b border-green-100 px-6 py-4">
+      <div className="bg-card text-card-foreground border-b border-green-100 px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <FileText className="h-8 w-8 text-green-600" />
@@ -208,7 +208,7 @@ export default function CitizenReportChatPage() {
 
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col max-w-4xl mx-auto w-full p-6">
-        <div className="bg-white rounded-lg shadow-lg flex flex-col h-full">
+        <div className="bg-card text-card-foreground rounded-lg shadow-lg flex flex-col h-full">
           {/* Messages Area */}
           <ScrollArea className="flex-1 p-6">
             <div className="space-y-6">
@@ -226,7 +226,7 @@ export default function CitizenReportChatPage() {
                         "w-10 h-10 rounded-full flex items-center justify-center shrink-0",
                         message.type === "bot"
                           ? "bg-green-600 text-white"
-                          : "bg-gray-100"
+                          : "bg-muted/50"
                       )}
                     >
                       {message.type === "bot" ? (
@@ -243,7 +243,7 @@ export default function CitizenReportChatPage() {
                       message.type === "user"
                         ? "bg-green-600 text-white ml-auto"
                         : message.type === "bot"
-                        ? "bg-gray-100 text-gray-900"
+                        ? "bg-muted/50 text-foreground"
                         : "bg-green-50 text-green-900 border border-green-200"
                     )}
                   >
@@ -284,8 +284,8 @@ export default function CitizenReportChatPage() {
 
                     {/* Sources */}
                     {message.sources && message.sources.length > 0 && (
-                      <div className="mt-3 pt-3 border-t border-gray-200">
-                        <div className="text-xs text-gray-600 mb-2">
+                      <div className="mt-3 pt-3 border-t border-border">
+                        <div className="text-xs text-muted-foreground mb-2">
                           Based on your reports:
                         </div>
                         <div className="flex flex-wrap gap-2">
@@ -308,7 +308,7 @@ export default function CitizenReportChatPage() {
                   </div>
 
                   {message.type === "user" && (
-                    <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center shrink-0">
                       <User className="h-5 w-5" />
                     </div>
                   )}
@@ -320,7 +320,7 @@ export default function CitizenReportChatPage() {
                   <div className="w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center">
                     <Bot className="h-5 w-5" />
                   </div>
-                  <div className="bg-gray-100 rounded-lg p-4">
+                  <div className="bg-muted/50 rounded-lg p-4">
                     <div className="flex items-center gap-2">
                       <Loader2 className="h-4 w-4 animate-spin" />
                       Checking your reports...

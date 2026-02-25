@@ -154,24 +154,24 @@ export default function MapPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border rounded-md p-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6">
         <h1 className="text-xl font-bold text-primary mb-4">Issue Map</h1>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-muted-foreground">
           View and manage infrastructure issues geographically. Filter by
           category, status, or priority.
         </p>
       </div>
 
-      <div className="bg-white border rounded-md">
+      <div className="bg-card text-card-foreground border rounded-md">
         <div className="p-4 border-b flex items-center justify-between">
           <h2 className="font-bold text-primary">Map View</h2>
           <div className="flex items-center gap-2">
             <div className="relative">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <input
                 type="search"
                 placeholder="Search location..."
-                className="h-9 w-[200px] rounded-md border border-gray-300 bg-white pl-8 pr-3 text-sm"
+                className="h-9 w-[200px] rounded-md border border-border bg-card text-card-foreground pl-8 pr-3 text-sm"
               />
             </div>
             <Sheet open={filterOpen} onOpenChange={setFilterOpen}>
@@ -305,15 +305,15 @@ export default function MapPage() {
           </div>
         </div>
 
-        <div className="relative h-[600px] bg-gray-100">
+        <div className="relative h-[600px] bg-muted/50">
           {/* Map placeholder */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <MapPin className="h-12 w-12 text-gray-400 mx-auto" />
-              <p className="mt-2 text-gray-500">
+              <MapPin className="h-12 w-12 text-muted-foreground mx-auto" />
+              <p className="mt-2 text-muted-foreground">
                 Interactive map would be displayed here
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-muted-foreground">
                 Showing {mapMarkers.length} issues
               </p>
             </div>
@@ -388,7 +388,7 @@ export default function MapPage() {
                 <CardContent className="pb-2">
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div>
-                      <p className="text-gray-500">Status</p>
+                      <p className="text-muted-foreground">Status</p>
                       <div>
                         {getStatusBadge(
                           mapMarkers.find((m) => m.id === selectedIssue)
@@ -397,7 +397,7 @@ export default function MapPage() {
                       </div>
                     </div>
                     <div>
-                      <p className="text-gray-500">Priority</p>
+                      <p className="text-muted-foreground">Priority</p>
                       <div>
                         {getPriorityBadge(
                           mapMarkers.find((m) => m.id === selectedIssue)
@@ -406,7 +406,7 @@ export default function MapPage() {
                       </div>
                     </div>
                     <div>
-                      <p className="text-gray-500">Category</p>
+                      <p className="text-muted-foreground">Category</p>
                       <p>
                         {
                           mapMarkers.find((m) => m.id === selectedIssue)
@@ -415,7 +415,7 @@ export default function MapPage() {
                       </p>
                     </div>
                     <div>
-                      <p className="text-gray-500">Reported</p>
+                      <p className="text-muted-foreground">Reported</p>
                       <p>
                         {mapMarkers.find((m) => m.id === selectedIssue)?.date}
                       </p>
@@ -452,7 +452,7 @@ export default function MapPage() {
                       </Button>
                     </TabsContent>
                     <TabsContent value="history" className="mt-2 text-sm">
-                      <p className="text-gray-500">No activity yet</p>
+                      <p className="text-muted-foreground">No activity yet</p>
                     </TabsContent>
                   </Tabs>
                 </div>
@@ -464,7 +464,7 @@ export default function MapPage() {
 
       <div className="bg-muted border rounded-md p-4">
         <h2 className="font-bold text-primary mb-2">Map Usage Notes</h2>
-        <ul className="text-xs space-y-1 text-gray-700">
+        <ul className="text-xs space-y-1 text-foreground">
           <li>• Click on map markers to view issue details.</li>
           <li>
             • Use the filter button to customize which issues are displayed.

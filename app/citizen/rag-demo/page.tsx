@@ -60,7 +60,7 @@ export default function RAGDemoPage() {
           <Brain className="h-8 w-8 text-blue-600" />
           <h1 className="text-3xl font-bold">RAG-Enhanced Infrastructure AI</h1>
         </div>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
           Experience advanced AI-powered infrastructure analysis with
           Retrieval-Augmented Generation (RAG). Our system combines real-time
           image analysis with a comprehensive knowledge base for more accurate
@@ -78,7 +78,7 @@ export default function RAGDemoPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               Advanced computer vision powered by Google Gemini 2.0 Flash for
               detecting infrastructure issues with high accuracy and detailed
               condition assessment.
@@ -94,7 +94,7 @@ export default function RAGDemoPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               Curated infrastructure knowledge including best practices,
               severity guidelines, maintenance procedures, and diagnostic
               information.
@@ -110,7 +110,7 @@ export default function RAGDemoPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               RAG technology provides context-aware responses by retrieving
               relevant knowledge and generating enhanced insights tailored to
               detected issues.
@@ -173,7 +173,7 @@ export default function RAGDemoPage() {
                               {doc.category}
                             </Badge>
                           </div>
-                          <FileText className="h-4 w-4 text-gray-400" />
+                          <FileText className="h-4 w-4 text-muted-foreground" />
                         </div>
                       </div>
                     ))}
@@ -207,7 +207,7 @@ export default function RAGDemoPage() {
                       <div className="text-2xl font-bold text-blue-600">
                         {detectedObjects.length}
                       </div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-sm text-muted-foreground">
                         Objects Detected
                       </div>
                     </div>
@@ -220,7 +220,7 @@ export default function RAGDemoPage() {
                           ).length
                         }
                       </div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-sm text-muted-foreground">
                         High Priority Issues
                       </div>
                     </div>
@@ -231,7 +231,7 @@ export default function RAGDemoPage() {
                           ? `${(insights.confidence * 100).toFixed(0)}%`
                           : "N/A"}
                       </div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-sm text-muted-foreground">
                         RAG Confidence
                       </div>
                     </div>
@@ -278,7 +278,7 @@ export default function RAGDemoPage() {
                         {obj.condition && (
                           <div>
                             <span className="font-medium">Condition: </span>
-                            <span className="text-gray-600">
+                            <span className="text-muted-foreground">
                               {obj.condition}
                             </span>
                           </div>
@@ -287,7 +287,7 @@ export default function RAGDemoPage() {
                         {obj.description && (
                           <div>
                             <span className="font-medium">Description: </span>
-                            <span className="text-gray-600">
+                            <span className="text-muted-foreground">
                               {obj.description}
                             </span>
                           </div>
@@ -323,12 +323,12 @@ export default function RAGDemoPage() {
                               (source: any, idx: number) => (
                                 <div
                                   key={idx}
-                                  className="text-sm p-2 bg-gray-50 rounded"
+                                  className="text-sm p-2 bg-muted/50 rounded"
                                 >
                                   <div className="font-medium">
                                     {source.title}
                                   </div>
-                                  <div className="text-gray-600">
+                                  <div className="text-muted-foreground">
                                     Category: {source.category}
                                   </div>
                                 </div>
@@ -345,11 +345,11 @@ export default function RAGDemoPage() {
           ) : (
             <Card>
               <CardContent className="text-center py-12">
-                <Brain className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-600 mb-2">
+                <Brain className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                <h3 className="text-lg font-medium text-muted-foreground mb-2">
                   No Analysis Results Yet
                 </h3>
-                <p className="text-gray-500">
+                <p className="text-muted-foreground">
                   Upload and analyze an image in the "Image Analysis" tab to see
                   detailed results here.
                 </p>
@@ -363,7 +363,7 @@ export default function RAGDemoPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Settings className="h-5 w-5 text-gray-600" />
+            <Settings className="h-5 w-5 text-muted-foreground" />
             Technical Implementation
           </CardTitle>
         </CardHeader>
@@ -371,7 +371,7 @@ export default function RAGDemoPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h4 className="font-semibold mb-2">AI Models</h4>
-              <ul className="text-sm space-y-1 text-gray-600">
+              <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>• Google Gemini 2.0 Flash for image analysis</li>
                 <li>• Text Embedding 004 for vector embeddings</li>
                 <li>• Custom prompting with RAG context</li>
@@ -380,7 +380,7 @@ export default function RAGDemoPage() {
 
             <div>
               <h4 className="font-semibold mb-2">RAG Components</h4>
-              <ul className="text-sm space-y-1 text-gray-600">
+              <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>• Vector similarity search</li>
                 <li>• Context-aware prompt engineering</li>
                 <li>• Knowledge base management</li>

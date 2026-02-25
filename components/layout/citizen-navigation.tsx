@@ -25,7 +25,7 @@ export default function CitizenNavigation() {
     navigation.find((item) => isActive(item.href))?.name || "Navigation";
 
   return (
-    <div className="bg-white border-b">
+    <div className="bg-card text-card-foreground border-b">
       <div className="container mx-auto px-4">
         {/* Mobile Navigation Dropdown */}
         <div className="md:hidden">

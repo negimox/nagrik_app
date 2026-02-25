@@ -29,7 +29,7 @@ export default function CitizenDashboard() {
         return (
           <Badge
             variant="outline"
-            className="bg-gray-100 text-gray-800 border-gray-300"
+            className="bg-muted/50 text-foreground border-border"
           >
             Pending
           </Badge>
@@ -113,11 +113,11 @@ export default function CitizenDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border rounded-md p-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6">
         <h1 className="text-xl font-bold text-primary mb-4">
           {user?.providerData?.[0]?.displayName || "Citizen"}'s Dashboard
         </h1>
-        <p className="text-sm text-gray-600 mb-6">
+        <p className="text-sm text-muted-foreground mb-6">
           Monitor your infrastructure reports and their progress. If you find a
           new issue, please use the "Report Issue" button.
         </p>
@@ -146,7 +146,7 @@ export default function CitizenDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{recentReports.length}</div>
-                <p className="text-xs text-gray-500">Your reported issues</p>
+                <p className="text-xs text-muted-foreground">Your reported issues</p>
               </CardContent>
             </Card>
             <Card className="border shadow-sm">
@@ -157,7 +157,7 @@ export default function CitizenDashboard() {
                 <div className="text-2xl font-bold">
                   {recentReports.filter((r) => r.status === "Resolved").length}
                 </div>
-                <p className="text-xs text-gray-500">Completed reports</p>
+                <p className="text-xs text-muted-foreground">Completed reports</p>
               </CardContent>
             </Card>
             <Card className="border shadow-sm">
@@ -171,7 +171,7 @@ export default function CitizenDashboard() {
                       .length
                   }
                 </div>
-                <p className="text-xs text-gray-500">Being addressed</p>
+                <p className="text-xs text-muted-foreground">Being addressed</p>
               </CardContent>
             </Card>
             <Card className="border shadow-sm">
@@ -182,14 +182,14 @@ export default function CitizenDashboard() {
                 <div className="text-2xl font-bold">
                   {recentReports.filter((r) => r.status === "Pending").length}
                 </div>
-                <p className="text-xs text-gray-500">Awaiting review</p>
+                <p className="text-xs text-muted-foreground">Awaiting review</p>
               </CardContent>
             </Card>
           </>
         )}
       </div>
 
-      <div className="bg-white border rounded-md">
+      <div className="bg-card text-card-foreground border rounded-md">
         <div className="p-4 border-b">
           <h2 className="font-bold text-primary">Recent Reports</h2>
         </div>
@@ -198,46 +198,46 @@ export default function CitizenDashboard() {
             <TableSkeleton rows={3} />
           </div>
         ) : recentReports.length === 0 ? (
-          <div className="p-8 text-center text-gray-500">
+          <div className="p-8 text-center text-muted-foreground">
             No reports found. Use the "Report Issue" button to create your first
             report.
           </div>
         ) : (
           <table className="w-full text-sm hidden md:table">
-            <thead className="bg-gray-50">
+            <thead className="bg-muted/50">
               <tr className="border-b">
-                <th className="py-3 px-4 text-left font-medium text-gray-500">
+                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
                   Report ID
                 </th>
-                <th className="py-3 px-4 text-left font-medium text-gray-500">
+                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
                   Issue
                 </th>
-                <th className="py-3 px-4 text-left font-medium text-gray-500">
+                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
                   Category
                 </th>
-                <th className="py-3 px-4 text-left font-medium text-gray-500">
+                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
                   Location
                 </th>
-                <th className="py-3 px-4 text-left font-medium text-gray-500">
+                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
                   Date
                 </th>
-                <th className="py-3 px-4 text-left font-medium text-gray-500">
+                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
                   Status
                 </th>
-                <th className="py-3 px-4 text-left font-medium text-gray-500">
+                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y">
               {recentReports.map((report) => (
-                <tr key={report.id} className="hover:bg-gray-50">
+                <tr key={report.id} className="hover:bg-muted/50">
                   <td className="py-3 px-4 font-medium">{report.id}</td>
                   <td className="py-3 px-4">{report.title}</td>
                   <td className="py-3 px-4">{report.category}</td>
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-1">
-                      <MapPin className="h-3 w-3 text-gray-400" />
+                      <MapPin className="h-3 w-3 text-muted-foreground" />
                       <span>{report.location}</span>
                     </div>
                   </td>
@@ -271,7 +271,7 @@ export default function CitizenDashboard() {
 
       <div className="bg-muted border rounded-md p-4">
         <h2 className="font-bold text-primary mb-2">Important Notes</h2>
-        <ul className="text-xs space-y-1 text-gray-700">
+        <ul className="text-xs space-y-1 text-foreground">
           <li>• Please do not include personal information in your reports.</li>
           <li>
             • For urgent or dangerous situations, please contact City Hall

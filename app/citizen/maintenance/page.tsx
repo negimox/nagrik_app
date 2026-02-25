@@ -151,7 +151,7 @@ export default function MaintenancePage() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-3xl font-bold mb-2">Maintenance Management</h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             Detect infrastructure issues and schedule maintenance efficiently
           </p>
         </div>
@@ -162,7 +162,7 @@ export default function MaintenancePage() {
         <Card>
           <CardContent className="p-4 flex justify-between items-center">
             <div>
-              <p className="text-sm text-gray-500">Scheduled</p>
+              <p className="text-sm text-muted-foreground">Scheduled</p>
               <p className="text-2xl font-bold">{statusCounts.scheduled}</p>
             </div>
             <Badge className="bg-blue-500">{statusCounts.scheduled}</Badge>
@@ -172,7 +172,7 @@ export default function MaintenancePage() {
         <Card>
           <CardContent className="p-4 flex justify-between items-center">
             <div>
-              <p className="text-sm text-gray-500">In Progress</p>
+              <p className="text-sm text-muted-foreground">In Progress</p>
               <p className="text-2xl font-bold">{statusCounts.inProgress}</p>
             </div>
             <Badge className="bg-orange-500">{statusCounts.inProgress}</Badge>
@@ -182,7 +182,7 @@ export default function MaintenancePage() {
         <Card>
           <CardContent className="p-4 flex justify-between items-center">
             <div>
-              <p className="text-sm text-gray-500">Completed</p>
+              <p className="text-sm text-muted-foreground">Completed</p>
               <p className="text-2xl font-bold">{statusCounts.completed}</p>
             </div>
             <Badge className="bg-green-500">{statusCounts.completed}</Badge>
@@ -192,7 +192,7 @@ export default function MaintenancePage() {
         <Card>
           <CardContent className="p-4 flex justify-between items-center">
             <div>
-              <p className="text-sm text-gray-500">Urgent Issues</p>
+              <p className="text-sm text-muted-foreground">Urgent Issues</p>
               <p className="text-2xl font-bold">{urgentCount}</p>
             </div>
             <Badge className="bg-red-500">{urgentCount}</Badge>
@@ -214,7 +214,7 @@ export default function MaintenancePage() {
 
               {detectedObjects.length > 0 && (
                 <div className="mt-4 pt-4 border-t">
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     {detectedObjects.length} issue(s) detected - click to
                     schedule maintenance
                   </p>
@@ -223,10 +223,10 @@ export default function MaintenancePage() {
                     {detectedObjects.map((obj, idx) => (
                       <div
                         key={idx}
-                        className={`bg-white border rounded-md p-3 cursor-pointer transition hover:bg-gray-50 ${
+                        className={`bg-card text-card-foreground border rounded-md p-3 cursor-pointer transition hover:bg-muted/50 ${
                           selectedIssue === obj
                             ? "border-blue-500 ring-2 ring-blue-200"
-                            : "border-gray-200"
+                            : "border-border"
                         }`}
                         onClick={() => handleIssueSelect(obj)}
                       >
@@ -247,7 +247,7 @@ export default function MaintenancePage() {
                           )}
                         </div>
                         {obj.condition && (
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-muted-foreground">
                             Condition: {obj.condition}
                           </p>
                         )}
@@ -301,7 +301,7 @@ export default function MaintenancePage() {
                                   {obj.name}
                                 </h3>
                                 {obj.condition && (
-                                  <p className="text-sm text-gray-500">
+                                  <p className="text-sm text-muted-foreground">
                                     Condition: {obj.condition}
                                   </p>
                                 )}
@@ -321,7 +321,7 @@ export default function MaintenancePage() {
                               )}
                             </div>
 
-                            <div className="mt-3 w-full bg-gray-200 rounded-full h-2.5">
+                            <div className="mt-3 w-full bg-muted/50 rounded-full h-2.5">
                               <div
                                 className="bg-blue-600 h-2.5 rounded-full"
                                 style={{ width: `${obj.confidence}%` }}
@@ -332,7 +332,7 @@ export default function MaintenancePage() {
                             </p>
 
                             {obj.description && (
-                              <div className="mt-3 p-3 bg-gray-50 rounded-md text-sm">
+                              <div className="mt-3 p-3 bg-muted/50 rounded-md text-sm">
                                 {obj.description}
                               </div>
                             )}
@@ -342,10 +342,10 @@ export default function MaintenancePage() {
                     </div>
                   ) : (
                     <div className="flex flex-col items-center justify-center h-[300px] text-center">
-                      <p className="text-gray-500">
+                      <p className="text-muted-foreground">
                         No infrastructure issues have been detected yet.
                       </p>
-                      <p className="text-sm text-gray-400 mt-2">
+                      <p className="text-sm text-muted-foreground mt-2">
                         Upload an image to analyze infrastructure issues with
                         AI.
                       </p>
@@ -361,10 +361,10 @@ export default function MaintenancePage() {
                     />
                   ) : (
                     <div className="flex flex-col items-center justify-center h-[300px] text-center">
-                      <p className="text-gray-500">
+                      <p className="text-muted-foreground">
                         No issue selected for scheduling.
                       </p>
-                      <p className="text-sm text-gray-400 mt-2">
+                      <p className="text-sm text-muted-foreground mt-2">
                         Detect and select an infrastructure issue to schedule
                         maintenance.
                       </p>
@@ -397,7 +397,7 @@ export default function MaintenancePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <h3 className="font-medium mb-2">1. AI Detection</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 Upload images of infrastructure issues and let AI identify
                 problems, assess their conditions, and determine severity levels
                 automatically.
@@ -405,7 +405,7 @@ export default function MaintenancePage() {
             </div>
             <div>
               <h3 className="font-medium mb-2">2. Maintenance Scheduling</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 Schedule repairs with appropriate maintenance crews, set
                 priorities based on AI assessments, and manage the maintenance
                 calendar efficiently.
@@ -413,7 +413,7 @@ export default function MaintenancePage() {
             </div>
             <div>
               <h3 className="font-medium mb-2">3. Status Tracking</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 Monitor maintenance progress from scheduling through completion,
                 update statuses, and keep track of all infrastructure repair
                 activities.

@@ -93,7 +93,7 @@ export function MaintenanceScheduleView({
       case "cancelled":
         return <XCircle className="h-5 w-5 text-red-500" />;
       default:
-        return <AlertCircle className="h-5 w-5 text-gray-500" />;
+        return <AlertCircle className="h-5 w-5 text-muted-foreground" />;
     }
   };
 
@@ -177,7 +177,7 @@ export function MaintenanceScheduleView({
                         <h3 className="font-medium text-lg">
                           {schedule.issue}
                         </h3>
-                        <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-600">
+                        <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
                             <Clock className="h-4 w-4" />
                             {schedule.timeSlot === "morning"
@@ -218,7 +218,7 @@ export function MaintenanceScheduleView({
                     </div>
 
                     {schedule.notes && (
-                      <div className="mt-3 p-3 bg-gray-50 rounded-md text-sm">
+                      <div className="mt-3 p-3 bg-muted/50 rounded-md text-sm">
                         {schedule.notes}
                       </div>
                     )}
@@ -264,18 +264,18 @@ export function MaintenanceScheduleView({
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-12 text-center">
-              <CalendarDays className="h-12 w-12 text-gray-400 mb-4" />
+              <CalendarDays className="h-12 w-12 text-muted-foreground mb-4" />
               {selectedDate ? (
                 <>
-                  <p className="text-lg font-medium text-gray-700">
+                  <p className="text-lg font-medium text-foreground">
                     No maintenance scheduled
                   </p>
-                  <p className="text-gray-500">
+                  <p className="text-muted-foreground">
                     There are no maintenance tasks scheduled for this date.
                   </p>
                 </>
               ) : (
-                <p className="text-gray-500">
+                <p className="text-muted-foreground">
                   Select a date to view scheduled maintenance.
                 </p>
               )}

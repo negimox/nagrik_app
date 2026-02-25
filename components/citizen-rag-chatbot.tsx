@@ -218,7 +218,7 @@ export function CitizenRAGChatBot({ className }: CitizenRAGChatBotProps) {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-white hover:bg-white/20 h-8 w-8 p-0"
+                  className="text-white hover:bg-card text-card-foreground/20 h-8 w-8 p-0"
                   title="Open Full Screen"
                 >
                   <Expand className="h-4 w-4" />
@@ -228,7 +228,7 @@ export function CitizenRAGChatBot({ className }: CitizenRAGChatBotProps) {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="text-white hover:bg-white/20 h-8 w-8 p-0"
+                className="text-white hover:bg-card text-card-foreground/20 h-8 w-8 p-0"
               >
                 {isMinimized ? (
                   <Maximize2 className="h-4 w-4" />
@@ -240,7 +240,7 @@ export function CitizenRAGChatBot({ className }: CitizenRAGChatBotProps) {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-white/20 h-8 w-8 p-0"
+                className="text-white hover:bg-card text-card-foreground/20 h-8 w-8 p-0"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -267,7 +267,7 @@ export function CitizenRAGChatBot({ className }: CitizenRAGChatBotProps) {
                           "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
                           message.type === "bot"
                             ? "bg-green-600 text-white"
-                            : "bg-gray-100"
+                            : "bg-muted/50"
                         )}
                       >
                         {message.type === "bot" ? (
@@ -284,7 +284,7 @@ export function CitizenRAGChatBot({ className }: CitizenRAGChatBotProps) {
                         message.type === "user"
                           ? "bg-green-600 text-white ml-auto"
                           : message.type === "bot"
-                          ? "bg-gray-100 text-gray-900"
+                          ? "bg-muted/50 text-foreground"
                           : "bg-green-50 text-green-900 border border-green-200"
                       )}
                     >
@@ -320,8 +320,8 @@ export function CitizenRAGChatBot({ className }: CitizenRAGChatBotProps) {
 
                       {/* Sources */}
                       {message.sources && message.sources.length > 0 && (
-                        <div className="mt-2 pt-2 border-t border-gray-200">
-                          <div className="text-xs text-gray-600 mb-1">
+                        <div className="mt-2 pt-2 border-t border-border">
+                          <div className="text-xs text-muted-foreground mb-1">
                             Your Reports:
                           </div>
                           <div className="flex flex-wrap gap-1">
@@ -344,7 +344,7 @@ export function CitizenRAGChatBot({ className }: CitizenRAGChatBotProps) {
                     </div>
 
                     {message.type === "user" && (
-                      <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-muted/50 flex items-center justify-center shrink-0">
                         <User className="h-4 w-4" />
                       </div>
                     )}
@@ -356,7 +356,7 @@ export function CitizenRAGChatBot({ className }: CitizenRAGChatBotProps) {
                     <div className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center">
                       <Bot className="h-4 w-4" />
                     </div>
-                    <div className="bg-gray-100 rounded-lg p-3 text-sm">
+                    <div className="bg-muted/50 rounded-lg p-3 text-sm">
                       <div className="flex items-center gap-2">
                         <Loader2 className="h-4 w-4 animate-spin" />
                         Checking your reports...

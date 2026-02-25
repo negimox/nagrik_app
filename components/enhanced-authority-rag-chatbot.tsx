@@ -287,7 +287,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
       case "low":
         return "text-green-600 bg-green-50";
       default:
-        return "text-gray-600 bg-gray-50";
+        return "text-muted-foreground bg-muted/50";
     }
   };
 
@@ -355,7 +355,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="text-white hover:bg-white/20 h-8 w-8 p-0"
+                className="text-white hover:bg-card text-card-foreground/20 h-8 w-8 p-0"
               >
                 {isMinimized ? (
                   <Maximize2 className="h-4 w-4" />
@@ -367,7 +367,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-white/20 h-8 w-8 p-0"
+                className="text-white hover:bg-card text-card-foreground/20 h-8 w-8 p-0"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -448,7 +448,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                           "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
                           message.type === "bot"
                             ? "bg-gradient-to-r from-primary to-[#0056B3] text-white"
-                            : "bg-gray-100"
+                            : "bg-muted/50"
                         )}
                       >
                         {message.type === "bot" ? (
@@ -465,7 +465,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                         message.type === "user"
                           ? "bg-gradient-to-r from-primary to-[#0056B3] text-white ml-auto"
                           : message.type === "bot"
-                          ? "bg-gray-50 text-gray-900 border border-gray-200"
+                          ? "bg-muted/50 text-foreground border border-border"
                           : "bg-blue-50 text-blue-900 border border-blue-200"
                       )}
                     >
@@ -476,7 +476,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                       {/* Priority and Confidence indicators */}
                       {message.type === "bot" &&
                         (message.priority || message.confidence) && (
-                          <div className="flex items-center gap-2 mt-2 pt-2 border-t border-gray-200">
+                          <div className="flex items-center gap-2 mt-2 pt-2 border-t border-border">
                             {message.priority && (
                               <Badge
                                 variant="outline"
@@ -488,7 +488,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                             {message.confidence && (
                               <div className="flex items-center gap-1">
                                 {getConfidenceIcon(message.confidence)}
-                                <span className="text-xs text-gray-600">
+                                <span className="text-xs text-muted-foreground">
                                   {Math.round(message.confidence * 100)}%
                                   confident
                                 </span>
@@ -500,8 +500,8 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                       {/* Suggestions */}
                       {message.suggestions &&
                         message.suggestions.length > 0 && (
-                          <div className="mt-3 pt-2 border-t border-gray-200">
-                            <div className="flex items-center gap-1 text-xs font-medium text-gray-700 mb-2">
+                          <div className="mt-3 pt-2 border-t border-border">
+                            <div className="flex items-center gap-1 text-xs font-medium text-foreground mb-2">
                               <Lightbulb className="h-3 w-3" />
                               Suggested Actions:
                             </div>
@@ -520,8 +520,8 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
 
                       {/* Escalation Path */}
                       {message.escalationPath && (
-                        <div className="mt-3 pt-2 border-t border-gray-200">
-                          <div className="flex items-center gap-1 text-xs font-medium text-gray-700 mb-2">
+                        <div className="mt-3 pt-2 border-t border-border">
+                          <div className="flex items-center gap-1 text-xs font-medium text-foreground mb-2">
                             <ArrowUp className="h-3 w-3" />
                             Escalation Path:
                           </div>
@@ -534,8 +534,8 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                       {/* Related Issues */}
                       {message.relatedIssues &&
                         message.relatedIssues.length > 0 && (
-                          <div className="mt-3 pt-2 border-t border-gray-200">
-                            <div className="text-xs font-medium text-gray-700 mb-1">
+                          <div className="mt-3 pt-2 border-t border-border">
+                            <div className="text-xs font-medium text-foreground mb-1">
                               Related Issues:
                             </div>
                             <div className="flex flex-wrap gap-1">
@@ -554,8 +554,8 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
 
                       {/* FAQ */}
                       {message.faq && message.faq.length > 0 && (
-                        <div className="mt-3 pt-2 border-t border-gray-200">
-                          <div className="flex items-center gap-1 text-xs font-medium text-gray-700 mb-2">
+                        <div className="mt-3 pt-2 border-t border-border">
+                          <div className="flex items-center gap-1 text-xs font-medium text-foreground mb-2">
                             <HelpCircle className="h-3 w-3" />
                             Frequently Asked Questions:
                           </div>
@@ -563,12 +563,12 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                             {message.faq.slice(0, 3).map((faqItem, idx) => (
                               <div
                                 key={idx}
-                                className="text-xs bg-gray-50 p-2 rounded border"
+                                className="text-xs bg-muted/50 p-2 rounded border"
                               >
-                                <div className="font-medium text-gray-800 mb-1">
+                                <div className="font-medium text-foreground mb-1">
                                   Q: {faqItem.question}
                                 </div>
-                                <div className="text-gray-600">
+                                <div className="text-muted-foreground">
                                   A: {faqItem.answer}
                                 </div>
                               </div>
@@ -579,8 +579,8 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
 
                       {/* Sources */}
                       {message.sources && message.sources.length > 0 && (
-                        <div className="mt-3 pt-2 border-t border-gray-200">
-                          <div className="text-xs text-gray-600 mb-1">
+                        <div className="mt-3 pt-2 border-t border-border">
+                          <div className="text-xs text-muted-foreground mb-1">
                             Sources:
                           </div>
                           <div className="flex flex-wrap gap-1">
@@ -615,7 +615,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                     <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-[#0056B3] text-white flex items-center justify-center">
                       <Bot className="h-4 w-4" />
                     </div>
-                    <div className="bg-gray-50 rounded-lg p-3 text-sm border border-gray-200">
+                    <div className="bg-muted/50 rounded-lg p-3 text-sm border border-border">
                       <div className="flex items-center gap-2">
                         <Loader2 className="h-4 w-4 animate-spin" />
                         Analyzing with Indian context...
@@ -631,7 +631,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
             {/* Quick Questions */}
             {messages.length <= 1 && (
               <div className="p-4 border-t bg-gradient-to-r from-blue-50 to-indigo-50">
-                <div className="text-xs font-medium text-gray-700 mb-2">
+                <div className="text-xs font-medium text-foreground mb-2">
                   Quick Questions (त्वरित प्रश्न):
                 </div>
                 <div className="grid grid-cols-1 gap-1">
@@ -641,7 +641,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                       variant="ghost"
                       size="sm"
                       onClick={() => setInputMessage(question.split(" (")[0])}
-                      className="justify-start text-left h-auto p-2 text-xs hover:bg-white/50"
+                      className="justify-start text-left h-auto p-2 text-xs hover:bg-card text-card-foreground/50"
                     >
                       {question}
                     </Button>
@@ -651,7 +651,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
             )}
 
             {/* Enhanced Input Area */}
-            <div className="p-4 border-t bg-white">
+            <div className="p-4 border-t bg-card text-card-foreground">
               <div className="flex gap-2">
                 <Input
                   ref={inputRef}
@@ -664,7 +664,7 @@ Try asking: "What are common monsoon issues in urban areas?" or "How to report d
                       : "Ask about infrastructure issues..."
                   }
                   disabled={isLoading}
-                  className="flex-1 border-gray-300 focus:border-primary"
+                  className="flex-1 border-border focus:border-primary"
                 />
                 <Button
                   onClick={handleSendMessage}

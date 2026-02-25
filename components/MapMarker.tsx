@@ -69,7 +69,7 @@ export default function MapMarker({ marker, onSelect }: MapMarkerProps) {
         <div>
           <h3 className="font-bold">{marker.title}</h3>
           <p className="text-sm">{marker.category}</p>
-          <p className="text-xs text-gray-500">{marker.location}</p>
+          <p className="text-xs text-muted-foreground">{marker.location}</p>
           <p className="text-xs mt-2">
             {marker.status} • {marker.date}
           </p>

@@ -123,7 +123,7 @@ export function ImageDetector({ onDetectionComplete }: ImageDetectorProps) {
                 <p className="font-medium mb-1">AI detected:</p>{" "}
                 <div className="flex flex-col gap-2">
                   {imageData.detectedObjects.map((obj, idx) => (
-                    <div key={idx} className="bg-white/20 rounded px-2 py-1">
+                    <div key={idx} className="bg-card text-card-foreground/20 rounded px-2 py-1">
                       <div className="flex justify-between">
                         <span className="font-medium">{obj.name}</span>
                         {obj.severity && (
@@ -147,7 +147,7 @@ export function ImageDetector({ onDetectionComplete }: ImageDetectorProps) {
                       )}
                       <div className="w-full bg-black/30 rounded-full h-1.5 mt-1">
                         <div
-                          className="bg-white h-1.5 rounded-full"
+                          className="bg-card text-card-foreground h-1.5 rounded-full"
                           style={{ width: `${obj.confidence}%` }}
                         ></div>
                       </div>
@@ -161,13 +161,13 @@ export function ImageDetector({ onDetectionComplete }: ImageDetectorProps) {
             )}
         </div>
       ) : (
-        <div className="border-2 border-dashed border-gray-300 rounded-md p-12 text-center">
+        <div className="border-2 border-dashed border-border rounded-md p-12 text-center">
           <div className="flex flex-col items-center justify-center space-y-2">
-            <div className="rounded-full bg-gray-100 p-3">
-              <UploadIcon className="h-8 w-8 text-gray-400" />
+            <div className="rounded-full bg-muted/50 p-3">
+              <UploadIcon className="h-8 w-8 text-muted-foreground" />
             </div>
-            <h3 className="text-gray-700 font-medium mt-2">Upload an image</h3>
-            <p className="text-gray-500 text-xs max-w-[250px]">
+            <h3 className="text-foreground font-medium mt-2">Upload an image</h3>
+            <p className="text-muted-foreground text-xs max-w-[250px]">
               Upload a clear image of the issue. Our AI will help analyze and
               categorize it.
             </p>

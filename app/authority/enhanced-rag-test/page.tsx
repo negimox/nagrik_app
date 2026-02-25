@@ -138,7 +138,7 @@ export default function EnhancedRAGTestPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           {/* Main Answer */}
-          <div className="bg-gray-50 p-4 rounded-lg">
+          <div className="bg-muted/50 p-4 rounded-lg">
             <p className="whitespace-pre-wrap">{response.answer}</p>
           </div>
 
@@ -153,7 +153,7 @@ export default function EnhancedRAGTestPage() {
 
             {response.contextUsed && response.contextUsed.length > 0 && (
               <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-600">Context:</span>
+                <span className="text-sm text-muted-foreground">Context:</span>
                 <div className="flex gap-1">
                   {response.contextUsed.map((context: string, idx: number) => (
                     <Badge key={idx} variant="outline" className="text-xs">
@@ -226,9 +226,9 @@ export default function EnhancedRAGTestPage() {
                 {response.sources
                   .slice(0, 3)
                   .map((source: any, idx: number) => (
-                    <div key={idx} className="bg-gray-100 p-2 rounded text-xs">
+                    <div key={idx} className="bg-muted/50 p-2 rounded text-xs">
                       <div className="font-medium">{source.title}</div>
-                      <div className="text-gray-600">
+                      <div className="text-muted-foreground">
                         Category: {source.category}
                       </div>
                     </div>
@@ -249,10 +249,10 @@ export default function EnhancedRAGTestPage() {
           <h1 className="text-4xl font-bold text-primary">
             Enhanced Authority RAG System 🇮🇳
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-muted-foreground">
             AI-Powered Infrastructure Assistant for Indian Municipal Governance
           </p>
-          <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
+          <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-1">
               <Globe className="h-4 w-4" />
               <span>India-Specific Context</span>
@@ -520,7 +520,7 @@ export default function EnhancedRAGTestPage() {
           <h3 className="text-2xl font-bold text-center mb-4">
             Try the Enhanced Chatbot Interface
           </h3>
-          <p className="text-center text-gray-600 mb-8">
+          <p className="text-center text-muted-foreground mb-8">
             Click the chat button in the bottom-right corner to experience the
             full interactive interface
           </p>

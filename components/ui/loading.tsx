@@ -22,7 +22,7 @@ export function LoadingSpinner({
   return (
     <div
       className={cn(
-        "animate-spin rounded-full border-2 border-gray-300 border-t-primary",
+        "animate-spin rounded-full border-2 border-border border-t-primary",
         sizeClasses[size],
         className
       )}
@@ -184,7 +184,7 @@ export function DetailSkeleton() {
 export function DashboardSkeleton({ cards = 4 }: { cards?: number }) {
   return (
     <div className="space-y-6">
-      <div className="bg-white border rounded-md p-6 space-y-2">
+      <div className="bg-card text-card-foreground border rounded-md p-6 space-y-2">
         <Skeleton className="h-6 w-1/3" />
         <Skeleton className="h-4 w-2/3" />
       </div>
@@ -195,7 +195,7 @@ export function DashboardSkeleton({ cards = 4 }: { cards?: number }) {
         ))}
       </div>
       
-      <div className="bg-white border rounded-md p-4">
+      <div className="bg-card text-card-foreground border rounded-md p-4">
         <div className="mb-4">
           <Skeleton className="h-6 w-32" />
         </div>

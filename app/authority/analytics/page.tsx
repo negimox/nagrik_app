@@ -279,11 +279,11 @@ export default function AnalyticsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border rounded-md p-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6">
         <h1 className="text-xl font-bold text-primary mb-4">
           Analytics Dashboard
         </h1>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-muted-foreground">
           Analyze infrastructure report data, track performance metrics, and
           identify trends to improve city services.
         </p>
@@ -292,7 +292,7 @@ export default function AnalyticsPage() {
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
         <div className="flex items-center gap-2">
           <Select value={timeRange} onValueChange={setTimeRange}>
-            <SelectTrigger className="w-[180px] border-gray-300">
+            <SelectTrigger className="w-[180px] border-border">
               <SelectValue placeholder="Select time range" />
             </SelectTrigger>
             <SelectContent>
@@ -331,7 +331,7 @@ export default function AnalyticsPage() {
             <div className="text-2xl font-bold">
               {overviewStats.totalReports}
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-muted-foreground">
               +{overviewStats.reportIncrease}% from previous {timeRange}
             </p>
           </CardContent>
@@ -344,7 +344,7 @@ export default function AnalyticsPage() {
             <div className="text-2xl font-bold">
               {overviewStats.resolvedReports}
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-muted-foreground">
               +{overviewStats.resolutionRateIncrease}% from previous {timeRange}
             </p>
           </CardContent>
@@ -357,7 +357,7 @@ export default function AnalyticsPage() {
             <div className="text-2xl font-bold">
               {overviewStats.pendingReports}
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-muted-foreground">
               {Math.round(
                 (overviewStats.pendingReports / overviewStats.totalReports) *
                   100
@@ -376,14 +376,14 @@ export default function AnalyticsPage() {
             <div className="text-2xl font-bold">
               {overviewStats.averageResolutionTime}
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-muted-foreground">
               -0.3 days from previous {timeRange}
             </p>
           </CardContent>
         </Card>
       </div>
 
-      <div className="bg-white border rounded-md">
+      <div className="bg-card text-card-foreground border rounded-md">
         <Tabs
           defaultValue="overview"
           className="w-full"
@@ -464,7 +464,7 @@ export default function AnalyticsPage() {
                           overviewStats.totalReports) *
                         100
                       }
-                      className="h-2 bg-gray-100"
+                      className="h-2 bg-muted/50"
                       indicatorClassName="bg-green-500"
                     />
                   </div>
@@ -489,7 +489,7 @@ export default function AnalyticsPage() {
                           overviewStats.totalReports) *
                         100
                       }
-                      className="h-2 bg-gray-100"
+                      className="h-2 bg-muted/50"
                       indicatorClassName="bg-yellow-500"
                     />
                   </div>
@@ -514,7 +514,7 @@ export default function AnalyticsPage() {
                           overviewStats.totalReports) *
                         100
                       }
-                      className="h-2 bg-gray-100"
+                      className="h-2 bg-muted/50"
                       indicatorClassName="bg-orange-500"
                     />
                   </div>
@@ -527,18 +527,18 @@ export default function AnalyticsPage() {
                 </h3>
                 <div className="border rounded-md">
                   <Table>
-                    <TableHeader className="bg-gray-50">
+                    <TableHeader className="bg-muted/50">
                       <TableRow>
-                        <TableHead className="font-medium text-gray-500">
+                        <TableHead className="font-medium text-muted-foreground">
                           Month
                         </TableHead>
-                        <TableHead className="font-medium text-gray-500">
+                        <TableHead className="font-medium text-muted-foreground">
                           Total
                         </TableHead>
-                        <TableHead className="font-medium text-gray-500">
+                        <TableHead className="font-medium text-muted-foreground">
                           Resolved
                         </TableHead>
-                        <TableHead className="font-medium text-gray-500">
+                        <TableHead className="font-medium text-muted-foreground">
                           Pending
                         </TableHead>
                       </TableRow>
@@ -547,7 +547,7 @@ export default function AnalyticsPage() {
                       {monthlyReportData.map((month) => (
                         <TableRow
                           key={month.month}
-                          className="hover:bg-gray-50"
+                          className="hover:bg-muted/50"
                         >
                           <TableCell className="font-medium">
                             {month.month}
@@ -577,7 +577,7 @@ export default function AnalyticsPage() {
                     resolution is at {overviewStats.citizenSatisfaction}%, which
                     is 3% higher than the previous {timeRange}.
                   </p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-muted-foreground">
                     Based on feedback collected from citizens after issue
                     resolution.
                   </p>
@@ -618,7 +618,7 @@ export default function AnalyticsPage() {
                     </div>
                     <Progress
                       value={category.percentage}
-                      className="h-2 bg-gray-100"
+                      className="h-2 bg-muted/50"
                       indicatorClassName="bg-primary"
                     />
                   </div>
@@ -627,18 +627,18 @@ export default function AnalyticsPage() {
 
               <div className="border rounded-md">
                 <Table>
-                  <TableHeader className="bg-gray-50">
+                  <TableHeader className="bg-muted/50">
                     <TableRow>
-                      <TableHead className="font-medium text-gray-500">
+                      <TableHead className="font-medium text-muted-foreground">
                         Category
                       </TableHead>
-                      <TableHead className="font-medium text-gray-500">
+                      <TableHead className="font-medium text-muted-foreground">
                         Reports
                       </TableHead>
-                      <TableHead className="font-medium text-gray-500">
+                      <TableHead className="font-medium text-muted-foreground">
                         Percentage
                       </TableHead>
-                      <TableHead className="font-medium text-gray-500">
+                      <TableHead className="font-medium text-muted-foreground">
                         Change
                       </TableHead>
                     </TableRow>
@@ -647,7 +647,7 @@ export default function AnalyticsPage() {
                     {categoryData.map((category) => (
                       <TableRow
                         key={category.category}
-                        className="hover:bg-gray-50"
+                        className="hover:bg-muted/50"
                       >
                         <TableCell className="font-medium">
                           {category.category}
@@ -707,7 +707,7 @@ export default function AnalyticsPage() {
                     </div>
                     <Progress
                       value={district.percentage}
-                      className="h-2 bg-gray-100"
+                      className="h-2 bg-muted/50"
                       indicatorClassName="bg-primary"
                     />
                   </div>
@@ -716,18 +716,18 @@ export default function AnalyticsPage() {
 
               <div className="border rounded-md">
                 <Table>
-                  <TableHeader className="bg-gray-50">
+                  <TableHeader className="bg-muted/50">
                     <TableRow>
-                      <TableHead className="font-medium text-gray-500">
+                      <TableHead className="font-medium text-muted-foreground">
                         District
                       </TableHead>
-                      <TableHead className="font-medium text-gray-500">
+                      <TableHead className="font-medium text-muted-foreground">
                         Reports
                       </TableHead>
-                      <TableHead className="font-medium text-gray-500">
+                      <TableHead className="font-medium text-muted-foreground">
                         Percentage
                       </TableHead>
-                      <TableHead className="font-medium text-gray-500">
+                      <TableHead className="font-medium text-muted-foreground">
                         Change
                       </TableHead>
                     </TableRow>
@@ -736,7 +736,7 @@ export default function AnalyticsPage() {
                     {districtData.map((district) => (
                       <TableRow
                         key={district.district}
-                        className="hover:bg-gray-50"
+                        className="hover:bg-muted/50"
                       >
                         <TableCell className="font-medium">
                           {district.district}
@@ -770,28 +770,28 @@ export default function AnalyticsPage() {
             </h3>
             <div className="border rounded-md">
               <Table>
-                <TableHeader className="bg-gray-50">
+                <TableHeader className="bg-muted/50">
                   <TableRow>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Category
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Avg. Resolution Time
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Previous Period
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Change
                     </TableHead>
-                    <TableHead className="font-medium text-gray-500">
+                    <TableHead className="font-medium text-muted-foreground">
                       Efficiency
                     </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {resolutionTimeData.map((item) => (
-                    <TableRow key={item.category} className="hover:bg-gray-50">
+                    <TableRow key={item.category} className="hover:bg-muted/50">
                       <TableCell className="font-medium">
                         {item.category}
                       </TableCell>
@@ -837,7 +837,7 @@ export default function AnalyticsPage() {
                         )}
                         %
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-muted-foreground">
                         Overall resolution rate
                       </div>
                     </div>
@@ -848,7 +848,7 @@ export default function AnalyticsPage() {
                       +{overviewStats.resolutionRateIncrease}%
                     </Badge>
                   </div>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-muted-foreground">
                     The resolution rate has improved by{" "}
                     {overviewStats.resolutionRateIncrease}% compared to the
                     previous {timeRange}, indicating more efficient issue
@@ -865,7 +865,7 @@ export default function AnalyticsPage() {
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <div className="text-3xl font-bold">1.2 days</div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-muted-foreground">
                         Initial response time
                       </div>
                     </div>
@@ -876,7 +876,7 @@ export default function AnalyticsPage() {
                       -15%
                     </Badge>
                   </div>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-muted-foreground">
                     The average time between report submission and initial
                     assessment has decreased by 15% compared to the previous{" "}
                     {timeRange}, showing improved responsiveness.
@@ -889,12 +889,12 @@ export default function AnalyticsPage() {
           <TabsContent value="trends" className="p-4 mt-0">
             <h3 className="text-sm font-bold mb-4">Monthly Report Trends</h3>
             <div className="border rounded-md p-4">
-              <div className="h-64 flex items-center justify-center bg-gray-100 rounded-md mb-4">
-                <p className="text-gray-500">
+              <div className="h-64 flex items-center justify-center bg-muted/50 rounded-md mb-4">
+                <p className="text-muted-foreground">
                   Monthly report trend chart would be displayed here
                 </p>
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 The chart above shows the trend of reports submitted over the
                 past 6 months, broken down by category. There has been a steady
                 increase in overall reports, with Road Damage consistently being
@@ -907,15 +907,15 @@ export default function AnalyticsPage() {
                 <h3 className="text-sm font-bold mb-4">Seasonal Patterns</h3>
                 <div className="border rounded-md p-4">
                   <table className="w-full text-sm">
-                    <thead className="bg-gray-50">
+                    <thead className="bg-muted/50">
                       <tr>
-                        <th className="py-2 px-4 text-left font-medium text-gray-500">
+                        <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                           Season
                         </th>
-                        <th className="py-2 px-4 text-left font-medium text-gray-500">
+                        <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                           Top Issue
                         </th>
-                        <th className="py-2 px-4 text-left font-medium text-gray-500">
+                        <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                           Volume
                         </th>
                       </tr>
@@ -952,18 +952,18 @@ export default function AnalyticsPage() {
                 </h3>
                 <div className="border rounded-md p-4">
                   <table className="w-full text-sm">
-                    <thead className="bg-gray-50">
+                    <thead className="bg-muted/50">
                       <tr>
-                        <th className="py-2 px-4 text-left font-medium text-gray-500">
+                        <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                           Metric
                         </th>
-                        <th className="py-2 px-4 text-left font-medium text-gray-500">
+                        <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                           Current Year
                         </th>
-                        <th className="py-2 px-4 text-left font-medium text-gray-500">
+                        <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                           Previous Year
                         </th>
-                        <th className="py-2 px-4 text-left font-medium text-gray-500">
+                        <th className="py-2 px-4 text-left font-medium text-muted-foreground">
                           Change
                         </th>
                       </tr>
@@ -1015,7 +1015,7 @@ export default function AnalyticsPage() {
                     setActiveInsightTypes(insights);
                   }}
                 >
-                  <SelectTrigger className="w-[180px] border-gray-300">
+                  <SelectTrigger className="w-[180px] border-border">
                     <SelectValue placeholder="Select insight types" />
                   </SelectTrigger>
                   <SelectContent>
@@ -1119,7 +1119,7 @@ export default function AnalyticsPage() {
 
             <div className="grid gap-6 md:grid-cols-3 mb-6">
               <div className="md:col-span-2">
-                <div className="border rounded-md p-6 bg-white h-full">
+                <div className="border rounded-md p-6 bg-card text-card-foreground h-full">
                   {aiGeneratedInsights ? (
                     <div className="prose prose-sm max-w-none">
                       <div
@@ -1160,7 +1160,7 @@ export default function AnalyticsPage() {
                     </div>
                   ) : (
                     <div className="flex flex-col items-center justify-center py-16">
-                      <p className="text-gray-500 mb-4">
+                      <p className="text-muted-foreground mb-4">
                         Generate AI insights to get a comprehensive analysis of
                         your infrastructure report data.
                       </p>
@@ -1203,7 +1203,7 @@ export default function AnalyticsPage() {
                         )}
                       </div>
                     ) : (
-                      <div className="text-center py-8 text-gray-500">
+                      <div className="text-center py-8 text-muted-foreground">
                         <p>Generate insights to see recommendations</p>
                       </div>
                     )}
@@ -1248,7 +1248,7 @@ export default function AnalyticsPage() {
                                 Current Rate: {anomaly.currentRate} reports/week
                               </div>
                             </div>
-                            <p className="text-sm text-gray-600 mb-2">
+                            <p className="text-sm text-muted-foreground mb-2">
                               <strong>Potential Cause:</strong>{" "}
                               {anomaly.potentialCause}
                             </p>
@@ -1256,7 +1256,7 @@ export default function AnalyticsPage() {
                               <strong>Confidence:</strong>
                               <Progress
                                 value={anomaly.confidence}
-                                className="h-2 flex-1 bg-gray-100"
+                                className="h-2 flex-1 bg-muted/50"
                                 indicatorClassName="bg-red-500"
                               />
                               <span>{anomaly.confidence}%</span>
@@ -1281,7 +1281,7 @@ export default function AnalyticsPage() {
                                 +{anomaly.increase}%
                               </Badge>
                             </div>
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-muted-foreground">
                               Detected on {anomaly.detectionDate}
                             </p>
                           </CardHeader>
@@ -1294,11 +1294,11 @@ export default function AnalyticsPage() {
                                 Current Rate: {anomaly.anomalyRate} reports/week
                               </div>
                             </div>
-                            <p className="text-sm text-gray-600 mb-2">
+                            <p className="text-sm text-muted-foreground mb-2">
                               <strong>Potential Cause:</strong>{" "}
                               {anomaly.potentialCause}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-muted-foreground">
                               <strong>Recommendation:</strong>{" "}
                               {anomaly.recommendedAction}
                             </p>
@@ -1335,10 +1335,10 @@ export default function AnalyticsPage() {
                             </div>
                           </CardHeader>
                           <CardContent>
-                            <p className="text-sm text-gray-600 mb-2">
+                            <p className="text-sm text-muted-foreground mb-2">
                               <strong>Past Trend:</strong> {trend.pastTrend}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-muted-foreground">
                               <strong>Future Forecast:</strong>{" "}
                               {trend.futureForecast}
                             </p>
@@ -1362,7 +1362,7 @@ export default function AnalyticsPage() {
                                 {prediction.confidence}% confidence
                               </Badge>
                             </div>
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-muted-foreground">
                               Prediction for {prediction.timeframe}
                             </p>
                           </CardHeader>
@@ -1373,11 +1373,11 @@ export default function AnalyticsPage() {
                                 {prediction.predictedIssueCount}
                               </div>
                             </div>
-                            <p className="text-sm text-gray-600 mb-2">
+                            <p className="text-sm text-muted-foreground mb-2">
                               <strong>Contributing Factors:</strong>{" "}
                               {prediction.contributingFactors}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-muted-foreground">
                               <strong>Recommendation:</strong>{" "}
                               {prediction.recommendedAction}
                             </p>
@@ -1391,7 +1391,7 @@ export default function AnalyticsPage() {
             {/* Resource Allocation Insights */}
             {activeInsightTypes.includes(InsightType.RESOURCE_ALLOCATION) &&
               resourceInsights && (
-                <div className="mt-6 border rounded-md p-6 bg-white">
+                <div className="mt-6 border rounded-md p-6 bg-card text-card-foreground">
                   <h3 className="text-lg font-bold text-primary mb-4 flex items-center">
                     <BarChart3 className="h-5 w-5 mr-2" />
                     Resource Allocation Insights
@@ -1430,18 +1430,18 @@ export default function AnalyticsPage() {
 
             {/* Geospatial Analysis */}
             {selectedDistrict === "all" && geoInsights && (
-              <div className="mt-6 border rounded-md p-6 bg-white">
+              <div className="mt-6 border rounded-md p-6 bg-card text-card-foreground">
                 <h3 className="text-lg font-bold text-primary mb-4 flex items-center">
                   <Map className="h-5 w-5 mr-2" />
                   Geospatial Analysis
                 </h3>
-                <div className="h-64 bg-gray-100 rounded-md mb-4 flex items-center justify-center">
-                  <p className="text-gray-500">
+                <div className="h-64 bg-muted/50 rounded-md mb-4 flex items-center justify-center">
+                  <p className="text-muted-foreground">
                     Interactive map visualization would be displayed here
                   </p>
                 </div>
                 <div className="prose prose-sm max-w-none">
-                  <pre className="bg-gray-50 p-2 rounded-md overflow-x-auto">
+                  <pre className="bg-muted/50 p-2 rounded-md overflow-x-auto">
                     {geoInsights.slice(0, 300)}...
                   </pre>
                   <Button variant="outline" size="sm" className="mt-2">
@@ -1461,7 +1461,7 @@ export default function AnalyticsPage() {
                   value={selectedDistrict}
                   onValueChange={setSelectedDistrict}
                 >
-                  <SelectTrigger className="w-[140px] border-gray-300">
+                  <SelectTrigger className="w-[140px] border-border">
                     <SelectValue placeholder="District" />
                   </SelectTrigger>
                   <SelectContent>
@@ -1521,13 +1521,13 @@ export default function AnalyticsPage() {
                         <Badge
                           key={district}
                           variant="secondary"
-                          className="bg-gray-100"
+                          className="bg-muted/50"
                         >
                           {district}
                         </Badge>
                       ))}
                     </div>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-muted-foreground mt-1">
                       Implemented on {policy.implementedDate}
                     </p>
                   </CardHeader>
@@ -1541,10 +1541,10 @@ export default function AnalyticsPage() {
                           <div className="text-2xl font-bold">
                             {policy.afterMetrics.avgResolutionTime.toFixed(1)}
                           </div>
-                          <div className="text-sm text-gray-500 mb-1">days</div>
+                          <div className="text-sm text-muted-foreground mb-1">days</div>
                         </div>
                         <div className="flex items-center gap-1 text-xs">
-                          <span className="text-gray-500">
+                          <span className="text-muted-foreground">
                             From{" "}
                             {policy.beforeMetrics.avgResolutionTime.toFixed(1)}{" "}
                             days
@@ -1572,12 +1572,12 @@ export default function AnalyticsPage() {
                           <div className="text-2xl font-bold">
                             {policy.afterMetrics.reportFrequency}
                           </div>
-                          <div className="text-sm text-gray-500 mb-1">
+                          <div className="text-sm text-muted-foreground mb-1">
                             per week
                           </div>
                         </div>
                         <div className="flex items-center gap-1 text-xs">
-                          <span className="text-gray-500">
+                          <span className="text-muted-foreground">
                             From {policy.beforeMetrics.reportFrequency} per week
                           </span>
                           <Badge
@@ -1605,7 +1605,7 @@ export default function AnalyticsPage() {
                           </div>
                         </div>
                         <div className="flex items-center gap-1 text-xs">
-                          <span className="text-gray-500">
+                          <span className="text-muted-foreground">
                             From {policy.beforeMetrics.citizenSatisfaction}%
                           </span>
                           <Badge
@@ -1621,7 +1621,7 @@ export default function AnalyticsPage() {
                       </div>
                     </div>
 
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-muted-foreground">
                       <strong>Analysis:</strong> {policy.notes}
                     </p>
                   </CardContent>
@@ -1634,7 +1634,7 @@ export default function AnalyticsPage() {
                 Policy Implementation Timeline
               </h3>
               <div className="relative">
-                <div className="absolute h-full w-0.5 bg-gray-200 left-2 top-0"></div>
+                <div className="absolute h-full w-0.5 bg-muted/50 left-2 top-0"></div>
                 <div className="space-y-6 relative">
                   {policyImpactData.map((policy, index) => (
                     <div key={index} className="flex gap-4">
@@ -1643,10 +1643,10 @@ export default function AnalyticsPage() {
                         <div className="text-sm font-bold">
                           {policy.policyName}
                         </div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-muted-foreground">
                           {policy.implementedDate}
                         </div>
-                        <p className="text-xs text-gray-600 mt-1">
+                        <p className="text-xs text-muted-foreground mt-1">
                           Target areas: {policy.targetDistricts.join(", ")}
                         </p>
                       </div>
@@ -1659,15 +1659,15 @@ export default function AnalyticsPage() {
         </Tabs>
       </div>
 
-      <div className="bg-white border rounded-md p-4">
+      <div className="bg-card text-card-foreground border rounded-md p-4">
         <h3 className="text-sm font-bold mb-4">Generate Reports</h3>
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="border rounded-md p-4 hover:bg-gray-50 transition-colors">
+          <div className="border rounded-md p-4 hover:bg-muted/50 transition-colors">
             <div className="flex items-center gap-2 mb-2">
               <FileDown className="h-5 w-5 text-primary" />
               <h4 className="font-bold text-primary">Monthly Summary</h4>
             </div>
-            <p className="text-xs text-gray-600 mb-4">
+            <p className="text-xs text-muted-foreground mb-4">
               Generate a comprehensive monthly report with key metrics and
               trends.
             </p>
@@ -1679,12 +1679,12 @@ export default function AnalyticsPage() {
               Generate
             </Button>
           </div>
-          <div className="border rounded-md p-4 hover:bg-gray-50 transition-colors">
+          <div className="border rounded-md p-4 hover:bg-muted/50 transition-colors">
             <div className="flex items-center gap-2 mb-2">
               <FileDown className="h-5 w-5 text-primary" />
               <h4 className="font-bold text-primary">Category Analysis</h4>
             </div>
-            <p className="text-xs text-gray-600 mb-4">
+            <p className="text-xs text-muted-foreground mb-4">
               Detailed breakdown of reports by category with resolution metrics.
             </p>
             <Button
@@ -1695,12 +1695,12 @@ export default function AnalyticsPage() {
               Generate
             </Button>
           </div>
-          <div className="border rounded-md p-4 hover:bg-gray-50 transition-colors">
+          <div className="border rounded-md p-4 hover:bg-muted/50 transition-colors">
             <div className="flex items-center gap-2 mb-2">
               <FileDown className="h-5 w-5 text-primary" />
               <h4 className="font-bold text-primary">Team Performance</h4>
             </div>
-            <p className="text-xs text-gray-600 mb-4">
+            <p className="text-xs text-muted-foreground mb-4">
               Analysis of team performance metrics and workload distribution.
             </p>
             <Button
@@ -1716,7 +1716,7 @@ export default function AnalyticsPage() {
 
       <div className="bg-muted border rounded-md p-4">
         <h2 className="font-bold text-primary mb-2">Analytics Notes</h2>
-        <ul className="text-xs space-y-1 text-gray-700">
+        <ul className="text-xs space-y-1 text-foreground">
           <li>• Data is updated daily at midnight.</li>
           <li>• Reports can be exported in PDF, CSV, or Excel formats.</li>
           <li>• Historical data is available for the past 5 years.</li>

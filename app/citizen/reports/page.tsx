@@ -100,7 +100,7 @@ export default function ReportsPage() {
         return (
           <Badge
             variant="outline"
-            className="bg-gray-100 text-gray-800 border-gray-300"
+            className="bg-muted/50 text-foreground border-border"
           >
             Pending
           </Badge>
@@ -174,23 +174,23 @@ export default function ReportsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border rounded-md p-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6">
         <h1 className="text-xl font-bold text-primary mb-4">My Reports</h1>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-muted-foreground">
           View and track all your submitted infrastructure reports. Monitor
           their progress and add additional information if needed.
         </p>
       </div>
 
-      <div className="bg-white border rounded-md p-4">
+      <div className="bg-card text-card-foreground border rounded-md p-4">
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between mb-4">
           <div className="flex flex-1 items-center gap-2">
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search reports..."
-                className="pl-8 w-full border-gray-300"
+                className="pl-8 w-full border-border"
               />
             </div>
             <Button
@@ -220,7 +220,7 @@ export default function ReportsPage() {
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Select defaultValue="all">
-              <SelectTrigger className="w-[180px] border-gray-300">
+              <SelectTrigger className="w-[180px] border-border">
                 <SelectValue placeholder="Filter by status" />
               </SelectTrigger>
               <SelectContent>
@@ -232,7 +232,7 @@ export default function ReportsPage() {
               </SelectContent>
             </Select>
             <Select defaultValue="all">
-              <SelectTrigger className="w-[180px] border-gray-300">
+              <SelectTrigger className="w-[180px] border-border">
                 <SelectValue placeholder="Filter by category" />
               </SelectTrigger>
               <SelectContent>
@@ -247,7 +247,7 @@ export default function ReportsPage() {
           </div>
           <div className="flex items-center gap-2">
             <Select defaultValue="10">
-              <SelectTrigger className="w-[70px] border-gray-300">
+              <SelectTrigger className="w-[70px] border-border">
                 <SelectValue placeholder="10" />
               </SelectTrigger>
               <SelectContent>
@@ -256,7 +256,7 @@ export default function ReportsPage() {
                 <SelectItem value="50">50</SelectItem>
               </SelectContent>
             </Select>
-            <span className="text-sm text-gray-500">per page</span>
+            <span className="text-sm text-muted-foreground">per page</span>
           </div>
         </div>
 
@@ -276,7 +276,7 @@ export default function ReportsPage() {
           </div>
         ) : reports.length === 0 ? (
           <div className="text-center py-8">
-            <p className="text-gray-500 mb-4">No reports found.</p>
+            <p className="text-muted-foreground mb-4">No reports found.</p>
             <Link href="/citizen/report">
               <Button className="bg-primary hover:bg-primary/90">
                 Create Your First Report
@@ -286,43 +286,43 @@ export default function ReportsPage() {
         ) : (
           <div className="rounded-md border">
             <Table>
-              <TableHeader className="bg-gray-50">
+              <TableHeader className="bg-muted/50">
                 <TableRow>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Report ID
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Issue
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Category
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Location
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Date
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Status
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Priority
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500 text-right">
+                  <TableHead className="font-medium text-muted-foreground text-right">
                     Action
                   </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {reports.map((report) => (
-                  <TableRow key={report.id} className="hover:bg-gray-50">
+                  <TableRow key={report.id} className="hover:bg-muted/50">
                     <TableCell className="font-medium">{report.id}</TableCell>
                     <TableCell>{report.title}</TableCell>
                     <TableCell>{report.category}</TableCell>
                     <TableCell>
                       <div className="flex items-center gap-1">
-                        <MapPin className="h-3 w-3 text-gray-400" />
+                        <MapPin className="h-3 w-3 text-muted-foreground" />
                         <span>{report.location}</span>
                       </div>
                     </TableCell>
@@ -350,7 +350,7 @@ export default function ReportsPage() {
         )}
 
         <div className="flex items-center justify-between mt-4">
-          <div className="text-sm text-gray-500">
+          <div className="text-sm text-muted-foreground">
             Showing <strong>1</strong> to <strong>{reports.length}</strong> of{" "}
             <strong>{reports.length}</strong> results
           </div>
@@ -367,7 +367,7 @@ export default function ReportsPage() {
             <Button
               variant="outline"
               size="sm"
-              className="h-8 w-8 bg-primary text-white border-primary"
+              className="h-8 w-8 bg-primary text-primary-foreground border-primary"
             >
               1
             </Button>
@@ -387,7 +387,7 @@ export default function ReportsPage() {
         <h2 className="font-bold text-primary mb-2">
           Report Management Notes
         </h2>
-        <ul className="text-xs space-y-1 text-gray-700">
+        <ul className="text-xs space-y-1 text-foreground">
           <li>
             • Click on "Details" to view complete information about a report.
           </li>

@@ -634,7 +634,7 @@ RESPONSE EXAMPLES:
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="text-white hover:bg-white/20 h-8 w-8 p-0"
+                className="text-white hover:bg-card text-card-foreground/20 h-8 w-8 p-0"
               >
                 {isMinimized ? (
                   <Maximize2 className="h-4 w-4" />
@@ -649,7 +649,7 @@ RESPONSE EXAMPLES:
                   setIsOpen(false);
                   if (isCallActive) endCall();
                 }}
-                className="text-white hover:bg-white/20 h-8 w-8 p-0"
+                className="text-white hover:bg-card text-card-foreground/20 h-8 w-8 p-0"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -679,7 +679,7 @@ RESPONSE EXAMPLES:
                             message.type === "user"
                               ? "bg-purple-600 text-white"
                               : message.type === "assistant"
-                                ? "bg-gray-100 text-gray-900"
+                                ? "bg-muted/50 text-foreground"
                                 : "bg-yellow-100 text-yellow-900 text-xs",
                           )}
                         >
@@ -733,11 +733,11 @@ RESPONSE EXAMPLES:
                 {/* Volume Level Indicator */}
                 {isCallActive && (
                   <div className="mb-3">
-                    <div className="flex items-center gap-2 text-xs text-gray-600 mb-1">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
                       <Volume2 className="h-3 w-3" />
                       <span>Volume Level</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="w-full bg-muted/50 rounded-full h-2">
                       <div
                         className="bg-purple-600 h-2 rounded-full transition-all duration-100"
                         style={{

@@ -10,13 +10,13 @@ export default function PrivacyPolicyPage() {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="mb-8 text-center">
             <h1 className="text-3xl font-bold text-primary mb-4">Privacy Policy</h1>
-            <p className="text-gray-600">
+            <p className="text-muted-foreground">
               Information on how we handle and protect your data
             </p>
           </div>
 
           <Card className="border-t-4 border-t-primary">
-            <CardContent className="p-8 prose prose-blue max-w-none text-gray-700 text-sm leading-relaxed space-y-6">
+            <CardContent className="p-8 prose prose-blue max-w-none text-foreground text-sm leading-relaxed space-y-6">
               <div>
                 <h2 className="text-xl font-bold text-primary mb-3">1. Information We Collect</h2>
                 <p>
@@ -61,8 +61,8 @@ export default function PrivacyPolicyPage() {
                 </p>
               </div>
 
-              <div className="pt-4 mt-6 border-t border-gray-200">
-                <p className="text-xs text-gray-500">Last updated: {new Date().toLocaleDateString()}</p>
+              <div className="pt-4 mt-6 border-t border-border">
+                <p className="text-xs text-muted-foreground">Last updated: {new Date().toLocaleDateString()}</p>
               </div>
             </CardContent>
           </Card>

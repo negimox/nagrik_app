@@ -211,7 +211,7 @@ export default function HeatmapAnalyticsPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm text-gray-500">
+            <CardTitle className="text-sm text-muted-foreground">
               Total Issues
             </CardTitle>
           </CardHeader>
@@ -221,7 +221,7 @@ export default function HeatmapAnalyticsPage() {
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm text-gray-500">
+            <CardTitle className="text-sm text-muted-foreground">
               High Priority
             </CardTitle>
           </CardHeader>
@@ -233,7 +233,7 @@ export default function HeatmapAnalyticsPage() {
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm text-gray-500">
+            <CardTitle className="text-sm text-muted-foreground">
               Medium Priority
             </CardTitle>
           </CardHeader>
@@ -245,7 +245,7 @@ export default function HeatmapAnalyticsPage() {
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm text-gray-500">
+            <CardTitle className="text-sm text-muted-foreground">
               Low Priority
             </CardTitle>
           </CardHeader>
@@ -357,7 +357,7 @@ export default function HeatmapAnalyticsPage() {
             )}
           </div>
 
-          <div className="mt-4 text-sm text-gray-500">
+          <div className="mt-4 text-sm text-muted-foreground">
             <p>
               Heatmap reflects the density and priority of reported issues. Red
               areas indicate high concentration of high-priority issues.

@@ -319,25 +319,25 @@ export default function ReportsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border rounded-md p-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6">
         <h1 className="text-xl font-bold text-primary mb-4">
           Reports Management
         </h1>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-muted-foreground">
           View, filter, and manage all infrastructure reports. Assign tasks to
           teams and track resolution progress.
         </p>
       </div>
 
-      <div className="bg-white border rounded-md p-4">
+      <div className="bg-card text-card-foreground border rounded-md p-4">
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between mb-4">
           <div className="flex flex-1 items-center gap-2">
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search reports..."
-                className="pl-8 w-full border-gray-300"
+                className="pl-8 w-full border-border"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -397,7 +397,7 @@ export default function ReportsPage() {
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between mb-4">
           <div className="flex items-center gap-2 flex-wrap">
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-[180px] border-gray-300">
+              <SelectTrigger className="w-[180px] border-border">
                 <SelectValue placeholder="Filter by status" />
               </SelectTrigger>
               <SelectContent>
@@ -410,7 +410,7 @@ export default function ReportsPage() {
               </SelectContent>
             </Select>
             <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-              <SelectTrigger className="w-[180px] border-gray-300">
+              <SelectTrigger className="w-[180px] border-border">
                 <SelectValue placeholder="Filter by category" />
               </SelectTrigger>
               <SelectContent>
@@ -424,7 +424,7 @@ export default function ReportsPage() {
               </SelectContent>
             </Select>
             <Select value={priorityFilter} onValueChange={setPriorityFilter}>
-              <SelectTrigger className="w-[180px] border-gray-300">
+              <SelectTrigger className="w-[180px] border-border">
                 <SelectValue placeholder="Filter by priority" />
               </SelectTrigger>
               <SelectContent>
@@ -450,11 +450,11 @@ export default function ReportsPage() {
         {/* Location filter */}
         <div className="flex items-center gap-2 mb-4">
           <div className="relative flex-1 max-w-md">
-            <MapPin className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
+            <MapPin className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
               type="text"
               placeholder="Filter by location..."
-              className="pl-8 w-full border-gray-300"
+              className="pl-8 w-full border-border"
               value={locationFilter}
               onChange={(e) => setLocationFilter(e.target.value)}
             />
@@ -482,7 +482,7 @@ export default function ReportsPage() {
         ) : (
           <div className="rounded-md border">
             <Table>
-              <TableHeader className="bg-gray-50">
+              <TableHeader className="bg-muted/50">
                 <TableRow>
                   <TableHead className="w-12">
                     <Checkbox
@@ -494,28 +494,28 @@ export default function ReportsPage() {
                       aria-label="Select all"
                     />
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     ID
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Issue
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Status
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Priority
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Location
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Date
                   </TableHead>
-                  <TableHead className="font-medium text-gray-500">
+                  <TableHead className="font-medium text-muted-foreground">
                     Assigned To
                   </TableHead>
-                  <TableHead className="text-right font-medium text-gray-500">
+                  <TableHead className="text-right font-medium text-muted-foreground">
                     Actions
                   </TableHead>
                 </TableRow>
@@ -524,7 +524,7 @@ export default function ReportsPage() {
                 {filteredReports.map((report) => (
                   <TableRow
                     key={report.id || report._id}
-                    className="hover:bg-gray-50"
+                    className="hover:bg-muted/50"
                   >
                     <TableCell>
                       <Checkbox
@@ -543,7 +543,7 @@ export default function ReportsPage() {
                     <TableCell>
                       <div>
                         <div className="font-medium">{report.title}</div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-muted-foreground">
                           {report.category}
                         </div>
                       </div>
@@ -552,14 +552,14 @@ export default function ReportsPage() {
                     <TableCell>{getPriorityBadge(report.priority)}</TableCell>
                     <TableCell>
                       <div className="flex items-center gap-1">
-                        <MapPin className="h-3 w-3 text-gray-400" />
+                        <MapPin className="h-3 w-3 text-muted-foreground" />
                         <span className="text-sm">{report.location}</span>
                       </div>
                     </TableCell>
                     <TableCell>{report.date}</TableCell>
                     <TableCell>
                       {!report.assignedTo ? (
-                        <span className="text-sm text-gray-500">
+                        <span className="text-sm text-muted-foreground">
                           Unassigned
                         </span>
                       ) : (
@@ -658,7 +658,7 @@ export default function ReportsPage() {
         )}
 
         <div className="flex items-center justify-between mt-4">
-          <div className="text-sm text-gray-500">
+          <div className="text-sm text-muted-foreground">
             Showing <strong>1</strong> to{" "}
             <strong>{filteredReports.length}</strong> of{" "}
             <strong>{filteredReports.length}</strong> results
@@ -696,7 +696,7 @@ export default function ReportsPage() {
         <h2 className="font-bold text-primary mb-2">
           Report Management Notes
         </h2>
-        <ul className="text-xs space-y-1 text-gray-700">
+        <ul className="text-xs space-y-1 text-foreground">
           <li>
             • Use the search and filter functions to find specific reports.
           </li>

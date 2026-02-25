@@ -64,7 +64,7 @@ export default function AIImageDetectionDemo() {
                         className="bg-slate-100 dark:bg-slate-800 p-3 rounded-md"
                       >
                         <p className="text-lg font-medium">{obj.name}</p>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                        <div className="w-full bg-muted/50 rounded-full h-2.5 mt-2">
                           <div
                             className="bg-primary h-2.5 rounded-full"
                             style={{ width: `${obj.confidence}%` }}
@@ -87,11 +87,11 @@ export default function AIImageDetectionDemo() {
               </ScrollArea>
             ) : (
               <div className="flex flex-col items-center justify-center h-[400px] text-center">
-                <p className="text-gray-500 mb-4">
+                <p className="text-muted-foreground mb-4">
                   No image has been processed yet. Upload an image to see the AI
                   detection results.
                 </p>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted-foreground">
                   The AI model will attempt to identify objects, focusing on
                   infrastructure or civic issues like potholes, garbage, broken
                   facilities, etc.

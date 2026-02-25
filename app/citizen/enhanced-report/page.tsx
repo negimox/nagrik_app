@@ -175,7 +175,7 @@ export default function EnhancedReportPage() {
           <Brain className="h-8 w-8 text-blue-600" />
           Enhanced Infrastructure Report
         </h1>
-        <p className="text-gray-600">
+        <p className="text-muted-foreground">
           Create detailed infrastructure reports with AI-powered analysis and
           contextual insights
         </p>
@@ -243,7 +243,7 @@ export default function EnhancedReportPage() {
               <div className="space-y-2">
                 <Label htmlFor="location">Location *</Label>
                 <div className="relative">
-                  <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <MapPin className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                   <Input
                     id="location"
                     value={reportData.location}
@@ -351,7 +351,7 @@ export default function EnhancedReportPage() {
                           {obj.name}
                         </span>
                         {obj.condition && (
-                          <span className="ml-2 text-gray-600">
+                          <span className="ml-2 text-muted-foreground">
                             ({obj.condition})
                           </span>
                         )}
@@ -405,7 +405,7 @@ export default function EnhancedReportPage() {
             </Button>
 
             {showRAGAssistant && (
-              <div className="space-y-4 p-4 bg-yellow-50 rounded-lg border">
+              <div className="space-y-4 p-4 bg-yellow-500/10 rounded-lg border">
                 <div className="flex gap-2">
                   <Input
                     value={assistantQuery}
@@ -431,7 +431,7 @@ export default function EnhancedReportPage() {
                         {(ragResponse.confidence * 100).toFixed(1)}% confidence
                       </Badge>
                     </div>
-                    <div className="text-sm bg-white p-3 rounded border">
+                    <div className="text-sm bg-card text-card-foreground p-3 rounded border">
                       <p className="whitespace-pre-wrap">
                         {ragResponse.answer}
                       </p>

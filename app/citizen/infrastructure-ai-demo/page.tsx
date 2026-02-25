@@ -60,7 +60,7 @@ export default function InfrastructureAIDemo() {
 
               {detectedObjects.length > 0 && (
                 <div className="mt-4 pt-4 border-t">
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     {detectedObjects.length} issue(s) detected
                   </p>
 
@@ -125,7 +125,7 @@ export default function InfrastructureAIDemo() {
                                     {obj.name}
                                   </h3>
                                   {obj.condition && (
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-sm text-muted-foreground">
                                       Condition: {obj.condition}
                                     </p>
                                   )}
@@ -144,7 +144,7 @@ export default function InfrastructureAIDemo() {
                                   </Badge>
                                 )}
                               </div>
-                              <div className="mt-3 w-full bg-gray-200 rounded-full h-2.5">
+                              <div className="mt-3 w-full bg-muted/50 rounded-full h-2.5">
                                 <div
                                   className="bg-blue-600 h-2.5 rounded-full"
                                   style={{ width: `${obj.confidence}%` }}
@@ -155,7 +155,7 @@ export default function InfrastructureAIDemo() {
                               </p>
 
                               {obj.description && (
-                                <div className="mt-3 p-3 bg-gray-50 rounded-md text-sm">
+                                <div className="mt-3 p-3 bg-muted/50 rounded-md text-sm">
                                   {obj.description}
                                 </div>
                               )}
@@ -191,7 +191,7 @@ export default function InfrastructureAIDemo() {
                                 <span className="font-medium">
                                   Description:
                                 </span>
-                                <p className="mt-1 p-3 bg-gray-50 rounded-md">
+                                <p className="mt-1 p-3 bg-muted/50 rounded-md">
                                   {detectedObjects[0].description}
                                 </p>
                               </div>
@@ -243,7 +243,7 @@ export default function InfrastructureAIDemo() {
 
                   {activeTab === "raw" && (
                     <ScrollArea className="h-[400px] pr-4">
-                      <pre className="text-xs bg-gray-50 p-4 rounded-md overflow-auto">
+                      <pre className="text-xs bg-muted/50 p-4 rounded-md overflow-auto">
                         {JSON.stringify(detectedObjects, null, 2)}
                       </pre>
                     </ScrollArea>
@@ -251,11 +251,11 @@ export default function InfrastructureAIDemo() {
                 </TabsContent>
               ) : (
                 <div className="flex flex-col items-center justify-center h-[400px] text-center">
-                  <p className="text-gray-500 mb-4">
+                  <p className="text-muted-foreground mb-4">
                     No image has been analyzed yet. Upload an image to see the
                     AI analysis results.
                   </p>
-                  <p className="text-sm text-gray-400 max-w-md">
+                  <p className="text-sm text-muted-foreground max-w-md">
                     Our advanced Google Gemini AI will analyze the image to
                     detect infrastructure issues, assess their condition,
                     determine severity, and generate detailed descriptions.
@@ -275,7 +275,7 @@ export default function InfrastructureAIDemo() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="border rounded-md p-4">
               <h3 className="font-medium mb-2">1. Object Detection</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 Google's Gemini AI model identifies infrastructure objects in
                 the image, such as roads, streetlights, buildings, and more,
                 with confidence scores.
@@ -283,7 +283,7 @@ export default function InfrastructureAIDemo() {
             </div>
             <div className="border rounded-md p-4">
               <h3 className="font-medium mb-2">2. Condition Assessment</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 The AI evaluates the condition of each detected object, noting
                 damage, deterioration, or defects like "broken", "cracked", or
                 "leaking".
@@ -291,14 +291,14 @@ export default function InfrastructureAIDemo() {
             </div>
             <div className="border rounded-md p-4">
               <h3 className="font-medium mb-2">3. Severity Classification</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 Based on the detected issues, the AI assigns a severity rating
                 (Low, Medium, High) to prioritize maintenance and repairs based
                 on urgency and safety concerns.
               </p>
             </div>
           </div>
-          <div className="mt-6 text-sm text-gray-500">
+          <div className="mt-6 text-sm text-muted-foreground">
             <p className="mb-2">
               <strong>Technical Details:</strong> This demo uses the Google
               Gemini 2.0 Flash multimodal model to analyze images and detect

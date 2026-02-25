@@ -436,7 +436,7 @@ export default function ReportIssuePage() {
 
   if (isSuccess) {
     return (
-      <div className="max-w-2xl mx-auto bg-white border rounded-md p-6">
+      <div className="max-w-2xl mx-auto bg-card text-card-foreground border rounded-md p-6">
         <div className="text-center mb-6">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 mb-4">
             <CheckCircle className="h-6 w-6 text-green-600" />
@@ -444,19 +444,19 @@ export default function ReportIssuePage() {
           <h1 className="text-xl font-bold text-primary">
             Report Submitted Successfully
           </h1>
-          <p className="text-sm text-gray-600 mt-2">
+          <p className="text-sm text-muted-foreground mt-2">
             Thank you for your report. The relevant department will review it.
           </p>
         </div>
 
-        <div className="bg-gray-50 border rounded-md p-4 mb-6">
+        <div className="bg-muted/50 border rounded-md p-4 mb-6">
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <div className="font-bold text-gray-700">Report ID</div>
+              <div className="font-bold text-foreground">Report ID</div>
               <div>R-2023-1237</div>
             </div>
             <div>
-              <div className="font-bold text-gray-700">Report Date</div>
+              <div className="font-bold text-foreground">Report Date</div>
               <div>May 5, 2023 14:30</div>
             </div>
           </div>
@@ -494,7 +494,7 @@ export default function ReportIssuePage() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white border rounded-md p-6 mb-6">
+      <div className="bg-card text-card-foreground border rounded-md p-6 mb-6">
         <h1 className="text-xl font-bold text-primary mb-6 pb-2 border-b-2 border-primary">
           Report Infrastructure Issue
         </h1>
@@ -505,43 +505,43 @@ export default function ReportIssuePage() {
               <div
                 className={`flex h-8 w-8 items-center justify-center rounded-full text-sm ${
                   step >= 1
-                    ? "bg-primary text-white"
-                    : "border border-gray-300 text-gray-500"
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border text-muted-foreground"
                 }`}
               >
                 1
               </div>
-              <span className={step >= 1 ? "font-medium" : "text-gray-500"}>
+              <span className={step >= 1 ? "font-medium" : "text-muted-foreground"}>
                 Location & Photos
               </span>
             </div>
-            <div className="h-px flex-1 bg-gray-200 mx-4" />
+            <div className="h-px flex-1 bg-muted/50 mx-4" />
             <div className="flex items-center gap-2">
               <div
                 className={`flex h-8 w-8 items-center justify-center rounded-full text-sm ${
                   step >= 2
-                    ? "bg-primary text-white"
-                    : "border border-gray-300 text-gray-500"
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border text-muted-foreground"
                 }`}
               >
                 2
               </div>
-              <span className={step >= 2 ? "font-medium" : "text-gray-500"}>
+              <span className={step >= 2 ? "font-medium" : "text-muted-foreground"}>
                 Issue Details
               </span>
             </div>
-            <div className="h-px flex-1 bg-gray-200 mx-4" />
+            <div className="h-px flex-1 bg-muted/50 mx-4" />
             <div className="flex items-center gap-2">
               <div
                 className={`flex h-8 w-8 items-center justify-center rounded-full text-sm ${
                   step >= 3
-                    ? "bg-primary text-white"
-                    : "border border-gray-300 text-gray-500"
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border text-muted-foreground"
                 }`}
               >
                 3
               </div>
-              <span className={step >= 3 ? "font-medium" : "text-gray-500"}>
+              <span className={step >= 3 ? "font-medium" : "text-muted-foreground"}>
                 Review
               </span>
             </div>
@@ -767,11 +767,11 @@ export default function ReportIssuePage() {
 
             {step === 3 && (
               <div className="space-y-6">
-                <div className="bg-gray-50 border rounded-md p-4">
+                <div className="bg-muted/50 border rounded-md p-4">
                   <h3 className="font-bold text-sm mb-3">Review Your Report</h3>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <div className="font-bold text-gray-700">Category</div>
+                      <div className="font-bold text-foreground">Category</div>
                       <div>
                         {(() => {
                           const category = form.getValues("category");
@@ -793,20 +793,20 @@ export default function ReportIssuePage() {
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold text-gray-700">Location</div>
+                      <div className="font-bold text-foreground">Location</div>
                       <div>{form.getValues("location") || "Not provided"}</div>
                     </div>
                     <div className="col-span-2">
-                      <div className="font-bold text-gray-700">Title</div>
+                      <div className="font-bold text-foreground">Title</div>
                       <div>{form.getValues("title") || "Not provided"}</div>
                     </div>
                     <div className="col-span-2">
-                      <div className="font-bold text-gray-700">Details</div>
+                      <div className="font-bold text-foreground">Details</div>
                       <div>{form.getValues("details") || "Not provided"}</div>
                     </div>
                     {imageData.detectedObjects.length > 0 && (
                       <div className="col-span-2">
-                        <div className="font-bold text-gray-700">
+                        <div className="font-bold text-foreground">
                           AI Detected Objects
                         </div>
                         <div className="flex flex-wrap gap-1 mt-1">
@@ -824,7 +824,7 @@ export default function ReportIssuePage() {
                   </div>
                 </div>
 
-                <div className="bg-gray-50 border rounded-md p-4">
+                <div className="bg-muted/50 border rounded-md p-4">
                   <h3 className="font-bold text-sm mb-3">Attachments</h3>
                   {imageData.preview ? (
                     <div className="flex items-center gap-3">
@@ -838,7 +838,7 @@ export default function ReportIssuePage() {
                       </div>
                     </div>
                   ) : (
-                    <div className="text-center text-sm text-gray-500">
+                    <div className="text-center text-sm text-muted-foreground">
                       No attachments
                     </div>
                   )}
@@ -879,7 +879,7 @@ export default function ReportIssuePage() {
 
       <div className="bg-muted border rounded-md p-4">
         <h2 className="font-bold text-primary mb-2">Reporting Guidelines</h2>
-        <ul className="text-xs space-y-1 text-gray-700">
+        <ul className="text-xs space-y-1 text-foreground">
           <li>• Please do not include personal information in your reports.</li>
           <li>
             • For urgent or dangerous situations, please contact City Hall

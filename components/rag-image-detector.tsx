@@ -162,7 +162,7 @@ export function RAGImageDetector({
       case "low":
         return "bg-green-100 text-green-800 border-green-200";
       default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
+        return "bg-muted/50 text-foreground border-border";
     }
   };
 
@@ -247,7 +247,7 @@ export function RAGImageDetector({
                 </Button>
 
                 {showAdvanced && (
-                  <div className="space-y-3 p-3 bg-gray-50 rounded-lg">
+                  <div className="space-y-3 p-3 bg-muted/50 rounded-lg">
                     <div>
                       <label className="text-sm font-medium">
                         Custom Analysis Query (Optional)
@@ -274,7 +274,7 @@ export function RAGImageDetector({
                         onChange={(e) => setTemperature(Number(e.target.value))}
                         className="w-full mt-1"
                       />
-                      <div className="text-xs text-gray-500 mt-1">
+                      <div className="text-xs text-muted-foreground mt-1">
                         Lower = more focused, Higher = more creative
                       </div>
                     </div>
@@ -339,7 +339,7 @@ export function RAGImageDetector({
                     )}
 
                     {obj.description && (
-                      <p className="text-sm text-gray-600">{obj.description}</p>
+                      <p className="text-sm text-muted-foreground">{obj.description}</p>
                     )}
                   </div>
                 )
@@ -379,10 +379,10 @@ export function RAGImageDetector({
                     {contextualInsights.sources.map((source, idx) => (
                       <div
                         key={idx}
-                        className="text-xs p-2 bg-gray-50 rounded border-l-2 border-blue-200"
+                        className="text-xs p-2 bg-muted/50 rounded border-l-2 border-blue-200"
                       >
                         <div className="font-medium">{source.title}</div>
-                        <div className="text-gray-600">
+                        <div className="text-muted-foreground">
                           Category: {source.category}
                         </div>
                       </div>

@@ -15,7 +15,7 @@ import Header from "@/components/layout/header";
 import Navigation from "@/components/layout/navigation";
 import Breadcrumb from "@/components/layout/breadcrumb";
 import { AuthorityRAGChatBot } from "@/components/authority-rag-chatbot";
-
+import Footer from "@/components/layout/footer";
 const sidebarRoutes = [
   { path: "/", label: "Home" },
   { path: "/reports", label: "Reports" },
@@ -25,7 +25,7 @@ const sidebarRoutes = [
 
 export default function AuthorityLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-[#F0F0F0]">
+    <div className="flex min-h-screen flex-col bg-background">
       {/* Header */}
       <Header showLogout={true} />
 
@@ -42,30 +42,7 @@ export default function AuthorityLayout({ children }: { children: ReactNode }) {
       <AuthorityRAGChatBot />
 
       {/* Footer */}
-      <footer className="bg-primary text-white py-4 mt-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-xs">
-              © {new Date().getFullYear()} City Government - Infrastructure
-              Monitoring System. All Rights Reserved.
-            </div>
-            <div className="flex gap-4 text-xs">
-              <Link href="/terms-of-use" className="hover:underline">
-                Terms of Use
-              </Link>
-              <Link href="/privacy-policy" className="hover:underline">
-                Privacy Policy
-              </Link>
-              <Link href="/contact" className="hover:underline">
-                Contact Us
-              </Link>
-              <Link href="/help" className="hover:underline">
-                Help
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
