@@ -465,10 +465,10 @@ export default function MapPage() {
           {/* Map component */}
           {!isLoading && !error && mapMarkers.length > 0 && (
             <Map
-              // Only show markers when heatmap is disabled
+              // No key here — let the Map instance persist; Leaflet
+              // handles marker/heatmap prop changes internally.
               markers={showHeatmap ? [] : mapMarkers}
               onSelectMarker={(id) => setSelectedIssue(id)}
-              // Control heatmap display based on user preference
               showHeatmap={showHeatmap && mapMarkers.length > 3}
               heatmapPoints={mapMarkers.map((marker) => [
                 marker.lat,

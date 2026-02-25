@@ -264,6 +264,7 @@
 /* required styles */
 
 .leaflet-container {
+  font-family: "Public Sans";
   width: 100%;
   height: 600px;
   z-index: 1;
@@ -761,6 +762,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   border-radius: 12px;
 }
 .leaflet-popup-content {
+  font-family: "Public Sans";
   margin: 13px 24px 13px 20px;
   line-height: 1.3;
   font-size: 13px;

@@ -389,8 +389,8 @@ export default function AnalyticsPage() {
           className="w-full"
           onValueChange={setActiveTab}
         >
-          <div className="border-b">
-            <TabsList className="w-full justify-start p-0 bg-transparent h-auto">
+          <div className="border-b overflow-x-auto scrollbar-hide pb-px">
+            <TabsList className="w-full justify-start p-0 bg-transparent h-auto inline-flex min-w-max">
               <TabsTrigger
                 value="overview"
                 className="py-3 px-4 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none rounded-none bg-transparent"

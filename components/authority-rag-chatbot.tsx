@@ -174,8 +174,8 @@ export function AuthorityRAGChatBot({ className }: AuthorityRAGChatBotProps) {
     <div className={cn("fixed bottom-6 right-6 z-50", className)}>
       <Card
         className={cn(
-          "w-96 shadow-2xl transition-all duration-300 flex flex-col",
-          isMinimized ? "h-16" : "h-[600px]"
+          "w-[calc(100vw-3rem)] sm:w-96 shadow-2xl transition-all duration-300 flex flex-col",
+          isMinimized ? "h-16" : "h-[600px] max-h-[80vh]"
         )}
       >
         {/* Header */}

@@ -203,61 +203,63 @@ export default function CitizenDashboard() {
             report.
           </div>
         ) : (
-          <table className="w-full text-sm hidden md:table">
-            <thead className="bg-muted/50">
-              <tr className="border-b">
-                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
-                  Report ID
-                </th>
-                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
-                  Issue
-                </th>
-                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
-                  Category
-                </th>
-                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
-                  Location
-                </th>
-                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
-                  Date
-                </th>
-                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
-                  Status
-                </th>
-                <th className="py-3 px-4 text-left font-medium text-muted-foreground">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
-              {recentReports.map((report) => (
-                <tr key={report.id} className="hover:bg-muted/50">
-                  <td className="py-3 px-4 font-medium">{report.id}</td>
-                  <td className="py-3 px-4">{report.title}</td>
-                  <td className="py-3 px-4">{report.category}</td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center gap-1">
-                      <MapPin className="h-3 w-3 text-muted-foreground" />
-                      <span>{report.location}</span>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">{report.date}</td>
-                  <td className="py-3 px-4">{getStatusBadge(report.status)}</td>
-                  <td className="py-3 px-4">
-                    <Link href={`/citizen/reports/${report.id}`}>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="text-primary border-primary"
-                      >
-                        Details
-                      </Button>
-                    </Link>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-muted/50">
+                <tr className="border-b">
+                  <th className="py-3 px-4 text-left font-medium text-muted-foreground whitespace-nowrap">
+                    Report ID
+                  </th>
+                  <th className="py-3 px-4 text-left font-medium text-muted-foreground whitespace-nowrap">
+                    Issue
+                  </th>
+                  <th className="py-3 px-4 text-left font-medium text-muted-foreground whitespace-nowrap">
+                    Category
+                  </th>
+                  <th className="py-3 px-4 text-left font-medium text-muted-foreground whitespace-nowrap">
+                    Location
+                  </th>
+                  <th className="py-3 px-4 text-left font-medium text-muted-foreground whitespace-nowrap">
+                    Date
+                  </th>
+                  <th className="py-3 px-4 text-left font-medium text-muted-foreground whitespace-nowrap">
+                    Status
+                  </th>
+                  <th className="py-3 px-4 text-left font-medium text-muted-foreground whitespace-nowrap">
+                    Action
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y">
+                {recentReports.map((report) => (
+                  <tr key={report.id} className="hover:bg-muted/50">
+                    <td className="py-3 px-4 font-medium whitespace-nowrap">{report.id}</td>
+                    <td className="py-3 px-4 whitespace-nowrap">{report.title}</td>
+                    <td className="py-3 px-4 whitespace-nowrap">{report.category}</td>
+                    <td className="py-3 px-4 whitespace-nowrap">
+                      <div className="flex items-center gap-1">
+                        <MapPin className="h-3 w-3 text-muted-foreground" />
+                        <span>{report.location}</span>
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 whitespace-nowrap">{report.date}</td>
+                    <td className="py-3 px-4 whitespace-nowrap">{getStatusBadge(report.status)}</td>
+                    <td className="py-3 px-4 whitespace-nowrap">
+                      <Link href={`/citizen/reports/${report.id}`}>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="text-primary border-primary"
+                        >
+                          Details
+                        </Button>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         <div className="p-4 text-center border-t">
           <Link

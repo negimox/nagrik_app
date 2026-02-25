@@ -135,10 +135,7 @@ export default function UttarakhandRAGTestPage() {
   };
 
   return (
-    <div
-      className="absolute inset-0 bg-muted/50 flex flex-col"
-      style={{ top: "120px" }}
-    >
+    <div className="flex flex-col h-[calc(100vh-160px)] bg-card border rounded-xl overflow-hidden shadow-sm relative">
       {/* Chat Messages Area - Scrollable content */}
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-4 py-6 min-h-full flex flex-col">
@@ -159,7 +156,7 @@ export default function UttarakhandRAGTestPage() {
             <div className="text-center py-12">
               <Bot className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
               <h3 className="text-lg font-semibold mb-2">
-                Welcome to Uttarakhand Infrastructure Assistant
+                Welcome to Nagrik AI
               </h3>
               <p className="text-muted-foreground mb-6 max-w-md mx-auto">
                 Ask me about infrastructure issues, road conditions, utilities,
@@ -429,8 +426,8 @@ export default function UttarakhandRAGTestPage() {
         </div>
       </div>
 
-      {/* Fixed Input Area at Bottom */}
-      <div className="fixed bottom-0 left-0 right-0 bg-card text-card-foreground border-t border-border z-50">
+      {/* Input Area at Bottom */}
+      <div className="bg-card text-card-foreground border-t border-border mt-auto">
         <div className="max-w-4xl mx-auto p-4">
           <div className="flex gap-2">
             <Input

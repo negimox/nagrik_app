@@ -82,7 +82,7 @@ export default function LoginPage() {
 
   // Citizen login submission
   function onCitizenSubmit(values: z.infer<typeof citizenFormSchema>) {
-    console.log(values);
+    
     setIsLoading(true);
     signInWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
@@ -111,7 +111,7 @@ export default function LoginPage() {
               userType: "citizen",
             });
 
-            console.log("User logged in successfully");
+            
             router.refresh();
             router.push("/citizen/dashboard");
           });
@@ -130,7 +130,7 @@ export default function LoginPage() {
 
   // Authority login submission
   function onAuthoritySubmit(values: z.infer<typeof authorityFormSchema>) {
-    console.log(values);
+    
     setIsLoading(true);
 
     // Format email based on staffId for authority users
@@ -186,7 +186,7 @@ export default function LoginPage() {
           })
           .then((status) => {
             if (status === "approved") {
-              console.log("Authority user logged in");
+            
               // Use window.location for a complete page reload to ensure context is fresh
               window.location.href = "/authority/dashboard";
             } else {
@@ -202,7 +202,7 @@ export default function LoginPage() {
 
         // Only in development mode - simulated login for testing
         if (process.env.NODE_ENV === "development") {
-          console.log("Using simulated authority login for development only");
+          
 
           // Simulate a successful login for demonstration (REMOVE IN PRODUCTION)
           const mockToken = "mock-token-for-demo";
